@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */; };
+		F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */; };
 		F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */; };
 		F7ECA841252B5C9F00B42E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */; };
 		F7ECA843252B5C9F00B42E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA842252B5C9F00B42E74 /* ViewController.swift */; };
@@ -28,6 +30,11 @@
 		F7ECA882252B6B4E00B42E74 /* ListItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA881252B6B4E00B42E74 /* ListItemPresenter.swift */; };
 		F7ECA884252B6B6F00B42E74 /* ListItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA883252B6B6F00B42E74 /* ListItemRouter.swift */; };
 		F7ECA886252B6B8C00B42E74 /* ListItemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA885252B6B8C00B42E74 /* ListItemInteractor.swift */; };
+		F7ECA88B252B748E00B42E74 /* CommonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA88A252B748E00B42E74 /* CommonCollectionView.swift */; };
+		F7ECA88D252B75E100B42E74 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA88C252B75E100B42E74 /* CategoryCollectionViewCell.swift */; };
+		F7ECA88F252B760800B42E74 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA88E252B760800B42E74 /* ItemCollectionViewCell.swift */; };
+		F7ECA892252B767E00B42E74 /* CommonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA891252B767E00B42E74 /* CommonLabel.swift */; };
+		F7ECA894252B7A4100B42E74 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA893252B7A4100B42E74 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorker.swift; sourceTree = "<group>"; };
+		F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRemoteWorker.swift; sourceTree = "<group>"; };
 		F7ECA83B252B5C9F00B42E74 /* Exercice_iOS_OZroud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercice_iOS_OZroud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +75,11 @@
 		F7ECA881252B6B4E00B42E74 /* ListItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemPresenter.swift; sourceTree = "<group>"; };
 		F7ECA883252B6B6F00B42E74 /* ListItemRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemRouter.swift; sourceTree = "<group>"; };
 		F7ECA885252B6B8C00B42E74 /* ListItemInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemInteractor.swift; sourceTree = "<group>"; };
+		F7ECA88A252B748E00B42E74 /* CommonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCollectionView.swift; sourceTree = "<group>"; };
+		F7ECA88C252B75E100B42E74 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		F7ECA88E252B760800B42E74 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		F7ECA891252B767E00B42E74 /* CommonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLabel.swift; sourceTree = "<group>"; };
+		F7ECA893252B7A4100B42E74 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +121,7 @@
 		F7ECA83D252B5C9F00B42E74 /* Exercice_iOS_OZroud */ = {
 			isa = PBXGroup;
 			children = (
+				F7ECA890252B764000B42E74 /* Common */,
 				F7ECA872252B62B600B42E74 /* Extensions */,
 				F7ECA871252B62A300B42E74 /* Modules */,
 				F7ECA86A252B5FB400B42E74 /* Entities */,
@@ -173,6 +188,7 @@
 		F7ECA872252B62B600B42E74 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F7ECA893252B7A4100B42E74 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +225,8 @@
 		F7ECA87A252B6A2900B42E74 /* Worker */ = {
 			isa = PBXGroup;
 			children = (
+				F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */,
+				F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */,
 			);
 			path = Worker;
 			sourceTree = "<group>";
@@ -224,9 +242,52 @@
 		F7ECA87C252B6A4500B42E74 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F7ECA87F252B6B2000B42E74 /* ListItemViewController.swift */,
+				F7ECA897252B7E0100B42E74 /* ViewController */,
+				F7ECA889252B746C00B42E74 /* UI */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F7ECA889252B746C00B42E74 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F7ECA896252B7DC700B42E74 /* CollectionViewCell */,
+				F7ECA895252B7DA700B42E74 /* CollectionView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F7ECA890252B764000B42E74 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F7ECA891252B767E00B42E74 /* CommonLabel.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F7ECA895252B7DA700B42E74 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F7ECA88A252B748E00B42E74 /* CommonCollectionView.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		F7ECA896252B7DC700B42E74 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F7ECA88C252B75E100B42E74 /* CategoryCollectionViewCell.swift */,
+				F7ECA88E252B760800B42E74 /* ItemCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		F7ECA897252B7E0100B42E74 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F7ECA87F252B6B2000B42E74 /* ListItemViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,21 +392,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7ECA886252B6B8C00B42E74 /* ListItemInteractor.swift in Sources */,
+				F7ECA894252B7A4100B42E74 /* UIImage.swift in Sources */,
 				F7ECA87E252B6AD100B42E74 /* ListItemContract.swift in Sources */,
+				F7ECA892252B767E00B42E74 /* CommonLabel.swift in Sources */,
 				F7ECA866252B5ECF00B42E74 /* APIManager.swift in Sources */,
 				F7ECA870252B603A00B42E74 /* Category.swift in Sources */,
 				F7ECA874252B641500B42E74 /* ListItemRequest.swift in Sources */,
+				F7ECA88F252B760800B42E74 /* ItemCollectionViewCell.swift in Sources */,
 				F7ECA843252B5C9F00B42E74 /* ViewController.swift in Sources */,
 				F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */,
 				F7ECA86E252B601500B42E74 /* ImageURL.swift in Sources */,
 				F7ECA882252B6B4E00B42E74 /* ListItemPresenter.swift in Sources */,
 				F7ECA862252B5E6100B42E74 /* APIRequest.swift in Sources */,
+				F7ECA88D252B75E100B42E74 /* CategoryCollectionViewCell.swift in Sources */,
 				F7ECA876252B643500B42E74 /* ListCategoryRequest.swift in Sources */,
+				F7ECA88B252B748E00B42E74 /* CommonCollectionView.swift in Sources */,
 				F7ECA86C252B5FD600B42E74 /* Item.swift in Sources */,
+				F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */,
 				F7ECA884252B6B6F00B42E74 /* ListItemRouter.swift in Sources */,
 				F7ECA868252B5F5500B42E74 /* Constants.swift in Sources */,
 				F7ECA880252B6B2000B42E74 /* ListItemViewController.swift in Sources */,
 				F7ECA864252B5E8F00B42E74 /* APIError.swift in Sources */,
+				F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */,
 				F7ECA841252B5C9F00B42E74 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
