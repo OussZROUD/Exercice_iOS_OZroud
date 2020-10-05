@@ -15,4 +15,18 @@ struct Constants {
         static let productEndPoint: String = "listing.json"
         static let categoryEndPoint: String = "categories.json"
     }
+    
+    struct ViewControllerTitle {
+        static let listItem: String = "ARTICLES"
+        static let detailItem: String = "DÉTAILS ARTICLE"
+    }
+    
+    struct Buttons {
+        static let navBarBackButton = "Retour"
+    }
+    
+    struct CellID {
+        static let categoryCell: String = "categoryCell"
+        static let productCell: String = "itemCell"
+    }
 }
