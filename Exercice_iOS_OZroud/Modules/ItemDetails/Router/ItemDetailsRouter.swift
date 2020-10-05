@@ -6,8 +6,22 @@
 //  Copyright © 2020 Oussama Zroud. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class ItemDetailsRouter {
+class ItemDetailsRouter: ItemDetailsPresenterToRouterProtocol {
     
+    static func createModule(with item: Item, category: Category) -> UIViewController {
+        
+        let viewController = ItemDetailsViewController()
+        
+        let presenter: ItemDetailsViewToPresenterProtocol & ItemDetailsInteractorToPresenterProtocol = ItemDetailsPresenter(item: item, category: category)
+        
+        viewController.presenter = presenter
+        viewController.presenter?.router = ItemDetailsRouter()
+        viewController.presenter?.view = viewController
+        viewController.presenter?.interactor = ItemDetailsInteractor()
+        viewController.presenter?.interactor?.presenter = presenter
+        
+        return viewController
+    }
 }

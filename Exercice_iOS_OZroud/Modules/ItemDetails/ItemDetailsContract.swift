@@ -10,11 +10,9 @@ import UIKit
 
 // MARK: - VIEW -> PRESENTER
 protocol ItemDetailsViewToPresenterProtocol: class {
-    // properties
     var view: ItemDetailsPresenterToViewProtocol? { get set }
-//    var interactor: ItemDetailsPresenterToInteractorProtocol? { get set }
+    var interactor: ItemDetailsPresenterToInteractorProtocol? { get set }
     var router: ItemDetailsPresenterToRouterProtocol? { get set }
-    // methods
     func getItemDetails()
 }
 
@@ -23,7 +21,16 @@ protocol ItemDetailsPresenterToViewProtocol: class {
     func getItemDetailsResponse(item: ItemDetailsViewController.ViewModel)
 }
 
-// MARK: - PRESENTER TO ROUTER PROTOCOL
+// MARK: - PRESENTER -> ROUTER
 protocol ItemDetailsPresenterToRouterProtocol: class {
     static func createModule(with item: Item, category: Category) -> UIViewController
+}
+
+// MARK: - PRESENTER -> INTERACTOR
+protocol ItemDetailsPresenterToInteractorProtocol: class {
+    var presenter: ItemDetailsInteractorToPresenterProtocol? { get set }
+}
+
+// MARK: - INTERACTOR -> PRESENTER PROTOCOL
+protocol ItemDetailsInteractorToPresenterProtocol: class {
 }

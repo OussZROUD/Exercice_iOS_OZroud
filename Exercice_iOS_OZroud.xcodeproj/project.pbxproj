@@ -14,6 +14,11 @@
 		F772A315252BD19B00A3F898 /* ItemDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A314252BD19B00A3F898 /* ItemDetailsPresenter.swift */; };
 		F772A317252BD1C800A3F898 /* ItemDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A316252BD1C800A3F898 /* ItemDetailsRouter.swift */; };
 		F772A319252BD21B00A3F898 /* ItemDetailsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A318252BD21B00A3F898 /* ItemDetailsContract.swift */; };
+		F772A31B252BD58E00A3F898 /* StaticLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A31A252BD58E00A3F898 /* StaticLabel.swift */; };
+		F772A31D252BD5C400A3F898 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A31C252BD5C400A3F898 /* SeparatorView.swift */; };
+		F772A321252BD85500A3F898 /* ItemDetailsAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A320252BD85500A3F898 /* ItemDetailsAdapterProtocol.swift */; };
+		F772A323252BD88500A3F898 /* ItemDetailsAdapterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A322252BD88500A3F898 /* ItemDetailsAdapterManager.swift */; };
+		F772A326252BDF4900A3F898 /* ItemDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A325252BDF4900A3F898 /* ItemDetailsInteractor.swift */; };
 		F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */; };
 		F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */; };
 		F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */; };
@@ -69,6 +74,11 @@
 		F772A314252BD19B00A3F898 /* ItemDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsPresenter.swift; sourceTree = "<group>"; };
 		F772A316252BD1C800A3F898 /* ItemDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsRouter.swift; sourceTree = "<group>"; };
 		F772A318252BD21B00A3F898 /* ItemDetailsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsContract.swift; sourceTree = "<group>"; };
+		F772A31A252BD58E00A3F898 /* StaticLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticLabel.swift; sourceTree = "<group>"; };
+		F772A31C252BD5C400A3F898 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		F772A320252BD85500A3F898 /* ItemDetailsAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsAdapterProtocol.swift; sourceTree = "<group>"; };
+		F772A322252BD88500A3F898 /* ItemDetailsAdapterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsAdapterManager.swift; sourceTree = "<group>"; };
+		F772A325252BDF4900A3F898 /* ItemDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsInteractor.swift; sourceTree = "<group>"; };
 		F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsProtocol.swift; sourceTree = "<group>"; };
@@ -140,6 +150,8 @@
 		F772A30E252BD0EF00A3F898 /* ItemDetails */ = {
 			isa = PBXGroup;
 			children = (
+				F772A324252BDF3500A3F898 /* Interactor */,
+				F772A31E252BD81400A3F898 /* Protocols */,
 				F772A30F252BD0FF00A3F898 /* View */,
 				F772A310252BD10900A3F898 /* Presenter */,
 				F772A311252BD11500A3F898 /* Router */,
@@ -170,6 +182,31 @@
 				F772A316252BD1C800A3F898 /* ItemDetailsRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		F772A31E252BD81400A3F898 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F772A31F252BD82900A3F898 /* ItemDetailsAdapter */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F772A31F252BD82900A3F898 /* ItemDetailsAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				F772A320252BD85500A3F898 /* ItemDetailsAdapterProtocol.swift */,
+				F772A322252BD88500A3F898 /* ItemDetailsAdapterManager.swift */,
+			);
+			path = ItemDetailsAdapter;
+			sourceTree = "<group>";
+		};
+		F772A324252BDF3500A3F898 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F772A325252BDF4900A3F898 /* ItemDetailsInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		F7B86D8A252B93E2006C3ACE /* Protocols */ = {
@@ -367,6 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				F7ECA891252B767E00B42E74 /* CommonLabel.swift */,
+				F772A31A252BD58E00A3F898 /* StaticLabel.swift */,
+				F772A31C252BD5C400A3F898 /* SeparatorView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -499,6 +538,7 @@
 			files = (
 				F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */,
 				F7B86D98252BAD20006C3ACE /* Date.swift in Sources */,
+				F772A31D252BD5C400A3F898 /* SeparatorView.swift in Sources */,
 				F7ECA886252B6B8C00B42E74 /* ListItemInteractor.swift in Sources */,
 				F7B86D94252BAC84006C3ACE /* ListItemsAdapterProtocol.swift in Sources */,
 				F772A309252BAF5500A3F898 /* FilterListItemManager.swift in Sources */,
@@ -524,15 +564,19 @@
 				F7ECA862252B5E6100B42E74 /* APIRequest.swift in Sources */,
 				F7ECA88D252B75E100B42E74 /* CategoryCollectionViewCell.swift in Sources */,
 				F7ECA876252B643500B42E74 /* ListCategoryRequest.swift in Sources */,
+				F772A326252BDF4900A3F898 /* ItemDetailsInteractor.swift in Sources */,
 				F7ECA88B252B748E00B42E74 /* CommonCollectionView.swift in Sources */,
 				F7ECA86C252B5FD600B42E74 /* Item.swift in Sources */,
 				F7B86D96252BACAC006C3ACE /* ListItemsAdapterManager.swift in Sources */,
 				F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */,
 				F7ECA884252B6B6F00B42E74 /* ListItemRouter.swift in Sources */,
+				F772A31B252BD58E00A3F898 /* StaticLabel.swift in Sources */,
 				F7ECA868252B5F5500B42E74 /* Constants.swift in Sources */,
 				F7ECA880252B6B2000B42E74 /* ListItemViewController.swift in Sources */,
 				F7B86D8F252B9455006C3ACE /* SortItemsManager.swift in Sources */,
+				F772A323252BD88500A3F898 /* ItemDetailsAdapterManager.swift in Sources */,
 				F7ECA864252B5E8F00B42E74 /* APIError.swift in Sources */,
+				F772A321252BD85500A3F898 /* ItemDetailsAdapterProtocol.swift in Sources */,
 				F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */,
 				F7ECA841252B5C9F00B42E74 /* SceneDelegate.swift in Sources */,
 			);
