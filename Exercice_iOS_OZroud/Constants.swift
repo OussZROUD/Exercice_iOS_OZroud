@@ -10,6 +10,10 @@ import UIKit
 
 struct Constants {
     
+    struct Tags {
+        static let loaderTag: Int = 123456
+    }
+    
     struct Network {
         static let baseUrl: String = "https://raw.githubusercontent.com/leboncoin/paperclip/master/"
         static let productEndPoint: String = "listing.json"
@@ -39,5 +43,6 @@ struct Constants {
         static let identifier: Int = 0
         static let name: String = "Tout"
     }
+    
     
 }
