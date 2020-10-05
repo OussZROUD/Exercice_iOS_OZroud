@@ -23,9 +23,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     let titleLabel = CommonLabel(font: .boldSystemFont(ofSize: 12), color: .black, alignment: .left)
-    let categoryLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .black, alignment: .left)
-    let priceLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .orange, alignment: .left)
-    let dateLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .orange, alignment: .left)
+    let categoryLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .orange, alignment: .left)
+    let priceLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .black, alignment: .left)
+    let dateLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .black, alignment: .left)
     
     let productImage: UIImageView = {
         let imageView = UIImageView()

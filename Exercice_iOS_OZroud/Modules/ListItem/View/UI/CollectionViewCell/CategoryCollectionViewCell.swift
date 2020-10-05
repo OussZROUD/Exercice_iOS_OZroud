@@ -16,6 +16,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     // MARK: - OVERRIDE METHODS
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {

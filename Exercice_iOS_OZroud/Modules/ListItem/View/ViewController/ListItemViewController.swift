@@ -17,26 +17,29 @@ class ListItemViewController: UIViewController {
     // MARK: - PROPERTIES
     internal weak var presenter: ListItemViewToPresenterProtocol?
     private var firstLoad: Bool = false
-    private var safeArea: UILayoutGuide!
+    private let safeArea = UILayoutGuide()
     
     // MARK: - VIEW CONTROLLER LIFE CYCLE
     override func loadView() {
         super.loadView()
         setupNavigationBar()
+        setupSafeArea()
         setupCategoryCollectionView()
         setupProductCollectionView()
-        safeArea = view.layoutMarginsGuide
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.startLoader(activityColor: .white, backgroundColor: .lightGray)
+        presenter?.fetchListCategory()
+        presenter?.fetchListItem()
         firstLoad = true
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        reloadCategoriesCollection()
-        reloadItemsCollection()
+        categoryCollectionView.reloadData()
+        productCollectionView.reloadData()
     }
     
     override func viewWillLayoutSubviews() {
@@ -52,15 +55,24 @@ class ListItemViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
     }
     
+    private func setupSafeArea(){
+        safeArea.identifier = "safeArea"
+        self.view.addLayoutGuide(safeArea)
+        safeArea.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -10.0).isActive = true
+        safeArea.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -20.0).isActive = true
+        safeArea.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        safeArea.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+    
     private func setupCategoryCollectionView(){
         view.addSubview(categoryCollectionView)
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         categoryCollectionView.delaysContentTouches = false
-        categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 65.0).isActive = true
-        categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10.0).isActive = true
-        categoryCollectionView.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        categoryCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 65.0).isActive = true
+        categoryCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 10.0).isActive = true
+        categoryCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: 0.0).isActive = true
+        categoryCollectionView.heightAnchor.constraint(equalToConstant: 75.0).isActive = true
     }
     
     private func setupProductCollectionView(){
@@ -69,8 +81,8 @@ class ListItemViewController: UIViewController {
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         productCollectionView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: 10.0).isActive = true
-        productCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0).isActive = true
-        productCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16.0).isActive = true
+        productCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16.0).isActive = true
+        productCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16.0).isActive = true
         productCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height-40.0).isActive = true
     }
     
@@ -78,6 +90,7 @@ class ListItemViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.productCollectionView.reloadData()
             self?.productCollectionView.setContentOffset(CGPoint.zero, animated: true)
+            self?.view.stopLoader()
         }
     }
     
@@ -85,7 +98,7 @@ class ListItemViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.categoryCollectionView.reloadData()
             if self?.firstLoad ?? false {
-                self?.categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .top)
+                self?.categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
                 self?.firstLoad = false
             }
         }
@@ -156,6 +169,8 @@ extension ListItemViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == productCollectionView {
         } else {
+            view.startLoader(activityColor: .white, backgroundColor: .lightGray)
+            presenter?.filterListItem(index: indexPath.item)
         }
     }
 }

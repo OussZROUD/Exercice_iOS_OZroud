@@ -73,6 +73,8 @@ extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     
     func getListCategorySuccessResponse(categories: [Category]) {
         debugPrint("list category success")
+        self.categories = [Category(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)]  + categories
+        view?.fetchListCategorySucessResponse()
     }
     
     func getListCategoryFailureResponse(error: APIError) {
