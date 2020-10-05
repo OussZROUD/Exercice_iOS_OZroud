@@ -66,6 +66,11 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
             view?.filterListItemSuccessResponse()
         }
     }
+    
+    func navigateToItemDetails(index: Int) {
+        let item = SortedAllItems.filter { $0.identifier == items[index].identifier}.first
+        router?.pushToItemDetails(on: view!, with: item!, category: items[index].category)
+    }
 }
 
 // MARK: - PRESENTER -> VIEW

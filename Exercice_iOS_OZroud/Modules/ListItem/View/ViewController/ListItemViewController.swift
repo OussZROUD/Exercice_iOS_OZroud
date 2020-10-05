@@ -168,6 +168,7 @@ extension ListItemViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == productCollectionView {
+            presenter?.navigateToItemDetails(index: indexPath.item)
         } else {
             view.startLoader(activityColor: .white, backgroundColor: .lightGray)
             presenter?.filterListItem(index: indexPath.item)

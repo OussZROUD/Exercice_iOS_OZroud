@@ -10,7 +10,8 @@ import UIKit
 
 
 class ListItemRouter: ListItemPresenterToRouterProtocol {
-    
+   
+    // MARK: - CREATE MODULE
     class func createModule() -> UINavigationController {
         
         let viewController = ListItemViewController()
@@ -24,4 +25,12 @@ class ListItemRouter: ListItemPresenterToRouterProtocol {
         
         return navigationController
     }
+    
+    // MARK: - NAVIGATION
+    func pushToItemDetails(on view: ListItemPresenterToViewProtocol, with item: Item, category: Category) {
+           let itemDetailViewController = ItemDetailRouter.createModule(with: item, category: category)
+               
+           let viewController = view as! ListItemViewController
+           viewController.navigationController?.pushViewController(itemDetailViewController, animated: true)
+       }
 }

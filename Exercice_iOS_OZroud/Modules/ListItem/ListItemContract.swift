@@ -10,11 +10,9 @@ import UIKit
 
 // MARK: - VIEW -> PRESENTER
 protocol ListItemViewToPresenterProtocol: class {
-    // properties
     var view: ListItemPresenterToViewProtocol? { get set }
     var interactor: ListItemPresenterToInteractorProtocol? { get set }
     var router: ListItemPresenterToRouterProtocol? { get set }
-    // methods
     func fetchListCategory()
     func fetchListItem()
     func categoryNumberOfItemsInSection() -> Int
@@ -22,6 +20,7 @@ protocol ListItemViewToPresenterProtocol: class {
     func populateItemsCollection() -> [ItemCollectionViewCell.ViewModel]
     func populateCategoryCollection() -> [Category]
     func filterListItem(index: Int)
+    func navigateToItemDetails(index: Int)
 }
 
 // MARK: - PRESENTER -> VIEW
@@ -35,16 +34,13 @@ protocol ListItemPresenterToViewProtocol: class {
 
 // MARK: - PRESENTER -> INTERACTOR
 protocol ListItemPresenterToInteractorProtocol: class {
-    // properties
     var presenter: ListItemInteractorToPresenterProtocol? { get set }
-    // methods
     func getListCategory()
     func getListItem()
 }
 
 // MARK: - INTERACTOR -> PRESENTER
 protocol ListItemInteractorToPresenterProtocol: class {
-    // methods
     func getListCategorySuccessResponse(categories:[Category])
     func getListCategoryFailureResponse(error:APIError)
     func getListItemSuccessResponse(items: [Item])
@@ -54,4 +50,5 @@ protocol ListItemInteractorToPresenterProtocol: class {
 // MARK: - PRESENTER -> ROUTER
 protocol ListItemPresenterToRouterProtocol: class {
     static func createModule() -> UINavigationController
+    func pushToItemDetails(on view: ListItemPresenterToViewProtocol, with item: Item, category: Category)
 }
