@@ -16,6 +16,13 @@ class ListItemPresenter {
     internal var interactor: ListItemPresenterToInteractorProtocol?
     private var categories: [Category] = []
     private var items: [ItemCollectionViewCell.ViewModel] = []
+    private let sortProtocol: SortItemsProtocol
+    private var SortedAllItems: [Item] = []
+    
+    // MARK: - INITIALIZER
+    init(sortProtocol: SortItemsProtocol = SortItemsManager()){
+        self.sortProtocol = sortProtocol
+    }
 }
 
 // MARK: - VIEW -> PRESENTER
@@ -59,6 +66,7 @@ extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     
     func getListItemSuccessResponse(items: [Item]) {
         debugPrint("list item success")
+        SortedAllItems = sortProtocol.sort(items: items)
     }
     
     func getListItemFailureResponse(error: APIError) {

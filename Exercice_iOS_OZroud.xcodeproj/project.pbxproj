@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */; };
 		F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */; };
+		F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */; };
+		F7B86D8F252B9455006C3ACE /* SortItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8E252B9455006C3ACE /* SortItemsManager.swift */; };
+		F7B86D91252B9486006C3ACE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D90252B9486006C3ACE /* String.swift */; };
 		F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */; };
 		F7ECA841252B5C9F00B42E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */; };
 		F7ECA843252B5C9F00B42E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA842252B5C9F00B42E74 /* ViewController.swift */; };
@@ -50,6 +53,9 @@
 /* Begin PBXFileReference section */
 		F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRemoteWorker.swift; sourceTree = "<group>"; };
+		F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsProtocol.swift; sourceTree = "<group>"; };
+		F7B86D8E252B9455006C3ACE /* SortItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsManager.swift; sourceTree = "<group>"; };
+		F7B86D90252B9486006C3ACE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F7ECA83B252B5C9F00B42E74 /* Exercice_iOS_OZroud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercice_iOS_OZroud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +106,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7B86D8A252B93E2006C3ACE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F7B86D8D252B9436006C3ACE /* SortItems */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F7B86D8D252B9436006C3ACE /* SortItems */ = {
+			isa = PBXGroup;
+			children = (
+				F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */,
+				F7B86D8E252B9455006C3ACE /* SortItemsManager.swift */,
+			);
+			path = SortItems;
+			sourceTree = "<group>";
+		};
 		F7ECA832252B5C9F00B42E74 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				F7ECA893252B7A4100B42E74 /* UIImage.swift */,
+				F7B86D90252B9486006C3ACE /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +220,7 @@
 		F7ECA877252B69F600B42E74 /* ListItem */ = {
 			isa = PBXGroup;
 			children = (
+				F7B86D8A252B93E2006C3ACE /* Protocols */,
 				F7ECA87C252B6A4500B42E74 /* View */,
 				F7ECA87B252B6A3900B42E74 /* Presenter */,
 				F7ECA878252B6A0700B42E74 /* Router */,
@@ -391,8 +416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */,
 				F7ECA886252B6B8C00B42E74 /* ListItemInteractor.swift in Sources */,
 				F7ECA894252B7A4100B42E74 /* UIImage.swift in Sources */,
+				F7B86D91252B9486006C3ACE /* String.swift in Sources */,
 				F7ECA87E252B6AD100B42E74 /* ListItemContract.swift in Sources */,
 				F7ECA892252B767E00B42E74 /* CommonLabel.swift in Sources */,
 				F7ECA866252B5ECF00B42E74 /* APIManager.swift in Sources */,
@@ -412,6 +439,7 @@
 				F7ECA884252B6B6F00B42E74 /* ListItemRouter.swift in Sources */,
 				F7ECA868252B5F5500B42E74 /* Constants.swift in Sources */,
 				F7ECA880252B6B2000B42E74 /* ListItemViewController.swift in Sources */,
+				F7B86D8F252B9455006C3ACE /* SortItemsManager.swift in Sources */,
 				F7ECA864252B5E8F00B42E74 /* APIError.swift in Sources */,
 				F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */,
 				F7ECA841252B5C9F00B42E74 /* SceneDelegate.swift in Sources */,

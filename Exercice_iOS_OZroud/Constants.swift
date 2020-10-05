@@ -29,4 +29,10 @@ struct Constants {
         static let categoryCell: String = "categoryCell"
         static let productCell: String = "itemCell"
     }
+    
+    struct DateFormat {
+        static let stringToDate: String = "yyyy-MM-dd'T'HH:mm:ssZ"
+        static let localIdFR: String = "FR-fr"
+    }
+    
 }
