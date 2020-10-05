@@ -20,11 +20,13 @@ class ListItemPresenter {
     private var SortedAllItems: [Item] = []
     private let adapterProtocol: ListItemsAdapterProtocol
     private var adapteeItems: [ItemCollectionViewCell.ViewModel] = []
+    private let filterProtocol: FilterListItemsProtocol
     
     // MARK: - INITIALIZER
-    init(sortProtocol: SortItemsProtocol = SortItemsManager(),adapterProtocol: ListItemsAdapterProtocol = ListItemsAdapterManager()){
+    init(sortProtocol: SortItemsProtocol = SortItemsManager(),adapterProtocol: ListItemsAdapterProtocol = ListItemsAdapterManager(),filterProtocol: FilterListItemsProtocol = FilterListItemManager()){
         self.sortProtocol = sortProtocol
         self.adapterProtocol = adapterProtocol
+        self.filterProtocol = filterProtocol
     }
 }
 
@@ -53,6 +55,16 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
     
     func populateCategoryCollection() -> [Category] {
         return self.categories
+    }
+    
+    func filterListItem(index: Int) {
+        if categories[index].identifier == 0 {
+            items = adapteeItems
+            view?.filterListItemSuccessResponse()
+        } else {
+            items = filterProtocol.filterItems(itemsTofilter: adapteeItems, categoryID: categories[index].identifier)
+            view?.filterListItemSuccessResponse()
+        }
     }
 }
 

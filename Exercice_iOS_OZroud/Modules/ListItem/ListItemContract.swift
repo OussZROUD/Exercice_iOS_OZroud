@@ -20,7 +20,8 @@ protocol ListItemViewToPresenterProtocol: class {
     func categoryNumberOfItemsInSection() -> Int
     func itemNumberOfItemsInSection() -> Int
     func populateItemsCollection() -> [ItemCollectionViewCell.ViewModel]
-    func populateCategoryCollection() -> [ Category]
+    func populateCategoryCollection() -> [Category]
+    func filterListItem(index: Int)
 }
 
 // MARK: - PRESENTER -> VIEW

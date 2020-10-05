@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F772A307252BAF2F00A3F898 /* FilterListItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A306252BAF2F00A3F898 /* FilterListItemsProtocol.swift */; };
+		F772A309252BAF5500A3F898 /* FilterListItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A308252BAF5500A3F898 /* FilterListItemManager.swift */; };
 		F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */; };
 		F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */; };
 		F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F772A306252BAF2F00A3F898 /* FilterListItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListItemsProtocol.swift; sourceTree = "<group>"; };
+		F772A308252BAF5500A3F898 /* FilterListItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListItemManager.swift; sourceTree = "<group>"; };
 		F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsProtocol.swift; sourceTree = "<group>"; };
@@ -114,9 +118,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F772A305252BAF0B00A3F898 /* FilterItems */ = {
+			isa = PBXGroup;
+			children = (
+				F772A306252BAF2F00A3F898 /* FilterListItemsProtocol.swift */,
+				F772A308252BAF5500A3F898 /* FilterListItemManager.swift */,
+			);
+			path = FilterItems;
+			sourceTree = "<group>";
+		};
 		F7B86D8A252B93E2006C3ACE /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				F772A305252BAF0B00A3F898 /* FilterItems */,
 				F7B86D92252BAC2F006C3ACE /* ListItemsAdapter */,
 				F7B86D8D252B9436006C3ACE /* SortItems */,
 			);
@@ -440,6 +454,7 @@
 				F7B86D98252BAD20006C3ACE /* Date.swift in Sources */,
 				F7ECA886252B6B8C00B42E74 /* ListItemInteractor.swift in Sources */,
 				F7B86D94252BAC84006C3ACE /* ListItemsAdapterProtocol.swift in Sources */,
+				F772A309252BAF5500A3F898 /* FilterListItemManager.swift in Sources */,
 				F7ECA894252B7A4100B42E74 /* UIImage.swift in Sources */,
 				F7B86D91252B9486006C3ACE /* String.swift in Sources */,
 				F7ECA87E252B6AD100B42E74 /* ListItemContract.swift in Sources */,
@@ -450,6 +465,7 @@
 				F7ECA874252B641500B42E74 /* ListItemRequest.swift in Sources */,
 				F7ECA88F252B760800B42E74 /* ItemCollectionViewCell.swift in Sources */,
 				F7ECA843252B5C9F00B42E74 /* ViewController.swift in Sources */,
+				F772A307252BAF2F00A3F898 /* FilterListItemsProtocol.swift in Sources */,
 				F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */,
 				F7ECA86E252B601500B42E74 /* ImageURL.swift in Sources */,
 				F7ECA882252B6B4E00B42E74 /* ListItemPresenter.swift in Sources */,
