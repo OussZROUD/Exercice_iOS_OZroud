@@ -83,7 +83,7 @@ class ListItemViewController: UIViewController {
         productCollectionView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: 10.0).isActive = true
         productCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16.0).isActive = true
         productCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16.0).isActive = true
-        productCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height-40.0).isActive = true
+        productCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - 140.0).isActive = true
     }
     
     private func reloadItemsCollection() {

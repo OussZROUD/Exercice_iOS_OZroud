@@ -28,9 +28,9 @@ class ListItemRouter: ListItemPresenterToRouterProtocol {
     
     // MARK: - NAVIGATION
     func pushToItemDetails(on view: ListItemPresenterToViewProtocol, with item: Item, category: Category) {
-           let itemDetailViewController = ItemDetailRouter.createModule(with: item, category: category)
+           let itemDetailsViewController = ItemDetailsRouter.createModule(with: item, category: category)
                
            let viewController = view as! ListItemViewController
-           viewController.navigationController?.pushViewController(itemDetailViewController, animated: true)
+           viewController.navigationController?.pushViewController(itemDetailsViewController, animated: true)
        }
 }
