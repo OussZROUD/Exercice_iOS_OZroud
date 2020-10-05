@@ -21,6 +21,8 @@
 		F7ECA86C252B5FD600B42E74 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA86B252B5FD600B42E74 /* Item.swift */; };
 		F7ECA86E252B601500B42E74 /* ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA86D252B601500B42E74 /* ImageURL.swift */; };
 		F7ECA870252B603A00B42E74 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA86F252B603A00B42E74 /* Category.swift */; };
+		F7ECA874252B641500B42E74 /* ListItemRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA873252B641500B42E74 /* ListItemRequest.swift */; };
+		F7ECA876252B643500B42E74 /* ListCategoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA875252B643500B42E74 /* ListCategoryRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		F7ECA86B252B5FD600B42E74 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F7ECA86D252B601500B42E74 /* ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURL.swift; sourceTree = "<group>"; };
 		F7ECA86F252B603A00B42E74 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F7ECA873252B641500B42E74 /* ListItemRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemRequest.swift; sourceTree = "<group>"; };
+		F7ECA875252B643500B42E74 /* ListCategoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				F7ECA869252B5F9600B42E74 /* CoreService */,
+				F7ECA873252B641500B42E74 /* ListItemRequest.swift */,
+				F7ECA875252B643500B42E74 /* ListCategoryRequest.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -130,8 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				F7ECA861252B5E6100B42E74 /* APIRequest.swift */,
-				F7ECA863252B5E8F00B42E74 /* APIError.swift */,
 				F7ECA865252B5ECF00B42E74 /* APIManager.swift */,
+				F7ECA863252B5E8F00B42E74 /* APIError.swift */,
 			);
 			path = CoreService;
 			sourceTree = "<group>";
@@ -263,10 +269,12 @@
 			files = (
 				F7ECA866252B5ECF00B42E74 /* APIManager.swift in Sources */,
 				F7ECA870252B603A00B42E74 /* Category.swift in Sources */,
+				F7ECA874252B641500B42E74 /* ListItemRequest.swift in Sources */,
 				F7ECA843252B5C9F00B42E74 /* ViewController.swift in Sources */,
 				F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */,
 				F7ECA86E252B601500B42E74 /* ImageURL.swift in Sources */,
 				F7ECA862252B5E6100B42E74 /* APIRequest.swift in Sources */,
+				F7ECA876252B643500B42E74 /* ListCategoryRequest.swift in Sources */,
 				F7ECA86C252B5FD600B42E74 /* Item.swift in Sources */,
 				F7ECA868252B5F5500B42E74 /* Constants.swift in Sources */,
 				F7ECA864252B5E8F00B42E74 /* APIError.swift in Sources */,
