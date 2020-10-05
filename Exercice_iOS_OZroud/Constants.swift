@@ -44,5 +44,23 @@ struct Constants {
         static let name: String = "Tout"
     }
     
+    struct ItemDetail {
+        
+        struct Label {
+            
+            struct Text {
+                static let description: String = "Déscription"
+                static let category: String = "Catégorie"
+                static let price: String = "Prix"
+                static let date: String = "Date"
+                static let siret: String = "Siret"
+            }
+            
+            struct FontSize {
+                static let titleSize: CGFloat = 17.0
+                static let normalSize:CGFloat = 14.0
+            }
+        }
+    }
     
 }
