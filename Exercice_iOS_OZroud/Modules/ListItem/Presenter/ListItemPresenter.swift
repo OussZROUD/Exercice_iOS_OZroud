@@ -18,10 +18,13 @@ class ListItemPresenter {
     private var items: [ItemCollectionViewCell.ViewModel] = []
     private let sortProtocol: SortItemsProtocol
     private var SortedAllItems: [Item] = []
+    private let adapterProtocol: ListItemsAdapterProtocol
+    private var adapteeItems: [ItemCollectionViewCell.ViewModel] = []
     
     // MARK: - INITIALIZER
-    init(sortProtocol: SortItemsProtocol = SortItemsManager()){
+    init(sortProtocol: SortItemsProtocol = SortItemsManager(),adapterProtocol: ListItemsAdapterProtocol = ListItemsAdapterManager()){
         self.sortProtocol = sortProtocol
+        self.adapterProtocol = adapterProtocol
     }
 }
 
@@ -67,6 +70,9 @@ extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     func getListItemSuccessResponse(items: [Item]) {
         debugPrint("list item success")
         SortedAllItems = sortProtocol.sort(items: items)
+        adapteeItems = adapterProtocol.adapteItems(items: SortedAllItems, categories: categories)
+        self.items = adapteeItems
+        view?.fetchListItemSuccessResponse()
     }
     
     func getListItemFailureResponse(error: APIError) {

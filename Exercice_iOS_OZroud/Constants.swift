@@ -35,4 +35,9 @@ struct Constants {
         static let localIdFR: String = "FR-fr"
     }
     
+    struct CategoryAll {
+        static let identifier: Int = 0
+        static let name: String = "Tout"
+    }
+    
 }

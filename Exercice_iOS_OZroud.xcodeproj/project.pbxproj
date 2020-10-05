@@ -12,6 +12,10 @@
 		F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */; };
 		F7B86D8F252B9455006C3ACE /* SortItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8E252B9455006C3ACE /* SortItemsManager.swift */; };
 		F7B86D91252B9486006C3ACE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D90252B9486006C3ACE /* String.swift */; };
+		F7B86D94252BAC84006C3ACE /* ListItemsAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D93252BAC84006C3ACE /* ListItemsAdapterProtocol.swift */; };
+		F7B86D96252BACAC006C3ACE /* ListItemsAdapterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D95252BACAC006C3ACE /* ListItemsAdapterManager.swift */; };
+		F7B86D98252BAD20006C3ACE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D97252BAD20006C3ACE /* Date.swift */; };
+		F7B86D9A252BAD42006C3ACE /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D99252BAD42006C3ACE /* Double.swift */; };
 		F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */; };
 		F7ECA841252B5C9F00B42E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */; };
 		F7ECA843252B5C9F00B42E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA842252B5C9F00B42E74 /* ViewController.swift */; };
@@ -56,6 +60,10 @@
 		F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsProtocol.swift; sourceTree = "<group>"; };
 		F7B86D8E252B9455006C3ACE /* SortItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsManager.swift; sourceTree = "<group>"; };
 		F7B86D90252B9486006C3ACE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F7B86D93252BAC84006C3ACE /* ListItemsAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsAdapterProtocol.swift; sourceTree = "<group>"; };
+		F7B86D95252BACAC006C3ACE /* ListItemsAdapterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsAdapterManager.swift; sourceTree = "<group>"; };
+		F7B86D97252BAD20006C3ACE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F7B86D99252BAD42006C3ACE /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		F7ECA83B252B5C9F00B42E74 /* Exercice_iOS_OZroud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercice_iOS_OZroud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +117,7 @@
 		F7B86D8A252B93E2006C3ACE /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				F7B86D92252BAC2F006C3ACE /* ListItemsAdapter */,
 				F7B86D8D252B9436006C3ACE /* SortItems */,
 			);
 			path = Protocols;
@@ -121,6 +130,15 @@
 				F7B86D8E252B9455006C3ACE /* SortItemsManager.swift */,
 			);
 			path = SortItems;
+			sourceTree = "<group>";
+		};
+		F7B86D92252BAC2F006C3ACE /* ListItemsAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				F7B86D93252BAC84006C3ACE /* ListItemsAdapterProtocol.swift */,
+				F7B86D95252BACAC006C3ACE /* ListItemsAdapterManager.swift */,
+			);
+			path = ListItemsAdapter;
 			sourceTree = "<group>";
 		};
 		F7ECA832252B5C9F00B42E74 = {
@@ -213,6 +231,8 @@
 			children = (
 				F7ECA893252B7A4100B42E74 /* UIImage.swift */,
 				F7B86D90252B9486006C3ACE /* String.swift */,
+				F7B86D97252BAD20006C3ACE /* Date.swift */,
+				F7B86D99252BAD42006C3ACE /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -417,10 +437,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */,
+				F7B86D98252BAD20006C3ACE /* Date.swift in Sources */,
 				F7ECA886252B6B8C00B42E74 /* ListItemInteractor.swift in Sources */,
+				F7B86D94252BAC84006C3ACE /* ListItemsAdapterProtocol.swift in Sources */,
 				F7ECA894252B7A4100B42E74 /* UIImage.swift in Sources */,
 				F7B86D91252B9486006C3ACE /* String.swift in Sources */,
 				F7ECA87E252B6AD100B42E74 /* ListItemContract.swift in Sources */,
+				F7B86D9A252BAD42006C3ACE /* Double.swift in Sources */,
 				F7ECA892252B767E00B42E74 /* CommonLabel.swift in Sources */,
 				F7ECA866252B5ECF00B42E74 /* APIManager.swift in Sources */,
 				F7ECA870252B603A00B42E74 /* Category.swift in Sources */,
@@ -435,6 +458,7 @@
 				F7ECA876252B643500B42E74 /* ListCategoryRequest.swift in Sources */,
 				F7ECA88B252B748E00B42E74 /* CommonCollectionView.swift in Sources */,
 				F7ECA86C252B5FD600B42E74 /* Item.swift in Sources */,
+				F7B86D96252BACAC006C3ACE /* ListItemsAdapterManager.swift in Sources */,
 				F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */,
 				F7ECA884252B6B6F00B42E74 /* ListItemRouter.swift in Sources */,
 				F7ECA868252B5F5500B42E74 /* Constants.swift in Sources */,
