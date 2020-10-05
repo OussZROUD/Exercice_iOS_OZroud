@@ -6,4 +6,22 @@
 //  Copyright © 2020 Oussama Zroud. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+class ListItemRouter: ListItemPresenterToRouterProtocol {
+    
+    class func createModule() -> UINavigationController {
+        
+        let viewController = ListItemViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        let presenter: ListItemViewToPresenterProtocol & ListItemInteractorToPresenterProtocol = ListItemPresenter()
+        viewController.presenter = presenter
+        viewController.presenter?.router = ListItemRouter()
+        viewController.presenter?.view = viewController
+        viewController.presenter?.interactor = ListItemInteractor()
+        viewController.presenter?.interactor?.presenter = presenter
+        
+        return navigationController
+    }
+}
