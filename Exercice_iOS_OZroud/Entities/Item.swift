@@ -8,7 +8,11 @@
 
 import Foundation
 
-public struct Item: Codable {
+public struct Item: Codable,Equatable {
+    
+    public static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.identifier == rhs.identifier ? true : false
+    }
     
     // MARK: PROPERTIES
     let identifier: Int
@@ -20,7 +24,6 @@ public struct Item: Codable {
     let creationDate: String?
     let isUrgent: Bool?
     let siret: String?
-    
     
     public enum CodingKeys: String, CodingKey {
         case identifier = "id"
