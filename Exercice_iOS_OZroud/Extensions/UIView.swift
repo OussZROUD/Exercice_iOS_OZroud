@@ -10,6 +10,7 @@ import UIKit
 
 extension UIView {
     func startLoader(activityColor: UIColor, backgroundColor: UIColor) {
+        
         let backgroundView = UIView()
         backgroundView.frame = CGRect.init(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
         backgroundView.backgroundColor = backgroundColor
@@ -21,16 +22,16 @@ extension UIView {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = UIActivityIndicatorView.Style.gray
         activityIndicator.color = activityColor
-        activityIndicator.startAnimating()
-        self.isUserInteractionEnabled = false
-        backgroundView.addSubview(activityIndicator)
-        self.addSubview(backgroundView)
+            activityIndicator.startAnimating()
+            self.isUserInteractionEnabled = false
+            backgroundView.addSubview(activityIndicator)
+            self.addSubview(backgroundView)
     }
-
+    
     func stopLoader() {
-        if let background = viewWithTag(Constants.Tags.loaderTag){
-            background.removeFromSuperview()
-        }
-        self.isUserInteractionEnabled = true
+            if let background = self.viewWithTag(Constants.Tags.loaderTag){
+                background.removeFromSuperview()
+            }
+            self.isUserInteractionEnabled = true
     }
 }

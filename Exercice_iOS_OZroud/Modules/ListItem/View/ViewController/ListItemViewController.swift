@@ -30,7 +30,9 @@ class ListItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.startLoader(activityColor: .white, backgroundColor: .lightGray)
+        DispatchQueue.main.async { [weak self] in
+            self?.view.startLoader(activityColor: .white, backgroundColor: .lightGray)
+        }
         presenter?.fetchListCategory()
         presenter?.fetchListItem()
         firstLoad = true
@@ -56,10 +58,10 @@ class ListItemViewController: UIViewController {
     }
     
     private func setupSafeArea(){
-        safeArea.identifier = "safeArea"
+        safeArea.identifier = Constants.ListItem.SafeArea.identifier
         self.view.addLayoutGuide(safeArea)
-        safeArea.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -10.0).isActive = true
-        safeArea.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -20.0).isActive = true
+        safeArea.widthAnchor.constraint(equalTo: view.widthAnchor, constant: Constants.ListItem.SafeArea.widthConstant).isActive = true
+        safeArea.heightAnchor.constraint(equalTo: view.heightAnchor, constant: Constants.ListItem.SafeArea.heightConstant).isActive = true
         safeArea.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         safeArea.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
@@ -88,14 +90,16 @@ class ListItemViewController: UIViewController {
     
     private func reloadItemsCollection() {
         DispatchQueue.main.async { [weak self] in
+            self?.view.stopLoader()
             self?.productCollectionView.reloadData()
             self?.productCollectionView.setContentOffset(CGPoint.zero, animated: true)
-            self?.view.stopLoader()
+            
         }
     }
     
     private func reloadCategoriesCollection() {
         DispatchQueue.main.async { [weak self] in
+            self?.view.stopLoader()
             self?.categoryCollectionView.reloadData()
             if self?.firstLoad ?? false {
                 self?.categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
@@ -118,7 +122,10 @@ extension ListItemViewController: ListItemPresenterToViewProtocol {
     
     func fetchListItemFailureResponse() {
         debugPrint("")
-        // TODO : Alert for error
+         DispatchQueue.main.async { [weak self] in
+        self?.view.stopLoader()
+        }
+        self.showAlert(title: Constants.Alert.textTitle, message: Constants.Alert.textMessage)
     }
     
     func fetchListCategorySucessResponse() {
@@ -128,7 +135,7 @@ extension ListItemViewController: ListItemPresenterToViewProtocol {
     
     func fetchListCategoryFailure(error: String) {
         debugPrint("")
-        // TODO : Alert for error
+        showAlert(title: Constants.Alert.textTitle, message: Constants.Alert.textMessage)
     }
 }
 
@@ -170,7 +177,9 @@ extension ListItemViewController: UICollectionViewDelegate {
         if collectionView == productCollectionView {
             presenter?.navigateToItemDetails(index: indexPath.item)
         } else {
-            view.startLoader(activityColor: .white, backgroundColor: .lightGray)
+            DispatchQueue.main.async {  [weak self] in
+                self?.view.startLoader(activityColor: .white, backgroundColor: .lightGray)
+            }
             presenter?.filterListItem(index: indexPath.item)
         }
     }

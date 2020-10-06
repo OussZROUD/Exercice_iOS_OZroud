@@ -83,7 +83,8 @@ extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     }
     
     func getListCategoryFailureResponse(error: APIError) {
-        debugPrint("list category failure")
+        debugPrint(error.message)
+        view?.fetchListCategoryFailure(error: error.message)
     }
     
     func getListItemSuccessResponse(items: [Item]) {
@@ -95,6 +96,7 @@ extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     }
     
     func getListItemFailureResponse(error: APIError) {
-        debugPrint("list item failure")
+        debugPrint(error.message)
+        view?.fetchListItemFailureResponse()
     }
 }

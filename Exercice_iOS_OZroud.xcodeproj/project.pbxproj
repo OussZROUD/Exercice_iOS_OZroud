@@ -19,6 +19,7 @@
 		F772A321252BD85500A3F898 /* ItemDetailsAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A320252BD85500A3F898 /* ItemDetailsAdapterProtocol.swift */; };
 		F772A323252BD88500A3F898 /* ItemDetailsAdapterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A322252BD88500A3F898 /* ItemDetailsAdapterManager.swift */; };
 		F772A326252BDF4900A3F898 /* ItemDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A325252BDF4900A3F898 /* ItemDetailsInteractor.swift */; };
+		F772A328252BE90300A3F898 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A327252BE90300A3F898 /* UIViewController.swift */; };
 		F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */; };
 		F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */; };
 		F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */; };
@@ -30,7 +31,6 @@
 		F7B86D9A252BAD42006C3ACE /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D99252BAD42006C3ACE /* Double.swift */; };
 		F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */; };
 		F7ECA841252B5C9F00B42E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */; };
-		F7ECA843252B5C9F00B42E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA842252B5C9F00B42E74 /* ViewController.swift */; };
 		F7ECA846252B5C9F00B42E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA844252B5C9F00B42E74 /* Main.storyboard */; };
 		F7ECA848252B5CA300B42E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA847252B5CA300B42E74 /* Assets.xcassets */; };
 		F7ECA84B252B5CA300B42E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA849252B5CA300B42E74 /* LaunchScreen.storyboard */; };
@@ -79,6 +79,7 @@
 		F772A320252BD85500A3F898 /* ItemDetailsAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsAdapterProtocol.swift; sourceTree = "<group>"; };
 		F772A322252BD88500A3F898 /* ItemDetailsAdapterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsAdapterManager.swift; sourceTree = "<group>"; };
 		F772A325252BDF4900A3F898 /* ItemDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsInteractor.swift; sourceTree = "<group>"; };
+		F772A327252BE90300A3F898 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsProtocol.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		F7ECA83B252B5C9F00B42E74 /* Exercice_iOS_OZroud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercice_iOS_OZroud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F7ECA842252B5C9F00B42E74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F7ECA845252B5C9F00B42E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7ECA847252B5CA300B42E74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7ECA84A252B5CA300B42E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -265,7 +265,6 @@
 				F7ECA860252B5DD400B42E74 /* Service */,
 				F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */,
 				F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */,
-				F7ECA842252B5C9F00B42E74 /* ViewController.swift */,
 				F7ECA844252B5C9F00B42E74 /* Main.storyboard */,
 				F7ECA847252B5CA300B42E74 /* Assets.xcassets */,
 				F7ECA849252B5CA300B42E74 /* LaunchScreen.storyboard */,
@@ -331,6 +330,7 @@
 				F7B86D97252BAD20006C3ACE /* Date.swift */,
 				F7B86D99252BAD42006C3ACE /* Double.swift */,
 				F772A30C252BC3C300A3F898 /* UIView.swift */,
+				F772A327252BE90300A3F898 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,12 +550,12 @@
 				F772A315252BD19B00A3F898 /* ItemDetailsPresenter.swift in Sources */,
 				F7ECA892252B767E00B42E74 /* CommonLabel.swift in Sources */,
 				F7ECA866252B5ECF00B42E74 /* APIManager.swift in Sources */,
+				F772A328252BE90300A3F898 /* UIViewController.swift in Sources */,
 				F772A319252BD21B00A3F898 /* ItemDetailsContract.swift in Sources */,
 				F772A313252BD17600A3F898 /* ItemDetailsViewController.swift in Sources */,
 				F7ECA870252B603A00B42E74 /* Category.swift in Sources */,
 				F7ECA874252B641500B42E74 /* ListItemRequest.swift in Sources */,
 				F7ECA88F252B760800B42E74 /* ItemCollectionViewCell.swift in Sources */,
-				F7ECA843252B5C9F00B42E74 /* ViewController.swift in Sources */,
 				F772A317252BD1C800A3F898 /* ItemDetailsRouter.swift in Sources */,
 				F772A307252BAF2F00A3F898 /* FilterListItemsProtocol.swift in Sources */,
 				F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */,

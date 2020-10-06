@@ -44,6 +44,15 @@ struct Constants {
         static let name: String = "Tout"
     }
     
+    struct ListItem {
+        
+        struct SafeArea {
+            static let identifier: String = "safeArea"
+            static let widthConstant: CGFloat = -10.0
+            static let heightConstant: CGFloat = -20.0
+        }
+    }
+    
     struct ItemDetail {
         
         struct Label {
@@ -61,6 +70,12 @@ struct Constants {
                 static let normalSize:CGFloat = 14.0
             }
         }
+    }
+    
+    struct Alert {
+        static let textButton: String = "OK"
+        static let textTitle: String = "ERREUR"
+        static let textMessage: String = "Vérifiez votre accés internet"
     }
     
 }
