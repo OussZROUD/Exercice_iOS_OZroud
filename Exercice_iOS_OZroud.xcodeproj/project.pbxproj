@@ -20,6 +20,7 @@
 		F772A323252BD88500A3F898 /* ItemDetailsAdapterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A322252BD88500A3F898 /* ItemDetailsAdapterManager.swift */; };
 		F772A326252BDF4900A3F898 /* ItemDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A325252BDF4900A3F898 /* ItemDetailsInteractor.swift */; };
 		F772A328252BE90300A3F898 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A327252BE90300A3F898 /* UIViewController.swift */; };
+		F772A32C252CD5AB00A3F898 /* SortItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A32B252CD5AB00A3F898 /* SortItemsTests.swift */; };
 		F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */; };
 		F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */; };
 		F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */; };
@@ -80,6 +81,7 @@
 		F772A322252BD88500A3F898 /* ItemDetailsAdapterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsAdapterManager.swift; sourceTree = "<group>"; };
 		F772A325252BDF4900A3F898 /* ItemDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsInteractor.swift; sourceTree = "<group>"; };
 		F772A327252BE90300A3F898 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F772A32B252CD5AB00A3F898 /* SortItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsTests.swift; sourceTree = "<group>"; };
 		F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsProtocol.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 			children = (
 				F7ECA855252B5CA300B42E74 /* Exercice_iOS_OZroudTests.swift */,
 				F7ECA857252B5CA300B42E74 /* Info.plist */,
+				F772A32B252CD5AB00A3F898 /* SortItemsTests.swift */,
 			);
 			path = Exercice_iOS_OZroudTests;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F772A32C252CD5AB00A3F898 /* SortItemsTests.swift in Sources */,
 				F7ECA856252B5CA300B42E74 /* Exercice_iOS_OZroudTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

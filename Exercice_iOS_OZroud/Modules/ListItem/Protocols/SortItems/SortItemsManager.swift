@@ -15,7 +15,13 @@ final class SortItemsManager: SortItemsProtocol {
             if item1.isUrgent ?? false && !(item2.isUrgent ?? false) { return true }
             if !(item1.isUrgent ?? false) && item2.isUrgent ?? false { return false }
             
-            return item1.creationDate!.formatStringToDate()! > item2.creationDate!.formatStringToDate()!
+            if item1.creationDate == nil { return false }
+            if item2.creationDate == nil { return true }
+            
+            guard let date1 = item1.creationDate?.formatStringToDate() else { return false }
+            guard let date2 = item2.creationDate?.formatStringToDate() else { return true }
+            
+            return date1 > date2
         }
         return itemList
     }
