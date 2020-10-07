@@ -10,7 +10,7 @@ import UIKit
 
 class StaticLabel: UILabel {
     
-    init( text:String){
+    init(text:String){
         super.init(frame: .zero)
         self.text = text
         font = UIFont.systemFont(ofSize: 12)

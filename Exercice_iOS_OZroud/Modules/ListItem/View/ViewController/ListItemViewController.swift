@@ -121,7 +121,6 @@ extension ListItemViewController: ListItemPresenterToViewProtocol {
     }
     
     func fetchListItemFailureResponse() {
-        debugPrint("")
          DispatchQueue.main.async { [weak self] in
         self?.view.stopLoader()
         }
@@ -129,12 +128,10 @@ extension ListItemViewController: ListItemPresenterToViewProtocol {
     }
     
     func fetchListCategorySucessResponse() {
-        debugPrint("")
         reloadCategoriesCollection()
     }
     
     func fetchListCategoryFailure(error: String) {
-        debugPrint("")
         showAlert(title: Constants.Alert.textTitle, message: Constants.Alert.textMessage)
     }
 }

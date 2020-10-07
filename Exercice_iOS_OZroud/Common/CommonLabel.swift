@@ -10,7 +10,7 @@ import UIKit
 
 class CommonLabel: UILabel {
     
-    init( font: UIFont, color: UIColor, alignment: NSTextAlignment){
+    init(font: UIFont, color: UIColor, alignment: NSTextAlignment){
         super.init(frame: .zero)
         self.font = font
         textColor = color
