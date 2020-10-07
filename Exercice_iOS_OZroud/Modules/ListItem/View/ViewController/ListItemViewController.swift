@@ -47,7 +47,6 @@ class ListItemViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = Constants.ViewControllerTitle.listItem
         navigationItem.backBarButtonItem = UIBarButtonItem(title: Constants.Buttons.navBarBackButton, style: .plain, target: nil, action: nil)
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, style: .plain, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(fetchAllData))
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = .orange
@@ -126,8 +125,8 @@ extension ListItemViewController: ListItemPresenterToViewProtocol {
     }
     
     func fetchListItemFailureResponse() {
-         DispatchQueue.main.async { [weak self] in
-        self?.view.stopLoader()
+        DispatchQueue.main.async { [weak self] in
+            self?.view.stopLoader()
         }
         self.showAlert(title: Constants.Alert.textTitle, message: Constants.Alert.textMessage)
     }
@@ -193,29 +192,25 @@ extension ListItemViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == productCollectionView {
             
             switch UIDevice.current.userInterfaceIdiom {
+                
             case .phone, .unspecified:
                 return CGSize(width: collectionView.frame.width, height: (collectionView.frame.width/2) - 20 )
-            case .pad:
-                if UIApplication.shared.statusBarOrientation.isLandscape {
-                    // activate landscape changes
-                    return CGSize(width: (collectionView.frame.width/3) - 7, height: (collectionView.frame.width/6) - 20)
-                } else {
-                    // activate portrait changes
-                    return CGSize(width: (collectionView.frame.width/2) - 5, height: (collectionView.frame.width/4) - 20 )
-                }
-            case .tv, .carPlay:
-                return CGSize(width: (collectionView.frame.width/3) - 7, height: (collectionView.frame.width/6) - 20)
+                
+            case .pad, .tv, .carPlay:
+                return  UIApplication.shared.statusBarOrientation.isLandscape ? (CGSize(width: (collectionView.frame.width/3) - 7, height: (collectionView.frame.width/6) - 20)) : (CGSize(width: (collectionView.frame.width/2) - 5, height: (collectionView.frame.width/4) - 20 ))
                 
             @unknown default:
                 return CGSize(width: collectionView.frame.width, height: (collectionView.frame.width/2) - 20 )
             }
-            
         } else {
             switch UIDevice.current.userInterfaceIdiom {
+                
             case .phone, .unspecified:
-                return CGSize(width: collectionView.frame.width/5, height: 45/*collectionView.frame.height - 2*/)
+                return CGSize(width: collectionView.frame.width/5, height: 45)
+                
             case .pad, .tv, .carPlay:
                 return CGSize(width: collectionView.frame.width/6, height: collectionView.frame.height - 2)
+                
             @unknown default:
                 return CGSize(width: collectionView.frame.width/5, height: collectionView.frame.height - 2)
             }

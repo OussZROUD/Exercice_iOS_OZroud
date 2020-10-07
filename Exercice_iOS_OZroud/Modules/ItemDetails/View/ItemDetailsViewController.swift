@@ -92,13 +92,10 @@ class ItemDetailsViewController: UIViewController {
         self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true;
         
         self.scrollView.addSubview(self.stackView)
-        //constrain stack view to scroll view
         self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true;
         self.stackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true;
         self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true;
         self.stackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true;
-        
-        //constrain width of stack view to width of self.view, NOT scroll view
         self.stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true;
         
         self.stackView.addArrangedSubview(productImage)
@@ -161,9 +158,8 @@ class ItemDetailsViewController: UIViewController {
         urgentView.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         urgentView.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
     }
-    
 }
-
+// MARK: - PRESENTER -> VIEW PROTOCOL
 extension ItemDetailsViewController: ItemDetailsPresenterToViewProtocol {
     func getItemDetailsResponse(item: ItemDetailsViewController.ViewModel) {
         titleLabel.text = item.title
