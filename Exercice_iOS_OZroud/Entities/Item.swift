@@ -10,10 +10,6 @@ import Foundation
 
 public struct Item: Codable,Equatable {
     
-    public static func == (lhs: Item, rhs: Item) -> Bool {
-        return lhs.identifier == rhs.identifier ? true : false
-    }
-    
     // MARK: PROPERTIES
     let identifier: Int
     let categoryID: Int?
@@ -32,5 +28,10 @@ public struct Item: Codable,Equatable {
         case creationDate = "creation_date"
         case isUrgent = "is_urgent"
         case title, description, price, siret
+    }
+    
+    // MARK: - EQUATABLE PROTOCOL 
+    public static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.identifier == rhs.identifier ? true : false
     }
 }

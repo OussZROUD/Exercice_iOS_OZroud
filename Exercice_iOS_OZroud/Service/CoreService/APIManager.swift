@@ -46,14 +46,23 @@ public extension APIRequest {
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             
             if let error = error {
-                onComplete(.failure(error as? APIError ?? APIError.dataFailed))
+                onComplete(.failure(error as? APIError ?? APIError.invalidURL(url: self.baseUrl)))
             } else if let data = data {
                 do {
-                    guard let response = try? JSONDecoder().decode(type, from: data) else {
+                    guard let mapped = try? JSONDecoder().decode(type, from: data) else {
+                        
+                        if let httpResponse = response as? HTTPURLResponse {
+                            
+                           if httpResponse.statusCode == 404 {
+                                onComplete(.failure(APIError.invalidURL(url: self.url)))
+                            return
+                            }
+                        }
+                        
                         onComplete(.failure(APIError.parsingError))
                         return
                     }
-                    onComplete(.success(response))
+                    onComplete(.success(mapped))
                 }
             } else {
                 onComplete(.failure(APIError.dataFailed))
