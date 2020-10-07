@@ -10,7 +10,7 @@
 | Architecture         | Apply "Single responsabilty principle"      | :white_check_mark: VIPER         |
 | UI (only code)       | :no_entry_sign: [Storyboard, Xib, SwuiftUI] | :white_check_mark: check         |
 | Language             | Swift                                       | :white_check_mark: check         |
-| ThirdParty Libraries | :no_entry_sign:                             | :white_check_mark: check         |
+| Libraries            | :no_entry_sign:                             | :white_check_mark: check         |
 | Project compatibility| iOS 11+                                     | :white_check_mark: check         |
 ---
 
