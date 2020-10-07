@@ -52,6 +52,15 @@ class ItemCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    override func prepareForReuse() {
+        titleLabel.text = ""
+        categoryLabel.text = ""
+        priceLabel.text = ""
+        dateLabel.text = ""
+        urgentView.isHidden = true
+        layer.borderColor = (UIColor.clear.cgColor)
+        self.productImage.image = UIImage(named: Constants.ImageAssets.placeHolder)
+    }
     
     // MARK: - PRIVATE METHODS
     private func setupLayout(){
@@ -110,7 +119,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         layer.borderColor = vm.isUrgent ? (UIColor.orange.cgColor):(UIColor.clear.cgColor)
         guard let url = URL(string: vm.imageUrl) else { return }
         UIImage.loadFrom(url: url) { image in
-            self.productImage.image = image
+            self.productImage.image = image ?? UIImage(named: Constants.ImageAssets.placeHolder)
         }
     }
 }

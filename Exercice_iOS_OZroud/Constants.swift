@@ -78,4 +78,7 @@ struct Constants {
         static let textMessage: String = "Vérifiez votre accés internet"
     }
     
+    struct ImageAssets {
+        static let placeHolder: String = "placeholder-Image"
+    }
 }
