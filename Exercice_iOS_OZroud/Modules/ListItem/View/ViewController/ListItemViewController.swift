@@ -87,21 +87,20 @@ class ListItemViewController: UIViewController {
     
     private func reloadItemsCollection() {
         DispatchQueue.main.async { [weak self] in
-            self?.view.stopLoader()
             self?.productCollectionView.reloadData()
             self?.productCollectionView.setContentOffset(CGPoint.zero, animated: true)
-            
+            self?.view.stopLoader()
         }
     }
     
     private func reloadCategoriesCollection() {
         DispatchQueue.main.async { [weak self] in
-            self?.view.stopLoader()
             self?.categoryCollectionView.reloadData()
             if self?.firstLoad ?? false {
                 self?.categoryCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .left)
                 self?.firstLoad = false
             }
+            self?.view.stopLoader()
         }
     }
     

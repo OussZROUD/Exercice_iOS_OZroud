@@ -45,6 +45,7 @@ class ItemDetailsViewController: UIViewController {
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -103,7 +104,7 @@ class ItemDetailsViewController: UIViewController {
         self.stackView.addArrangedSubview(productImage)
         productImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0).isActive = true
         productImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0).isActive = true
-        productImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 300).isActive = true
+        productImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
         self.stackView.addArrangedSubview(titleLabel)
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
         

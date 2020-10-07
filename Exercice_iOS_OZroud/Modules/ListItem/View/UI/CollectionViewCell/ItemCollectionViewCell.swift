@@ -32,6 +32,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
