@@ -10,8 +10,9 @@ import Foundation
 
 final class CategoryRemoteWorker {
     
-    internal func getCategoriesFromRemote(onComplete: @escaping((categories: [Category]?, error: APIError?)) -> Void) {
-        ListCategoryRequest.get.executeRequest(type: [Category].self) { (response) in
+    internal func getCategoriesFromRemote(onComplete: @escaping((categories: [CategoryItem]?, error: APIError?)) -> Void) {
+        
+        ListCategoryRequest.get.executeRequest(type: [CategoryItem].self) { (response) in
             switch response {
             case .success(let data):
                 onComplete((data,nil))

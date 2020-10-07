@@ -16,10 +16,10 @@ class ItemDetailsPresenter {
     internal var interactor: ItemDetailsPresenterToInteractorProtocol?
     private let adapterProtocol: ItemDetailsAdapterProtocol
     private var item: Item
-    private var category: Category
+    private var category: CategoryItem
     
     // MARK: - INITIALIZER
-    init(item: Item, category: Category, adapterProtocol: ItemDetailsAdapterProtocol = ItemDetailsAdapterManager()) {
+    init(item: Item, category: CategoryItem, adapterProtocol: ItemDetailsAdapterProtocol = ItemDetailsAdapterManager()) {
         self.item = item
         self.category = category
         self.adapterProtocol = adapterProtocol

@@ -9,7 +9,7 @@
 import Foundation
 
 final class ItemDetailsAdapterManager: ItemDetailsAdapterProtocol {
-    func adapteItemDetails(item: Item, category: Category) -> ItemDetailsViewController.ViewModel {
+    func adapteItemDetails(item: Item, category: CategoryItem) -> ItemDetailsViewController.ViewModel {
         
         let viewModel = ItemDetailsViewController.ViewModel(title: item.title ?? "",
                                                            category: category.name ?? Constants.CategoryAll.name,

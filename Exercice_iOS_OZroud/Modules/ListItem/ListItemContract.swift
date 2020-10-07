@@ -18,7 +18,7 @@ protocol ListItemViewToPresenterProtocol: class {
     func categoryNumberOfItemsInSection() -> Int
     func itemNumberOfItemsInSection() -> Int
     func populateItemsCollection() -> [ItemCollectionViewCell.ViewModel]
-    func populateCategoryCollection() -> [Category]
+    func populateCategoryCollection() -> [CategoryItem]
     func filterListItem(index: Int)
     func navigateToItemDetails(index: Int)
 }
@@ -41,7 +41,7 @@ protocol ListItemPresenterToInteractorProtocol: class {
 
 // MARK: - INTERACTOR -> PRESENTER
 protocol ListItemInteractorToPresenterProtocol: class {
-    func getListCategorySuccessResponse(categories:[Category])
+    func getListCategorySuccessResponse(categories:[CategoryItem])
     func getListCategoryFailureResponse(error:APIError)
     func getListItemSuccessResponse(items: [Item])
     func getListItemFailureResponse(error:APIError)
@@ -50,5 +50,5 @@ protocol ListItemInteractorToPresenterProtocol: class {
 // MARK: - PRESENTER -> ROUTER
 protocol ListItemPresenterToRouterProtocol: class {
     static func createModule() -> UINavigationController
-    func pushToItemDetails(on view: ListItemPresenterToViewProtocol, with item: Item, category: Category)
+    func pushToItemDetails(on view: ListItemPresenterToViewProtocol, with item: Item, category: CategoryItem)
 }

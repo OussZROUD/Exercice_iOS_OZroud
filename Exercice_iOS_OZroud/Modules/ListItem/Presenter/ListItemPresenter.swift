@@ -14,7 +14,7 @@ class ListItemPresenter {
     internal weak var view: ListItemPresenterToViewProtocol?
     internal var router: ListItemPresenterToRouterProtocol?
     internal var interactor: ListItemPresenterToInteractorProtocol?
-    private var categories: [Category] = []
+    private var categories: [CategoryItem] = []
     private var items: [ItemCollectionViewCell.ViewModel] = []
     private let sortProtocol: SortItemsProtocol
     private var SortedAllItems: [Item] = []
@@ -53,7 +53,7 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
         return self.items
     }
     
-    func populateCategoryCollection() -> [Category] {
+    func populateCategoryCollection() -> [CategoryItem] {
         return self.categories
     }
     
@@ -76,9 +76,9 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
 // MARK: - PRESENTER -> VIEW
 extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     
-    func getListCategorySuccessResponse(categories: [Category]) {
+    func getListCategorySuccessResponse(categories: [CategoryItem]) {
         debugPrint("list category success")
-        self.categories = [Category(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)]  + categories
+        self.categories = [CategoryItem(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)]  + categories
         view?.fetchListCategorySucessResponse()
     }
     

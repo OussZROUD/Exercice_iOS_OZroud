@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ItemDetailsAdapterProtocol {
-    func adapteItemDetails(item: Item, category: Category) -> ItemDetailsViewController.ViewModel
+    func adapteItemDetails(item: Item, category: CategoryItem) -> ItemDetailsViewController.ViewModel
 }

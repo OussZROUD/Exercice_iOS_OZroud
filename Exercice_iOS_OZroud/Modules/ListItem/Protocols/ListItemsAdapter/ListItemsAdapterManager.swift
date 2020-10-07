@@ -10,7 +10,7 @@ import Foundation
 
 final class ListItemsAdapterManager: ListItemsAdapterProtocol {
     
-    func adapteItems(items: [Item], categories: [Category]) -> [ItemCollectionViewCell.ViewModel] {
+    func adapteItems(items: [Item], categories: [CategoryItem]) -> [ItemCollectionViewCell.ViewModel] {
         
         return items.map { (item) -> ItemCollectionViewCell.ViewModel in
             let  category = categories.first { (category) -> Bool in
@@ -18,7 +18,7 @@ final class ListItemsAdapterManager: ListItemsAdapterProtocol {
             }
             
             let viewModel = ItemCollectionViewCell.ViewModel(identifier: item.identifier,
-                                                             category: category ?? Category(identifier:Constants.CategoryAll.identifier, name: Constants.CategoryAll.name),
+                                                             category: category ?? CategoryItem(identifier:Constants.CategoryAll.identifier, name: Constants.CategoryAll.name),
                                                              title: item.title ?? "",
                                                              price: item.price?.formatToPriceCurrency() ?? "",
                                                              imageUrl: item.imageUrl?.small ?? "",

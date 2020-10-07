@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Category: Codable {
+struct CategoryItem: Codable {
     
     // MARK: PROPERTIES
     let identifier: Int

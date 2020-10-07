@@ -10,7 +10,7 @@ import UIKit
 
 class ItemDetailsRouter: ItemDetailsPresenterToRouterProtocol {
     
-    static func createModule(with item: Item, category: Category) -> UIViewController {
+    static func createModule(with item: Item, category: CategoryItem) -> UIViewController {
         
         let viewController = ItemDetailsViewController()
         
