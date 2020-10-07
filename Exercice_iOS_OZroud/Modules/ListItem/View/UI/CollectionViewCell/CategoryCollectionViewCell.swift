@@ -11,7 +11,7 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
-    let categoryLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: 10.0), color: .white, alignment: .center)
+    let categoryLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.categoryLabelCellSize), color: .white, alignment: .center)
     
     // MARK: - OVERRIDE METHODS
     override init(frame: CGRect) {
@@ -32,14 +32,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     // MARK: - PRIVATE METHODS
     private func setupLayout(){
-        self.backgroundColor = .clear
-        
-        self.layer.shadowColor = UIColor.lightGray.cgColor
-        self.layer.shadowOffset = CGSize(width: 2.0, height: 4.0)
-        self.layer.shadowOpacity = 1.0
+        self.backgroundColor =  Constants.Cell.backgroundColor
+        self.layer.shadowColor = Constants.Cell.shadowColor
+        self.layer.shadowOffset =  Constants.Cell.shadowOffset
+        self.layer.shadowOpacity = Constants.Cell.shadowOpacity
         self.layer.masksToBounds = false
         
-        self.contentView.layer.borderWidth = 1.0
+        self.contentView.layer.borderWidth = Constants.Cell.borderWidth
         self.contentView.layer.borderColor = UIColor.orange.cgColor
         self.contentView.layer.cornerRadius = 5.0
         self.contentView.backgroundColor = .orange

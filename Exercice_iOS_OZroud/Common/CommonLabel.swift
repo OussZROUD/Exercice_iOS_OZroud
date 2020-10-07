@@ -14,7 +14,7 @@ class CommonLabel: UILabel {
         super.init(frame: .zero)
         self.font = font
         textColor = color
-        numberOfLines = 0
+        numberOfLines = Constants.UI.labelNumberOflines
         translatesAutoresizingMaskIntoConstraints = false
         textAlignment = alignment
     }

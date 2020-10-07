@@ -13,10 +13,10 @@ class StaticLabel: UILabel {
     init(text:String){
         super.init(frame: .zero)
         self.text = text
-        font = UIFont.systemFont(ofSize: 12)
+        font = UIFont.systemFont(ofSize: Constants.ItemDetail.Label.FontSize.staticLabelSize)
         textAlignment = .left
         textColor = .black
-        numberOfLines = 0
+        numberOfLines = Constants.UI.labelNumberOflines
         translatesAutoresizingMaskIntoConstraints = false
     }
     

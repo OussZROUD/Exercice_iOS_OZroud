@@ -22,17 +22,16 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - UI
-    let titleLabel = CommonLabel(font: .boldSystemFont(ofSize: 12), color: .black, alignment: .left)
-    let categoryLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .orange, alignment: .left)
-    let priceLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .black, alignment: .left)
-    let dateLabel = CommonLabel(font: .systemFont(ofSize: 12), color: .black, alignment: .left)
+    let titleLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
+    let categoryLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .orange, alignment: Constants.ItemCollectionCell.Label.alignment)
+    let priceLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
+    let dateLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
     
     let productImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -60,17 +59,17 @@ class ItemCollectionViewCell: UICollectionViewCell {
         dateLabel.text = ""
         urgentView.isHidden = true
         layer.borderColor = (UIColor.clear.cgColor)
-        self.productImage.image = UIImage(named: Constants.ImageAssets.placeHolder)
+        productImage.image = UIImage(named: Constants.ImageAssets.placeHolder)
     }
     
     // MARK: - PRIVATE METHODS
     private func setupLayout(){
         
         backgroundColor = .white
-        layer.borderWidth = 1.0
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOffset = CGSize(width: 2.0, height: 4.0)
-        layer.shadowOpacity = 1.0
+        layer.borderWidth = Constants.Cell.borderWidth
+        layer.shadowColor = Constants.Cell.shadowColor
+        layer.shadowOffset =  Constants.Cell.shadowOffset
+        layer.shadowOpacity = Constants.Cell.shadowOpacity
         layer.masksToBounds = false
         // setup image
         contentView.addSubview(productImage)
@@ -119,8 +118,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
         urgentView.isHidden = !(vm.isUrgent)
         layer.borderColor = vm.isUrgent ? (UIColor.orange.cgColor):(UIColor.clear.cgColor)
         guard let url = URL(string: vm.imageUrl) else { return }
-        UIImage.loadFrom(url: url) { image in
-            self.productImage.image = image ?? UIImage(named: Constants.ImageAssets.placeHolder)
+        UIImage.loadFrom(url: url) { [weak self ] image in
+            self?.productImage.image = image ?? UIImage(named: Constants.ImageAssets.placeHolder)
         }
     }
 }

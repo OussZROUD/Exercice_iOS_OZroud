@@ -67,7 +67,9 @@ struct Constants {
             
             struct FontSize {
                 static let titleSize: CGFloat = 17.0
-                static let normalSize:CGFloat = 14.0
+                static let normalSize: CGFloat = 14.0
+                static let staticLabelSize: CGFloat = 12.0
+                static let categoryLabelCellSize: CGFloat = 10.0
             }
         }
     }
@@ -80,5 +82,33 @@ struct Constants {
     
     struct ImageAssets {
         static let placeHolder: String = "placeholder-Image"
+    }
+    
+    struct UI {
+        
+        static let labelNumberOflines: Int = 0
+        
+        struct Separator {
+            static let backgroundColor: UIColor = UIColor.groupTableViewBackground
+            static let shadowRadius: CGFloat = 2.0
+            static let shadowOpacity: Float = 0.5
+            static let shadowColor: CGColor = UIColor.gray.cgColor
+            static let shadowOffset: CGSize = CGSize(width: 0, height: 1)
+        }
+    }
+    
+    struct ItemCollectionCell{
+        struct Label {
+            static let textSize: CGFloat = 12.0
+            static let alignment: NSTextAlignment = .left
+        }
+    }
+    
+    struct Cell {
+        static let backgroundColor: UIColor = UIColor.clear
+        static let shadowColor: CGColor = UIColor.gray.cgColor
+        static let shadowOffset: CGSize = CGSize(width: 2.0, height: 4.0)
+        static let shadowOpacity: Float = 1.0
+        static let borderWidth: CGFloat = 1.0
     }
 }

@@ -13,12 +13,12 @@ class SeparatorView: UIView {
     init(){
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .groupTableViewBackground
+        backgroundColor = Constants.UI.Separator.backgroundColor
         layer.masksToBounds = false
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 0.5
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize(width: 0 , height:1)
+        layer.shadowRadius = Constants.UI.Separator.shadowRadius
+        layer.shadowOpacity = Constants.UI.Separator.shadowOpacity
+        layer.shadowColor = Constants.UI.Separator.shadowColor
+        layer.shadowOffset = Constants.UI.Separator.shadowOffset
     }
     
     required init?(coder: NSCoder) {
