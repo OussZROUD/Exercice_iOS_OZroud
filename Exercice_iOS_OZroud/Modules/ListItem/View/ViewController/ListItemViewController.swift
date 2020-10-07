@@ -30,12 +30,7 @@ class ListItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async { [weak self] in
-            self?.view.startLoader(activityColor: .white, backgroundColor: .lightGray)
-        }
-        presenter?.fetchListCategory()
-        presenter?.fetchListItem()
-        firstLoad = true
+        fetchAllData()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -52,6 +47,8 @@ class ListItemViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = Constants.ViewControllerTitle.listItem
         navigationItem.backBarButtonItem = UIBarButtonItem(title: Constants.Buttons.navBarBackButton, style: .plain, target: nil, action: nil)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(fetchAllData))
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = .orange
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
@@ -106,6 +103,15 @@ class ListItemViewController: UIViewController {
                 self?.firstLoad = false
             }
         }
+    }
+    
+    @objc private func fetchAllData(){
+        DispatchQueue.main.async { [weak self] in
+            self?.view.startLoader(activityColor: .white, backgroundColor: .lightGray)
+        }
+        presenter?.fetchListCategory()
+        presenter?.fetchListItem()
+        firstLoad = true
     }
 }
 
