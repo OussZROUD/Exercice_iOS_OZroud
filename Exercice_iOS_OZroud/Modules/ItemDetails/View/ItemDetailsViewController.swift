@@ -45,7 +45,7 @@ class ItemDetailsViewController: UIViewController {
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     
@@ -68,6 +68,7 @@ class ItemDetailsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    private let safeArea = UILayoutGuide()
     
     // MARK: - PROPERTIES
     internal weak var presenter: ItemDetailsViewToPresenterProtocol?
@@ -76,32 +77,49 @@ class ItemDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = Constants.ViewControllerTitle.detailItem
+//        setupSafeArea()
         setupUI()
         presenter?.getItemDetails()
     }
     
     // MARK: - PRIVATE METHODS
+    private func setupSafeArea(){
+        safeArea.identifier = Constants.ListItem.SafeArea.identifier
+        self.view.addLayoutGuide(safeArea)
+        safeArea.widthAnchor.constraint(equalTo: view.widthAnchor, constant: Constants.ListItem.SafeArea.widthConstant).isActive = true
+        safeArea.heightAnchor.constraint(equalTo: view.heightAnchor, constant: Constants.ListItem.SafeArea.heightConstant).isActive = true
+        safeArea.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        safeArea.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+    
     private func setupUI() {
         self.view.backgroundColor = .white
         
         self.view.addSubview(self.scrollView)
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false;
-        self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true;
-        self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true;
-        self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true;
-        self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true;
+        self.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0).isActive = true;
+        self.scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0.0).isActive = true;
+        self.scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0).isActive = true;
+        self.scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0).isActive = true;
+        
+        scrollView.addSubview(productImage)
+        productImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0.0).isActive = true
+        productImage.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0.0).isActive = true
+        productImage.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0.0).isActive = true
+//        productImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
         
         self.scrollView.addSubview(self.stackView)
         self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true;
-        self.stackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true;
+        self.stackView.topAnchor.constraint(equalTo: self.productImage.bottomAnchor, constant: 15.0).isActive = true;
         self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true;
         self.stackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true;
         self.stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true;
         
-        self.stackView.addArrangedSubview(productImage)
-        productImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0).isActive = true
-        productImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0).isActive = true
-        productImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
+//        self.stackView.addArrangedSubview(productImage)
+//        productImage.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 0.0).isActive = true
+//        productImage.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 0.0).isActive = true
+//        productImage.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: 0.0).isActive = true
+//        productImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
         self.stackView.addArrangedSubview(titleLabel)
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
         
