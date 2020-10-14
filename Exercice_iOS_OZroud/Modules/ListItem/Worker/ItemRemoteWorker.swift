@@ -10,7 +10,7 @@ import Foundation
 
 final class ItemRemoteWorker {
     
-    func getItemsFromRemote(onComplete: @escaping((items: [ItemDTO]?, error: APIError?)) -> Void) {
+    func getItemsFromRemote(onComplete: @escaping(Result<[ItemDTO], APIError>)-> Void) {
         
         ListItemRequest.get.executeRequest(type: [Item].self) { (response) in
             switch response {
@@ -18,9 +18,9 @@ final class ItemRemoteWorker {
                 let dataDTO =  items.map { (item) -> ItemDTO in
                     return ItemDTO(item: item)
                 }
-                onComplete((dataDTO, nil))
+                onComplete(.success(dataDTO))
             case .failure(let error):
-                onComplete((nil, error))
+                onComplete(.failure(error))
             }
         }
     }

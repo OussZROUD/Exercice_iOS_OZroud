@@ -27,21 +27,28 @@ extension ListItemInteractor: ListItemPresenterToInteractorProtocol {
     
     func getListCategory() {
         categoryRemoteWorker?.getCategoriesFromRemote(onComplete: { [weak self] (categoryResponse) in
-            guard let response = categoryResponse.categories else {
-                self?.presenter?.getListCategoryFailureResponse(error: categoryResponse.error ?? APIError.dataFailed)
+            switch categoryResponse {
+            case .success(let data):
+                self?.presenter?.getListCategorySuccessResponse(categories: data)
+                return
+            case .failure(let error):
+                self?.presenter?.getListCategoryFailureResponse(error: error)
                 return
             }
-            self?.presenter?.getListCategorySuccessResponse(categories: response)
         })
     }
     
     func getListItem() {
         itemRemoteWorker?.getItemsFromRemote(onComplete: { [weak self] (itemResponse) in
-            guard let response = itemResponse.items else {
-                self?.presenter?.getListItemFailureResponse(error: itemResponse.error ?? APIError.dataFailed)
+            
+            switch itemResponse {
+            case .success(let data):
+                self?.presenter?.getListItemSuccessResponse(items: data)
+                return
+            case .failure(let error):
+                self?.presenter?.getListItemFailureResponse(error: error)
                 return
             }
-            self?.presenter?.getListItemSuccessResponse(items: response)
         })
     }
 }

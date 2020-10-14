@@ -10,7 +10,7 @@ import Foundation
 
 final class CategoryRemoteWorker {
     
-    func getCategoriesFromRemote(onComplete: @escaping((categories: [CategoryItemDTO]?, error: APIError?)) -> Void) {
+    func getCategoriesFromRemote(onComplete:@escaping(Result<[CategoryItemDTO], APIError>)-> Void) {
         
         ListCategoryRequest.get.executeRequest(type: [CategoryItem].self) { (response) in
             switch response {
@@ -18,9 +18,9 @@ final class CategoryRemoteWorker {
                 let dataDTO = data.map { (category) -> CategoryItemDTO in
                     return CategoryItemDTO(categoryItem: category)
                 }
-                onComplete((dataDTO,nil))
+                onComplete(.success(dataDTO))
             case .failure(let error):
-                onComplete((nil,error))
+                onComplete(.failure(error))
             }
         }
     }
