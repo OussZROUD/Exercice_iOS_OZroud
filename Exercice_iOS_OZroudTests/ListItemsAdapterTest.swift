@@ -11,14 +11,18 @@ import XCTest
 
 class ListItemsAdapterTest: XCTestCase {
     
-    var items: [Item] = []
-    var categories : [CategoryItem] = []
+    var numberFormatter = NumberFormatter()
+    var dateFormatter = DateFormatter()
+    var items: [ItemDTO] = []
+    var categories : [CategoryItemDTO] = []
     
     var item1 = Item(identifier: 1, categoryID: 3, title: nil, description: nil, price: 34.555, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
     var item2 = Item(identifier: 1, categoryID: 2, title: nil, description: nil, price: 6.6, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
     var item3 = Item(identifier: 1, categoryID: 5, title: nil, description: nil, price: 1.0, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
     var item4 = Item(identifier: 1, categoryID: 8, title: nil, description: nil, price: 33.454, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
     var item5 = Item(identifier: 1, categoryID: nil, title: nil, description: nil, price: 33.454, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
+    
+    
     
     var category1 = CategoryItem(identifier: 5, name: "category1")
     var category2 = CategoryItem(identifier: 3, name: "category2")
@@ -32,8 +36,18 @@ class ListItemsAdapterTest: XCTestCase {
 
     override func setUpWithError() throws {
         
-        items = [item1, item2, item3, item4, item5]
-        categories = [category1, category2,category3]
+        let itemDTO1 = ItemDTO(item: self.item1)
+        let itemDTO2 = ItemDTO(item: self.item2)
+        let itemDTO3 = ItemDTO(item: self.item3)
+        let itemDTO4 = ItemDTO(item: self.item4)
+        let itemDTO5 = ItemDTO(item: self.item5)
+        
+        let categoryDTO1 = CategoryItemDTO(categoryItem: category1)
+        let categoryDTO2 = CategoryItemDTO(categoryItem: category2)
+        let categoryDTO3 = CategoryItemDTO(categoryItem: category3)
+        
+        items = [itemDTO1, itemDTO2, itemDTO3, itemDTO4, itemDTO5]
+        categories = [categoryDTO1, categoryDTO2, categoryDTO3]
         
         date = "2019-11-05T15:56:59+0000"
         
@@ -52,9 +66,9 @@ class ListItemsAdapterTest: XCTestCase {
     }
 
     func test_format_double_price_string_currency() throws {
-        let convertedPrice1 = price1.formatToPriceCurrency()
-        let convertedPrice2 = price2.formatToPriceCurrency()
-        let convertedPrice3 = price3.formatToPriceCurrency()
+        let convertedPrice1 = price1.formatToPriceCurrency(currencyFormatter: numberFormatter)
+        let convertedPrice2 = price2.formatToPriceCurrency(currencyFormatter: numberFormatter)
+        let convertedPrice3 = price3.formatToPriceCurrency(currencyFormatter: numberFormatter)
         XCTAssertEqual(convertedPrice1, "0,00 €")
         XCTAssertEqual(convertedPrice2, "23,89 €")
         XCTAssertNotEqual(convertedPrice3, "456,789 €")
@@ -73,13 +87,13 @@ class ListItemsAdapterTest: XCTestCase {
     }
     
     func test_date_medium_style_convertion() {
-        let date = self.date.formatStringToDate()
+        let date = self.date.formatStringToDate(formatter: dateFormatter)
         let dateFormatted = date?.convertToString(style: .medium)
         XCTAssertEqual(dateFormatted, "5 nov. 2019 à 15:56")
     }
     
     func test_date_full_style_convertion() {
-        let date = self.date.formatStringToDate()
+        let date = self.date.formatStringToDate(formatter: dateFormatter)
         let dateFormatted = date?.convertToString(style: .full)
         XCTAssertEqual(dateFormatted, "mardi 5 novembre 2019 à 15:56")
     }
