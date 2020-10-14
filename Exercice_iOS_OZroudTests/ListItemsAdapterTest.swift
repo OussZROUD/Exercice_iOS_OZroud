@@ -16,17 +16,15 @@ class ListItemsAdapterTest: XCTestCase {
     var items: [ItemDTO] = []
     var categories : [CategoryItemDTO] = []
     
-    var item1 = Item(identifier: 1, categoryID: 3, title: nil, description: nil, price: 34.555, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
-    var item2 = Item(identifier: 1, categoryID: 2, title: nil, description: nil, price: 6.6, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
-    var item3 = Item(identifier: 1, categoryID: 5, title: nil, description: nil, price: 1.0, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
-    var item4 = Item(identifier: 1, categoryID: 8, title: nil, description: nil, price: 33.454, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
-    var item5 = Item(identifier: 1, categoryID: nil, title: nil, description: nil, price: 33.454, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
-    
-    
-    
-    var category1 = CategoryItem(identifier: 5, name: "category1")
-    var category2 = CategoryItem(identifier: 3, name: "category2")
-    var category3 = CategoryItem(identifier: 2, name: "category3")
+    let itemDTO1 = ItemDTO(item: Item(identifier: 1, categoryID: 3, title: nil, description: nil, price: 34.555, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let itemDTO2 = ItemDTO(item: Item(identifier: 1, categoryID: 2, title: nil, description: nil, price: 6.6, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let itemDTO3 = ItemDTO(item: Item(identifier: 1, categoryID: 5, title: nil, description: nil, price: 1.0, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let itemDTO4 = ItemDTO(item: Item(identifier: 1, categoryID: 8, title: nil, description: nil, price: 33.454, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let itemDTO5 = ItemDTO(item: Item(identifier: 1, categoryID: nil, title: nil, description: nil, price: 33.454, imageUrl: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+            
+    let categoryDTO1 = CategoryItemDTO(categoryItem: CategoryItem(identifier: 5, name: "category1"))
+    let categoryDTO2 = CategoryItemDTO(categoryItem: CategoryItem(identifier: 3, name: "category2"))
+    let categoryDTO3 = CategoryItemDTO(categoryItem: CategoryItem(identifier: 2, name: "category3"))
     
     
     var date: String = ""
@@ -35,17 +33,7 @@ class ListItemsAdapterTest: XCTestCase {
     var price3: Double = 0.0
 
     override func setUpWithError() throws {
-        
-        let itemDTO1 = ItemDTO(item: self.item1)
-        let itemDTO2 = ItemDTO(item: self.item2)
-        let itemDTO3 = ItemDTO(item: self.item3)
-        let itemDTO4 = ItemDTO(item: self.item4)
-        let itemDTO5 = ItemDTO(item: self.item5)
-        
-        let categoryDTO1 = CategoryItemDTO(categoryItem: category1)
-        let categoryDTO2 = CategoryItemDTO(categoryItem: category2)
-        let categoryDTO3 = CategoryItemDTO(categoryItem: category3)
-        
+                
         items = [itemDTO1, itemDTO2, itemDTO3, itemDTO4, itemDTO5]
         categories = [categoryDTO1, categoryDTO2, categoryDTO3]
         
@@ -77,9 +65,9 @@ class ListItemsAdapterTest: XCTestCase {
     
     func test_adapting_categoryID_to_category(){
        let adaptedList = ListItemsAdapterManager().adapteItems(items: items, categories: categories)
-        XCTAssertEqual(adaptedList[0].category.name, category2.name, "category name conform to item category id ")
-        XCTAssertEqual(adaptedList[1].category.name, category3.name, "category name conform to item category id ")
-        XCTAssertEqual(adaptedList[2].category.name, category1.name, "category name conform to item category id ")
+        XCTAssertEqual(adaptedList[0].category.name, categoryDTO2.name, "category name conform to item category id ")
+        XCTAssertEqual(adaptedList[1].category.name, categoryDTO3.name, "category name conform to item category id ")
+        XCTAssertEqual(adaptedList[2].category.name, categoryDTO1.name, "category name conform to item category id ")
         XCTAssertEqual(adaptedList[3].category.name, Constants.CategoryAll.name, "unfound categoryID takes default category")
         XCTAssertEqual(adaptedList[4].category.name, Constants.CategoryAll.name, "categoryID nil item take default category")
         XCTAssertEqual(adaptedList.count, items.count)
