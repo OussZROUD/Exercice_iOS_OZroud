@@ -23,7 +23,7 @@ protocol ItemDetailsPresenterToViewProtocol: class {
 
 // MARK: - PRESENTER -> ROUTER
 protocol ItemDetailsPresenterToRouterProtocol: class {
-    static func createModule(with item: Item, category: CategoryItem) -> UIViewController
+    static func createModule(with item: ItemDTO, category: CategoryItemDTO) -> UIViewController
 }
 
 // MARK: - PRESENTER -> INTERACTOR

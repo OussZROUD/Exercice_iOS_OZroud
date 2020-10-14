@@ -13,12 +13,12 @@ final class ItemDetailsAdapterManager: ItemDetailsAdapterProtocol {
     var formatter = DateFormatter()
     var currencyFormatter = NumberFormatter()
     
-    func adapteItemDetails(item: Item, category: CategoryItem) -> ItemDetailsViewController.ViewModel {
+    func adapteItemDetails(item: ItemDTO, category: CategoryItemDTO) -> ItemDetailsViewController.ViewModel {
         
         let viewModel = ItemDetailsViewController.ViewModel(title: item.title ?? "",
                                                            category: category.name ?? Constants.CategoryAll.name,
                                                            description: item.description ?? "",
-                                                           imageUrl: item.imageUrl?.thumb ?? "",
+                                                           imageUrl: item.imageUrlDto?.thumb ?? "",
                                                            price: item.price?.formatToPriceCurrency(currencyFormatter: currencyFormatter) ?? "",
                                                            date: item.creationDate?.formatStringToDate(formatter: formatter)?.convertToString(style: .full) ?? "",
                                                            siret: item.siret ?? "non indiquer",

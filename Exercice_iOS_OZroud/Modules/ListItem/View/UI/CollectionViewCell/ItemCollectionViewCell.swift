@@ -13,7 +13,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     // MARK: - VIEWMODEL
     struct ViewModel {
         var identifier: Int
-        var category: CategoryItem
+        var category: CategoryItemDTO
         var title: String
         var price: String
         var imageUrl: String

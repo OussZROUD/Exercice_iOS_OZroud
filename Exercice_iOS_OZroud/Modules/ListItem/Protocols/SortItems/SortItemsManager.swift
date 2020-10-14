@@ -12,7 +12,7 @@ final class SortItemsManager: SortItemsProtocol {
     
     var formatter = DateFormatter()
     
-    func sort(items:[Item]) -> [Item] {
+    func sort(items:[ItemDTO]) -> [ItemDTO] {
         var itemList = items
         itemList.sort { item1, item2 -> Bool in
             if item1.isUrgent ?? false && !(item2.isUrgent ?? false) { return true }

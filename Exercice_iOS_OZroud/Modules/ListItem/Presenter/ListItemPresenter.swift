@@ -14,10 +14,10 @@ class ListItemPresenter {
     weak var view: ListItemPresenterToViewProtocol?
     var router: ListItemPresenterToRouterProtocol?
     var interactor: ListItemPresenterToInteractorProtocol?
-    private var categories: [CategoryItem] = []
+    private var categories: [CategoryItemDTO] = []
     private var items: [ItemCollectionViewCell.ViewModel] = []
     private let sortProtocol: SortItemsProtocol
-    private var SortedAllItems: [Item] = []
+    private var SortedAllItems: [ItemDTO] = []
     private let adapterProtocol: ListItemsAdapterProtocol
     private var adapteeItems: [ItemCollectionViewCell.ViewModel] = []
     private let filterProtocol: FilterListItemsProtocol
@@ -53,7 +53,7 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
         return self.items
     }
     
-    func populateCategoryCollection() -> [CategoryItem] {
+    func populateCategoryCollection() -> [CategoryItemDTO] {
         return self.categories
     }
     
@@ -76,9 +76,10 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
 // MARK: - PRESENTER -> VIEW
 extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     
-    func getListCategorySuccessResponse(categories: [CategoryItem]) {
+    func getListCategorySuccessResponse(categories: [CategoryItemDTO]) {
         debugPrint("list category success")
-        self.categories = [CategoryItem(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)]  + categories
+        self.categories = [CategoryItemDTO(categoryItem: CategoryItem(identifier:  Constants.CategoryAll.identifier, name: Constants.CategoryAll.name))] + categories
+//        self.categories = [CategoryItemDTO(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)]  + categories
         view?.fetchListCategorySucessResponse()
     }
     
@@ -87,7 +88,7 @@ extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
         view?.fetchListCategoryFailure(error: error.message)
     }
     
-    func getListItemSuccessResponse(items: [Item]) {
+    func getListItemSuccessResponse(items: [ItemDTO]) {
         debugPrint("list item success")
         SortedAllItems = sortProtocol.sort(items: items)
         adapteeItems = adapterProtocol.adapteItems(items: SortedAllItems, categories: categories)

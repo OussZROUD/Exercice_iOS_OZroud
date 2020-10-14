@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SortItemsProtocol: class {
-    func sort(items: [Item]) -> [Item]
+    func sort(items: [ItemDTO]) -> [ItemDTO]
 }

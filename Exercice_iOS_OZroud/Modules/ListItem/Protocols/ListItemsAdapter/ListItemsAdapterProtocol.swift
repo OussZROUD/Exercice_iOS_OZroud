@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ListItemsAdapterProtocol {
-    func adapteItems(items: [Item], categories: [CategoryItem]) -> [ItemCollectionViewCell.ViewModel]
+    func adapteItems(items: [ItemDTO], categories: [CategoryItemDTO]) -> [ItemCollectionViewCell.ViewModel]
 }
