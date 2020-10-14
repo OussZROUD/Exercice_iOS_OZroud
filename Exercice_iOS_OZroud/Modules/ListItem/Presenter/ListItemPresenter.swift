@@ -11,9 +11,9 @@ import Foundation
 class ListItemPresenter {
     
     // MARK: - PROPERTIES
-    internal weak var view: ListItemPresenterToViewProtocol?
-    internal var router: ListItemPresenterToRouterProtocol?
-    internal var interactor: ListItemPresenterToInteractorProtocol?
+    weak var view: ListItemPresenterToViewProtocol?
+    var router: ListItemPresenterToRouterProtocol?
+    var interactor: ListItemPresenterToInteractorProtocol?
     private var categories: [CategoryItem] = []
     private var items: [ItemCollectionViewCell.ViewModel] = []
     private let sortProtocol: SortItemsProtocol

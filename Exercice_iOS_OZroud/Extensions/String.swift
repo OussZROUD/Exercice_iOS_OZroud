@@ -9,9 +9,8 @@
 import Foundation
 
 extension String {
-    
-    func formatStringToDate() -> Date? {
-        let formatter = DateFormatter()
+
+    func formatStringToDate(formatter: DateFormatter) -> Date? {
         formatter.dateFormat = Constants.DateFormat.stringToDate
         formatter.calendar = Calendar(identifier: .iso8601)
         guard let date = formatter.date(from: self) else {

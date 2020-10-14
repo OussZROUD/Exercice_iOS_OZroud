@@ -10,8 +10,7 @@ import Foundation
 
 extension Double {
     
-    func formatToPriceCurrency() -> String? {
-        let currencyFormatter = NumberFormatter()
+    func formatToPriceCurrency(currencyFormatter: NumberFormatter) -> String? {
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.locale = Locale(identifier: Constants.DateFormat.localIdFR)
         currencyFormatter.numberStyle = .currency

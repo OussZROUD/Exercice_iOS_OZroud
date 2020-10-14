@@ -11,7 +11,7 @@ import Foundation
 class ListItemInteractor {
     
     // MARK: - PROPERTIES
-    internal var presenter: ListItemInteractorToPresenterProtocol?
+    var presenter: ListItemInteractorToPresenterProtocol?
     private var categoryRemoteWorker: CategoryRemoteWorker?
     private var itemRemoteWorker: ItemRemoteWorker?
     

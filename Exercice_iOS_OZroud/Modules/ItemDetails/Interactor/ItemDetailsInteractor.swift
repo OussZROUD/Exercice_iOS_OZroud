@@ -10,7 +10,7 @@ import Foundation
 
 class ItemDetailsInteractor {
     
-    internal var presenter: ItemDetailsInteractorToPresenterProtocol?
+    var presenter: ItemDetailsInteractorToPresenterProtocol?
     
 }
 

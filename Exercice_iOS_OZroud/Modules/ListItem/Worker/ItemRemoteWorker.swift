@@ -10,7 +10,7 @@ import Foundation
 
 final class ItemRemoteWorker {
     
-    internal func getItemsFromRemote(onComplete: @escaping((items: [Item]?, error: APIError?)) -> Void) {
+    func getItemsFromRemote(onComplete: @escaping((items: [Item]?, error: APIError?)) -> Void) {
         
         ListItemRequest.get.executeRequest(type: [Item].self) { (response) in
             switch response {

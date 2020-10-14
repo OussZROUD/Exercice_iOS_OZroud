@@ -109,7 +109,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         dateLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.6).isActive = true
     }
     
-    // MARK: - INTERNAL METHODS
+    // MARK: - METHODS
     func populateCell(vm:ViewModel) {
         titleLabel.text = vm.title
         categoryLabel.text = "\(vm.price)"

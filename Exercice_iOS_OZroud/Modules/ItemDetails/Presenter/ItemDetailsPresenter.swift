@@ -11,9 +11,9 @@ import Foundation
 class ItemDetailsPresenter {
     
     // MARK: - PROPERTIES
-    internal weak var view: ItemDetailsPresenterToViewProtocol?
-    internal weak var router: ItemDetailsPresenterToRouterProtocol?
-    internal var interactor: ItemDetailsPresenterToInteractorProtocol?
+    weak var view: ItemDetailsPresenterToViewProtocol?
+    weak var router: ItemDetailsPresenterToRouterProtocol?
+    var interactor: ItemDetailsPresenterToInteractorProtocol?
     private let adapterProtocol: ItemDetailsAdapterProtocol
     private var item: Item
     private var category: CategoryItem

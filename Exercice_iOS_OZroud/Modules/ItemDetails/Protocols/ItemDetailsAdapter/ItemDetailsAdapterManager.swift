@@ -9,14 +9,18 @@
 import Foundation
 
 final class ItemDetailsAdapterManager: ItemDetailsAdapterProtocol {
+    
+    var formatter = DateFormatter()
+    var currencyFormatter = NumberFormatter()
+    
     func adapteItemDetails(item: Item, category: CategoryItem) -> ItemDetailsViewController.ViewModel {
         
         let viewModel = ItemDetailsViewController.ViewModel(title: item.title ?? "",
                                                            category: category.name ?? Constants.CategoryAll.name,
                                                            description: item.description ?? "",
                                                            imageUrl: item.imageUrl?.thumb ?? "",
-                                                           price: item.price?.formatToPriceCurrency() ?? "",
-                                                           date: item.creationDate?.formatStringToDate()?.convertToString(style: .full) ?? "",
+                                                           price: item.price?.formatToPriceCurrency(currencyFormatter: currencyFormatter) ?? "",
+                                                           date: item.creationDate?.formatStringToDate(formatter: formatter)?.convertToString(style: .full) ?? "",
                                                            siret: item.siret ?? "non indiquer",
                                                            isUrgent: item.isUrgent ?? false)
         return viewModel

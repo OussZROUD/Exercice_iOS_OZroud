@@ -15,7 +15,7 @@ class ListItemViewController: UIViewController {
     private let productCollectionView: CommonCollectionView = CommonCollectionView(scrollDirection: .vertical, cell: ItemCollectionViewCell.self, identifier: Constants.CellID.productCell)
     
     // MARK: - PROPERTIES
-    internal weak var presenter: ListItemViewToPresenterProtocol?
+    weak var presenter: ListItemViewToPresenterProtocol?
     private var firstLoad: Bool = false
     private let safeArea = UILayoutGuide()
     
