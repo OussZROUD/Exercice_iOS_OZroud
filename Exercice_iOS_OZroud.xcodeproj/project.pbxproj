@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F762075625386437006DD466 /* ListItemIteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F762075525386436006DD466 /* ListItemIteractorTests.swift */; };
+		F762076025388711006DD466 /* MokeCategoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F762075F25388711006DD466 /* MokeCategoryWorker.swift */; };
+		F762076325389136006DD466 /* FakeItemWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F762076225389136006DD466 /* FakeItemWorker.swift */; };
+		F762076525389714006DD466 /* MokeItemWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F762076425389714006DD466 /* MokeItemWorker.swift */; };
+		F76207672539AAC5006DD466 /* FakeCategoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76207662539AAC5006DD466 /* FakeCategoryWorker.swift */; };
+		F76207692539AB0A006DD466 /* FakeListItemInteractorToPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76207682539AB0A006DD466 /* FakeListItemInteractorToPresenter.swift */; };
 		F772A307252BAF2F00A3F898 /* FilterListItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A306252BAF2F00A3F898 /* FilterListItemsProtocol.swift */; };
 		F772A309252BAF5500A3F898 /* FilterListItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A308252BAF5500A3F898 /* FilterListItemManager.swift */; };
 		F772A30D252BC3C300A3F898 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A30C252BC3C300A3F898 /* UIView.swift */; };
@@ -27,6 +33,7 @@
 		F772A33625371B1600A3F898 /* ItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A33525371B1600A3F898 /* ItemDTO.swift */; };
 		F772A33825371BC300A3F898 /* ImageUrlDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A33725371BC300A3F898 /* ImageUrlDTO.swift */; };
 		F772A33A25371C0300A3F898 /* CategoryItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A33925371C0300A3F898 /* CategoryItemDTO.swift */; };
+		F772A33C25373CD400A3F898 /* ListItemPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A33B25373CD400A3F898 /* ListItemPresenterTests.swift */; };
 		F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */; };
 		F7B86D89252B859D006C3ACE /* ItemRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */; };
 		F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */; };
@@ -73,6 +80,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F762075525386436006DD466 /* ListItemIteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemIteractorTests.swift; sourceTree = "<group>"; };
+		F762075F25388711006DD466 /* MokeCategoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MokeCategoryWorker.swift; sourceTree = "<group>"; };
+		F762076225389136006DD466 /* FakeItemWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeItemWorker.swift; sourceTree = "<group>"; };
+		F762076425389714006DD466 /* MokeItemWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MokeItemWorker.swift; sourceTree = "<group>"; };
+		F76207662539AAC5006DD466 /* FakeCategoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCategoryWorker.swift; sourceTree = "<group>"; };
+		F76207682539AB0A006DD466 /* FakeListItemInteractorToPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeListItemInteractorToPresenter.swift; sourceTree = "<group>"; };
 		F772A306252BAF2F00A3F898 /* FilterListItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListItemsProtocol.swift; sourceTree = "<group>"; };
 		F772A308252BAF5500A3F898 /* FilterListItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListItemManager.swift; sourceTree = "<group>"; };
 		F772A30C252BC3C300A3F898 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -93,6 +106,7 @@
 		F772A33525371B1600A3F898 /* ItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDTO.swift; sourceTree = "<group>"; };
 		F772A33725371BC300A3F898 /* ImageUrlDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUrlDTO.swift; sourceTree = "<group>"; };
 		F772A33925371C0300A3F898 /* CategoryItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemDTO.swift; sourceTree = "<group>"; };
+		F772A33B25373CD400A3F898 /* ListItemPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemPresenterTests.swift; sourceTree = "<group>"; };
 		F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D88252B859D006C3ACE /* ItemRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsProtocol.swift; sourceTree = "<group>"; };
@@ -150,6 +164,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F76207572538660E006DD466 /* ListItemIteractor */ = {
+			isa = PBXGroup;
+			children = (
+				F762076125389107006DD466 /* ItemTestUtils */,
+				F762075A25388655006DD466 /* CategoryTestUtils */,
+				F762075525386436006DD466 /* ListItemIteractorTests.swift */,
+				F76207682539AB0A006DD466 /* FakeListItemInteractorToPresenter.swift */,
+			);
+			path = ListItemIteractor;
+			sourceTree = "<group>";
+		};
+		F762075A25388655006DD466 /* CategoryTestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				F762075F25388711006DD466 /* MokeCategoryWorker.swift */,
+				F76207662539AAC5006DD466 /* FakeCategoryWorker.swift */,
+			);
+			path = CategoryTestUtils;
+			sourceTree = "<group>";
+		};
+		F762076125389107006DD466 /* ItemTestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				F762076225389136006DD466 /* FakeItemWorker.swift */,
+				F762076425389714006DD466 /* MokeItemWorker.swift */,
+			);
+			path = ItemTestUtils;
+			sourceTree = "<group>";
+		};
 		F772A305252BAF0B00A3F898 /* FilterItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,12 +350,14 @@
 		F7ECA854252B5CA300B42E74 /* Exercice_iOS_OZroudTests */ = {
 			isa = PBXGroup;
 			children = (
+				F76207572538660E006DD466 /* ListItemIteractor */,
 				F7ECA855252B5CA300B42E74 /* Exercice_iOS_OZroudTests.swift */,
 				F7ECA857252B5CA300B42E74 /* Info.plist */,
 				F772A32B252CD5AB00A3F898 /* SortItemsTests.swift */,
 				F772A32D252CF77200A3F898 /* APIRequestTest.swift */,
 				F772A32F252D396100A3F898 /* ListItemsAdapterTest.swift */,
 				F772A331252D55B600A3F898 /* SpyListItemRequestTest.swift */,
+				F772A33B25373CD400A3F898 /* ListItemPresenterTests.swift */,
 			);
 			path = Exercice_iOS_OZroudTests;
 			sourceTree = "<group>";
@@ -622,10 +667,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F762076525389714006DD466 /* MokeItemWorker.swift in Sources */,
 				F772A330252D396200A3F898 /* ListItemsAdapterTest.swift in Sources */,
+				F762075625386437006DD466 /* ListItemIteractorTests.swift in Sources */,
 				F772A32C252CD5AB00A3F898 /* SortItemsTests.swift in Sources */,
 				F772A332252D55B600A3F898 /* SpyListItemRequestTest.swift in Sources */,
+				F762076325389136006DD466 /* FakeItemWorker.swift in Sources */,
+				F762076025388711006DD466 /* MokeCategoryWorker.swift in Sources */,
+				F76207672539AAC5006DD466 /* FakeCategoryWorker.swift in Sources */,
+				F772A33C25373CD400A3F898 /* ListItemPresenterTests.swift in Sources */,
 				F7ECA856252B5CA300B42E74 /* Exercice_iOS_OZroudTests.swift in Sources */,
+				F76207692539AB0A006DD466 /* FakeListItemInteractorToPresenter.swift in Sources */,
 				F772A32E252CF77200A3F898 /* APIRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -812,7 +864,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HTUHD73989;
 				INFOPLIST_FILE = Exercice_iOS_OZroudTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -834,7 +886,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HTUHD73989;
 				INFOPLIST_FILE = Exercice_iOS_OZroudTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

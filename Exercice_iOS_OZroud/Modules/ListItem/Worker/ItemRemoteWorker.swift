@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ItemRemoteWorker {
+class ItemRemoteWorker {
     
     func getItemsFromRemote(onComplete: @escaping(Result<[ItemDTO], APIError>)-> Void) {
         

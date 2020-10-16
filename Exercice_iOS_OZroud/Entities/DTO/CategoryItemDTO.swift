@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CategoryItemDTO {
+struct CategoryItemDTO: Equatable {
     
     // MARK: PROPERTIES
     let identifier: Int
@@ -19,4 +19,8 @@ struct CategoryItemDTO {
         self.name = categoryItem.name
     }
     
+    // MARK: - EQUATABLE PROTOCOL
+    public static func == (lhs: CategoryItemDTO, rhs: CategoryItemDTO) -> Bool {
+        return lhs.identifier == rhs.identifier ? true : false
+    }    
 }

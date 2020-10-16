@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class CategoryRemoteWorker {
+class CategoryRemoteWorker {
     
     func getCategoriesFromRemote(onComplete:@escaping(Result<[CategoryItemDTO], APIError>)-> Void) {
         
