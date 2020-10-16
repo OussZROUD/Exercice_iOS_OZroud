@@ -94,7 +94,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         higherStackview.addArrangedSubview(titleLabel)
         titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor).isActive = true
         higherStackview.addArrangedSubview(categoryLabel)
-        categoryLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.6).isActive = true
+        categoryLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor).isActive = true
         // lower stackView |price + date|
         let lowerStackview = UIStackView()
         lowerStackview.axis = .vertical

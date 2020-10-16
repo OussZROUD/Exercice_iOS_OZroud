@@ -109,65 +109,47 @@ class ItemDetailsViewController: UIViewController {
 //        productImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
         
         self.scrollView.addSubview(self.stackView)
-        self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true;
+        self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 10.0).isActive = true;
         self.stackView.topAnchor.constraint(equalTo: self.productImage.bottomAnchor, constant: 15.0).isActive = true;
-        self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true;
+        self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: 10.0).isActive = true;
         self.stackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true;
         self.stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true;
-        
-//        self.stackView.addArrangedSubview(productImage)
-//        productImage.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 0.0).isActive = true
-//        productImage.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 0.0).isActive = true
-//        productImage.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: 0.0).isActive = true
-//        productImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
         self.stackView.addArrangedSubview(titleLabel)
-        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
         
         self.stackView.addArrangedSubview(titleSeparator)
         titleSeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
-        titleSeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        titleSeparator.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
         self.stackView.addArrangedSubview(priceTextLabel)
         self.stackView.addArrangedSubview(priceLabel)
-        priceTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        priceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        
+
         self.stackView.addArrangedSubview(priceSeparator)
         priceSeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         priceSeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        
+
         self.stackView.addArrangedSubview(categoryTextLabel)
         self.stackView.addArrangedSubview(categoryLabel)
-        categoryTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        categoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        
+
         self.stackView.addArrangedSubview(categorySeparator)
         categorySeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         categorySeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        
+
         self.stackView.addArrangedSubview(dateTextLabel)
         self.stackView.addArrangedSubview(dateLabel)
-        dateTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        
+
         self.stackView.addArrangedSubview(dateSeparator)
         dateSeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         dateSeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        
+
         self.stackView.addArrangedSubview(siritTextLabel)
         self.stackView.addArrangedSubview(siritLabel)
-        siritTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        siritLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        
+
         self.stackView.addArrangedSubview(siretSeparator)
         siretSeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         siretSeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        
+
         self.stackView.addArrangedSubview(descriptionTextLabel)
         self.stackView.addArrangedSubview(descriptionLabel)
-        
-        descriptionTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10.0).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10.0).isActive = true
         
         scrollView.addSubview(urgentView)

@@ -45,7 +45,5 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(categoryLabel)
         categoryLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         categoryLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        categoryLabel.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: 1.0).isActive = true
-        categoryLabel.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 1.0).isActive = true
     }
 }
