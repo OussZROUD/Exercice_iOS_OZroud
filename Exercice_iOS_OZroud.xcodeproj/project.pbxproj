@@ -13,6 +13,8 @@
 		F762076525389714006DD466 /* MokeItemWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F762076425389714006DD466 /* MokeItemWorker.swift */; };
 		F76207672539AAC5006DD466 /* FakeCategoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76207662539AAC5006DD466 /* FakeCategoryWorker.swift */; };
 		F76207692539AB0A006DD466 /* FakeListItemInteractorToPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76207682539AB0A006DD466 /* FakeListItemInteractorToPresenter.swift */; };
+		F76207752539C5EC006DD466 /* CategoryRemoteWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76207742539C5EC006DD466 /* CategoryRemoteWorkerTests.swift */; };
+		F7620777253CE45A006DD466 /* MokeAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7620776253CE45A006DD466 /* MokeAPIResponse.swift */; };
 		F772A307252BAF2F00A3F898 /* FilterListItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A306252BAF2F00A3F898 /* FilterListItemsProtocol.swift */; };
 		F772A309252BAF5500A3F898 /* FilterListItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A308252BAF5500A3F898 /* FilterListItemManager.swift */; };
 		F772A30D252BC3C300A3F898 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A30C252BC3C300A3F898 /* UIView.swift */; };
@@ -86,6 +88,8 @@
 		F762076425389714006DD466 /* MokeItemWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MokeItemWorker.swift; sourceTree = "<group>"; };
 		F76207662539AAC5006DD466 /* FakeCategoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCategoryWorker.swift; sourceTree = "<group>"; };
 		F76207682539AB0A006DD466 /* FakeListItemInteractorToPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeListItemInteractorToPresenter.swift; sourceTree = "<group>"; };
+		F76207742539C5EC006DD466 /* CategoryRemoteWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorkerTests.swift; sourceTree = "<group>"; };
+		F7620776253CE45A006DD466 /* MokeAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MokeAPIResponse.swift; sourceTree = "<group>"; };
 		F772A306252BAF2F00A3F898 /* FilterListItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListItemsProtocol.swift; sourceTree = "<group>"; };
 		F772A308252BAF5500A3F898 /* FilterListItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListItemManager.swift; sourceTree = "<group>"; };
 		F772A30C252BC3C300A3F898 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -191,6 +195,33 @@
 				F762076425389714006DD466 /* MokeItemWorker.swift */,
 			);
 			path = ItemTestUtils;
+			sourceTree = "<group>";
+		};
+		F762076A2539ACA1006DD466 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F772A32B252CD5AB00A3F898 /* SortItemsTests.swift */,
+				F772A32F252D396100A3F898 /* ListItemsAdapterTest.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F762076B2539ACBA006DD466 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F772A32D252CF77200A3F898 /* APIRequestTest.swift */,
+				F772A331252D55B600A3F898 /* SpyListItemRequestTest.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F7620778253CFE97006DD466 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				F7620776253CE45A006DD466 /* MokeAPIResponse.swift */,
+				F76207742539C5EC006DD466 /* CategoryRemoteWorkerTests.swift */,
+			);
+			path = Workers;
 			sourceTree = "<group>";
 		};
 		F772A305252BAF0B00A3F898 /* FilterItems */ = {
@@ -350,13 +381,12 @@
 		F7ECA854252B5CA300B42E74 /* Exercice_iOS_OZroudTests */ = {
 			isa = PBXGroup;
 			children = (
+				F7620778253CFE97006DD466 /* Workers */,
+				F762076B2539ACBA006DD466 /* API */,
+				F762076A2539ACA1006DD466 /* Protocols */,
 				F76207572538660E006DD466 /* ListItemIteractor */,
 				F7ECA855252B5CA300B42E74 /* Exercice_iOS_OZroudTests.swift */,
 				F7ECA857252B5CA300B42E74 /* Info.plist */,
-				F772A32B252CD5AB00A3F898 /* SortItemsTests.swift */,
-				F772A32D252CF77200A3F898 /* APIRequestTest.swift */,
-				F772A32F252D396100A3F898 /* ListItemsAdapterTest.swift */,
-				F772A331252D55B600A3F898 /* SpyListItemRequestTest.swift */,
 				F772A33B25373CD400A3F898 /* ListItemPresenterTests.swift */,
 			);
 			path = Exercice_iOS_OZroudTests;
@@ -668,8 +698,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F762076525389714006DD466 /* MokeItemWorker.swift in Sources */,
+				F76207752539C5EC006DD466 /* CategoryRemoteWorkerTests.swift in Sources */,
 				F772A330252D396200A3F898 /* ListItemsAdapterTest.swift in Sources */,
 				F762075625386437006DD466 /* ListItemIteractorTests.swift in Sources */,
+				F7620777253CE45A006DD466 /* MokeAPIResponse.swift in Sources */,
 				F772A32C252CD5AB00A3F898 /* SortItemsTests.swift in Sources */,
 				F772A332252D55B600A3F898 /* SpyListItemRequestTest.swift in Sources */,
 				F762076325389136006DD466 /* FakeItemWorker.swift in Sources */,
