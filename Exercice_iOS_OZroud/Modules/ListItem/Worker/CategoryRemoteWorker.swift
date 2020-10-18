@@ -29,7 +29,7 @@ class CategoryRemoteWorker {
         }
     }
     
-    func treatResponse(response: Result<[CategoryItem], APIError>) -> Result<[CategoryItemDTO], APIError>{
+    func treatResponse(response: Result<[CategoryItem], APIError>) -> Result<[CategoryItemDTO], APIError> {
         switch response {
         case .success(let data):
             categories = data

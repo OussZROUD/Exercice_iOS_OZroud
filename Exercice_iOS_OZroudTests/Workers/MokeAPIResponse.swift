@@ -9,11 +9,11 @@
 import Foundation
 @testable import Exercice_iOS_OZroud
 
-struct MokeAPIResponse {
+struct MokeCategoryAPIResponse {
     static let categoryErrorResultDataFailed: Result<[CategoryItem], APIError> = Result.failure(.dataFailed)
     static let categoryErrorResultParsingError: Result<[CategoryItem], APIError> = Result.failure(.parsingError)
     static let categoryErrorResultInvalidURL: Result<[CategoryItem], APIError> = Result.failure(.invalidURL(url: "testURL"))
-    static let categorySuccessResult: Result<[CategoryItem], APIError> = Result.success(MokeAPIResponse.categories)
+    static let categorySuccessResult: Result<[CategoryItem], APIError> = Result.success(MokeCategoryAPIResponse.categories)
     
     static let categories = [ CategoryItem(identifier: 5, name: "category1"),
                               CategoryItem(identifier: 3, name: "category2"),
