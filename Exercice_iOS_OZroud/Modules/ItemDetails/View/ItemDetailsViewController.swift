@@ -71,7 +71,7 @@ class ItemDetailsViewController: UIViewController {
     private let safeArea = UILayoutGuide()
     
     // MARK: - PROPERTIES
-    weak var presenter: ItemDetailsViewToPresenterProtocol?
+    var presenter: ItemDetailsViewToPresenterProtocol?
     
     // MARK: - INITIALIZER
     override func viewDidLoad() {

@@ -11,18 +11,20 @@ import Foundation
 class ItemDetailsPresenter {
     
     // MARK: - PROPERTIES
-    weak var view: ItemDetailsPresenterToViewProtocol?
-    weak var router: ItemDetailsPresenterToRouterProtocol?
-    var interactor: ItemDetailsPresenterToInteractorProtocol?
-    private let adapterProtocol: ItemDetailsAdapterProtocol
-    private var item: Item
-    private var category: CategoryItem
+    weak var view: ItemDetailsViewController?
+    let interactor: ItemDetailsPresenterToInteractorProtocol
+    let router: ItemDetailsRouter
+    
+    var adapterProtocol: ItemDetailsAdapterProtocol?
+    var item: Item
+    var category: CategoryItem
     
     // MARK: - INITIALIZER
-    init(item: Item, category: CategoryItem, adapterProtocol: ItemDetailsAdapterProtocol = ItemDetailsAdapterManager()) {
+    init(item: Item, category: CategoryItem,interactor:ItemDetailsPresenterToInteractorProtocol , router:ItemDetailsRouter) {
         self.item = item
         self.category = category
-        self.adapterProtocol = adapterProtocol
+        self.interactor = interactor
+        self.router = router
     }
 }
 
@@ -30,8 +32,8 @@ class ItemDetailsPresenter {
 extension ItemDetailsPresenter: ItemDetailsViewToPresenterProtocol {
     
     func getItemDetails() {
-        let adaptedItemDetail = adapterProtocol.adapteItemDetails(item: item, category: category)
-        view?.getItemDetailsResponse(item: adaptedItemDetail)
+        let adaptedItemDetail = adapterProtocol?.adapteItemDetails(item: item, category: category)
+        view?.getItemDetailsResponse(item: adaptedItemDetail!)
     }
 }
 

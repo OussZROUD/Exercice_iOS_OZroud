@@ -10,9 +10,6 @@ import UIKit
 
 // MARK: - VIEW -> PRESENTER
 protocol ItemDetailsViewToPresenterProtocol: AnyObject {
-    var view: ItemDetailsPresenterToViewProtocol? { get set }
-    var interactor: ItemDetailsPresenterToInteractorProtocol? { get set }
-    var router: ItemDetailsPresenterToRouterProtocol? { get set }
     func getItemDetails()
 }
 

@@ -8,20 +8,35 @@
 
 import UIKit
 
-class ItemDetailsRouter: ItemDetailsPresenterToRouterProtocol {
+class ItemDetailsRouter: Router {
     
-    static func createModule(with item: Item, category: CategoryItem) -> UIViewController {
-        
-        let viewController = ItemDetailsViewController()
-        
-        let presenter: ItemDetailsViewToPresenterProtocol & ItemDetailsInteractorToPresenterProtocol = ItemDetailsPresenter(item: item, category: category)
-        
-        viewController.presenter = presenter
-        viewController.presenter?.router = ItemDetailsRouter()
-        viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = ItemDetailsInteractor()
-        viewController.presenter?.interactor?.presenter = presenter
-        
-        return viewController
+    deinit {
+        debugPrint(String(describing: self), "deinit")
     }
+    
+    var item: Item
+    var category: CategoryItem
+    
+    init(item:Item, category: CategoryItem) {
+        self.item = item
+        self.category = category
+
+    }
+    
+    var viewController: UIViewController {
+        
+        let view = ItemDetailsViewController()
+        let interactor = ItemDetailsInteractor()
+        let adapterManager = ItemDetailsAdapterManager()
+        let presenter = ItemDetailsPresenter(item: item, category: category, interactor: interactor, router: self)
+
+        presenter.adapterProtocol = adapterManager
+        presenter.view = view
+        view.presenter = presenter
+        interactor.presenter = presenter
+
+        return view
+    }
+
+    
 }
