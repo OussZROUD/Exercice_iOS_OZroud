@@ -7,41 +7,37 @@
 //
 
 import Foundation
+import UIKit
 
 class ItemRemoteWorker {
-    
-//    var items: [Item]?
-//    var itemsDTO: [ItemDTO]?
-//    var error: APIError?
     
     func getItemsFromRemote(onComplete: @escaping(Result<[Item], APIError>)-> Void) {
         
         ListItemRequest.get.executeRequest(type: [ItemDTO].self) { (response) in
+            let response = self.treatResponse(response: response)
             switch response {
-            case .success(let itemsDTO):
-                let items =  itemsDTO.map { (itemDTO) -> Item in
-                    return Item(itemDTO: itemDTO)
-                }
-                onComplete(.success(items))
+                
+            case .success(let data):
+                debugPrint(data)
+                onComplete(.success(data))
+                
             case .failure(let error):
                 onComplete(.failure(error))
             }
         }
     }
     
-//    func treatResponse(response: Result<[Item], APIError>) -> Result<[ItemDTO], APIError> {
-//        switch response {
-//        case .success(let items):
-//            self.items = items
-//            let dataDTO =  items.map { (item) -> ItemDTO in
-//                return ItemDTO(item: item)
-//            }
-//            self.itemsDTO = dataDTO
-//            return .success(dataDTO)
-//            
-//        case .failure(let error):
-//            self.error = error
-//            return .failure(error)
-//        }
-//    }
+    private func treatResponse(response: Result<[ItemDTO], APIError>) -> Result<[Item], APIError> {
+        switch response {
+            
+        case .success(let data):
+            let data = data.map {(itemDTO) -> Item in
+                return Item(itemDTO: itemDTO)
+            }
+            return .success(data)
+            
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
 }

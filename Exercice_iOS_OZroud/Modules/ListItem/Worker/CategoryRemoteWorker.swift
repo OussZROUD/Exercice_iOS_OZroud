@@ -10,20 +10,19 @@ import Foundation
 
 class CategoryRemoteWorker {
     
-//    var categories: [CategoryItem]?
-//    var error: APIError?
-    
     func getCategoriesFromRemote(onComplete:@escaping(Result<[CategoryItem], APIError>)-> Void) {
-        
         ListCategoryRequest.get.executeRequest(type: [CategoryItemDTO].self) { [weak self](response) in
             let response = self?.treatResponse(response: response)
             switch response {
+                
             case .success(let data):
                 onComplete(.success(data))
                 return
+                
             case .failure(let error):
                 onComplete(.failure(error))
                 return
+                
             case .none:
                 onComplete(.failure(.dataFailed))
                 return
@@ -31,10 +30,10 @@ class CategoryRemoteWorker {
         }
     }
     
-    func treatResponse(response: Result<[CategoryItemDTO], APIError>) -> Result<[CategoryItem], APIError> {
+    private func treatResponse(response: Result<[CategoryItemDTO], APIError>) -> Result<[CategoryItem], APIError> {
         switch response {
+            
         case .success(let data):
-//            categories = data
             let data = data.map { (categoryDTO) -> CategoryItem in
                 return CategoryItem(categoryItemDTO: categoryDTO)
             }
@@ -44,4 +43,5 @@ class CategoryRemoteWorker {
             return .failure(error)
         }
     }
+    
 }

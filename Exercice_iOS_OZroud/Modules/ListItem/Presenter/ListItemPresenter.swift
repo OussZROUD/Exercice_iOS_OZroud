@@ -8,37 +8,38 @@
 
 import Foundation
 
-class ListItemPresenter {
+class ListItemPresenter: ListItemViewToPresenterProtocol, ListItemInteractorToPresenterProtocol {
     
     // MARK: - PROPERTIES
-    weak var view: ListItemPresenterToViewProtocol?
-    var router: ListItemPresenterToRouterProtocol?
-    var interactor: ListItemPresenterToInteractorProtocol?
+    var adapterProtocol: ListItemsAdapterProtocol?
+    var filterProtocol: FilterListItemsProtocol?
+    weak var view: ListItemViewController?
+    private let interactor: ListItemPresenterToInteractorProtocol
+    private let router: ListItemRouter
     private var categories: [CategoryItem] = []
     private var items: [ItemCollectionViewCell.ViewModel] = []
     private var sortedAllItems: [Item] = []
-    private let adapterProtocol: ListItemsAdapterProtocol
     private var adapteeItems: [ItemCollectionViewCell.ViewModel] = []
-    private let filterProtocol: FilterListItemsProtocol
+    
     
     // MARK: - INITIALIZER
-    init(adapterProtocol: ListItemsAdapterProtocol = ListItemsAdapterManager(),filterProtocol: FilterListItemsProtocol = FilterListItemManager()){
-        self.adapterProtocol = adapterProtocol
-        self.filterProtocol = filterProtocol
+    init(interactor: ListItemPresenterToInteractorProtocol, router:ListItemRouter) {
+        self.interactor = interactor
+        self.router = router
     }
-}
-
-// MARK: - VIEW -> PRESENTER
-extension ListItemPresenter: ListItemViewToPresenterProtocol {
     
+    deinit {
+        debugPrint(String(describing: self), "deinit")
+    }
+    
+    
+    // MARK: - VIEW -> PRESENTER ListItemViewToPresenterProtocol
     func fetchListCategory() {
-        self.categories = []
-        interactor?.getListCategory()
+        interactor.getListCategory()
     }
     
     func fetchListItem() {
-        self.items = []
-        interactor?.getListItem()
+        interactor.getListItem()
     }
     
     func categoryNumberOfItemsInSection() -> Int {
@@ -62,6 +63,7 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
             items = adapteeItems
             view?.filterListItemSuccessResponse()
         } else {
+            guard let filterProtocol = filterProtocol else { return }
             items = filterProtocol.filterItems(itemsTofilter: adapteeItems, categoryID: categories[index].identifier)
             view?.filterListItemSuccessResponse()
         }
@@ -69,22 +71,25 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
     
     func navigateToItemDetails(index: Int) {
         let item = sortedAllItems.filter { $0.identifier == items[index].identifier}.first
-        router?.pushToItemDetails(on: view!, with: item!, category: items[index].category)
+        guard let item = item, let view = view else { return }
+        router.pushToItemDetails(on: view, with: item, category: items[index].category)
     }
-}
-
-// MARK: - PRESENTER -> VIEW
-extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     
+    
+    // MARK: - ListItemInteractorToPresenterProtocol
     // categories response
     func getCategoriesResponse(response: Result<[CategoryItem], APIError>) {
         switch response {
+            
         case .success(let categoryList):
+            
             debugPrint("list category success")
             self.categories = [ CategoryItem(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)] + categoryList
             view?.fetchListCategorySucessResponse()
             return
+            
         case .failure(let error):
+            
             debugPrint(error.message)
             view?.fetchListCategoryFailure(error: error.message)
             return
@@ -94,15 +99,21 @@ extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     // items response
     func getItemsResponse(response: Result<[Item], APIError>) {
         switch response {
+            
         case .success(let itemList):
+            
             debugPrint("list item success")
-            adapteeItems = adapterProtocol.adapteItems(items: itemList.sorted(), categories: categories)
+            sortedAllItems = itemList.sorted()
+            guard let adapterProtocol = adapterProtocol else { return }
+            adapteeItems = adapterProtocol.adapteItems(items: sortedAllItems, categories: categories)
             self.items = adapteeItems
             view?.fetchListItemSuccessResponse()
+            
         case .failure(let error):
+            
             debugPrint(error.message)
             view?.fetchListItemFailureResponse()
         }
     }
-
+    
 }

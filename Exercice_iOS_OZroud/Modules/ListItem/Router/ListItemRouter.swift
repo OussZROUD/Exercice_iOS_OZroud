@@ -8,29 +8,36 @@
 
 import UIKit
 
+protocol Router {
+    var viewController: UIViewController { get }
+}
 
-class ListItemRouter: ListItemPresenterToRouterProtocol {
-   
-    // MARK: - CREATE MODULE
-    class func createModule() -> UINavigationController {
-        
-        let viewController = ListItemViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        let presenter: ListItemViewToPresenterProtocol & ListItemInteractorToPresenterProtocol = ListItemPresenter()
-        viewController.presenter = presenter
-        viewController.presenter?.router = ListItemRouter()
-        viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = ListItemInteractor()
-        viewController.presenter?.interactor?.presenter = presenter
-        
+class ListItemRouter: Router {
+    
+    var viewController: UIViewController {
+        let view = ListItemViewController()
+        let interactor = ListItemInteractor()
+        let adapterManager = ListItemsAdapterManager()
+        let filterManager = FilterListItemManager()
+        let presenter = ListItemPresenter(interactor: interactor, router: self)
+        let navigationController = UINavigationController(rootViewController: view)
+        presenter.adapterProtocol = adapterManager
+        presenter.filterProtocol = filterManager
+        presenter.view = view
+        view.presenter = presenter
+        interactor.presenter = presenter
         return navigationController
     }
     
+    deinit {
+        debugPrint(String(describing: self), "deinit")
+    }
+    
+    
     // MARK: - NAVIGATION
-    func pushToItemDetails(on view: ListItemPresenterToViewProtocol, with item: Item, category: CategoryItem) {
-           let itemDetailsViewController = ItemDetailsRouter.createModule(with: item, category: category)
-               
-           let viewController = view as! ListItemViewController
-           viewController.navigationController?.pushViewController(itemDetailsViewController, animated: true)
-       }
+    func pushToItemDetails(on view: UIViewController, with item: Item, category: CategoryItem) {
+        let detailRouter = ItemDetailsRouter(item: item, category: category)
+        view.navigationController?.pushViewController(detailRouter.viewController, animated: true)
+    }
+    
 }

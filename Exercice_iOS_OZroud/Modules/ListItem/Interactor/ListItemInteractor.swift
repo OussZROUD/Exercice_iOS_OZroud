@@ -11,18 +11,22 @@ import Foundation
 class ListItemInteractor {
     
     // MARK: - PROPERTIES
-    var presenter: ListItemInteractorToPresenterProtocol?
-    private var categoryRemoteWorker: CategoryRemoteWorker?
-    private var itemRemoteWorker: ItemRemoteWorker?
-//    var categories: [CategoryItem]?
-//    var items: [Item]?
+    weak var presenter: ListItemInteractorToPresenterProtocol?
+    private let categoryRemoteWorker: CategoryRemoteWorker?
+    private let itemRemoteWorker: ItemRemoteWorker?
+    
     
     // MARK: - INITIALIZER
     init(categoryWorker:CategoryRemoteWorker = CategoryRemoteWorker(), itemWorker: ItemRemoteWorker = ItemRemoteWorker()){
         categoryRemoteWorker = categoryWorker
         itemRemoteWorker = itemWorker
     }
+    
+    deinit {
+        debugPrint(String(describing: self), "deinit")
+    }
 }
+
 
 // MARK: - PRESENTER -> INTERACTOR METHODS
 extension ListItemInteractor: ListItemPresenterToInteractorProtocol {
@@ -36,7 +40,7 @@ extension ListItemInteractor: ListItemPresenterToInteractorProtocol {
     func getListItem() {
         itemRemoteWorker?.getItemsFromRemote(onComplete: { [weak self] (itemResponse) in
             self?.presenter?.getItemsResponse(response: itemResponse)
-
+            
         })
     }
 }

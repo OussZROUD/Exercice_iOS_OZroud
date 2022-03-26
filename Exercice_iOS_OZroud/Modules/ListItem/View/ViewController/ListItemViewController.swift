@@ -14,10 +14,12 @@ class ListItemViewController: UIViewController {
     private let categoryCollectionView: CommonCollectionView = CommonCollectionView(scrollDirection: .horizontal, cell: CategoryCollectionViewCell.self, identifier: Constants.CellID.categoryCell)
     private let productCollectionView: CommonCollectionView = CommonCollectionView(scrollDirection: .vertical, cell: ItemCollectionViewCell.self, identifier: Constants.CellID.productCell)
     
+    
     // MARK: - PROPERTIES
-    weak var presenter: ListItemViewToPresenterProtocol?
+    var presenter: ListItemViewToPresenterProtocol?
     private var firstLoad: Bool = false
     private let safeArea = UILayoutGuide()
+    
     
     // MARK: - VIEW CONTROLLER LIFE CYCLE
     override func loadView() {
@@ -43,6 +45,10 @@ class ListItemViewController: UIViewController {
         super.viewWillLayoutSubviews()
     }
     
+    deinit {
+        debugPrint(String(describing: self), "deinit")
+    }
+    
     // MARK: - PRIVATE METHODS
     private func setupNavigationBar() {
         navigationItem.title = Constants.ViewControllerTitle.listItem
@@ -50,10 +56,16 @@ class ListItemViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(fetchAllData))
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = .orange
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .orange
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.standardAppearance = appearance;
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+
     }
     
-    private func setupSafeArea(){
+    private func setupSafeArea() {
         safeArea.identifier = Constants.ListItem.SafeArea.identifier
         self.view.addLayoutGuide(safeArea)
         safeArea.widthAnchor.constraint(equalTo: view.widthAnchor, constant: Constants.ListItem.SafeArea.widthConstant).isActive = true
@@ -62,7 +74,7 @@ class ListItemViewController: UIViewController {
         safeArea.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
-    private func setupCategoryCollectionView(){
+    private func setupCategoryCollectionView() {
         view.addSubview(categoryCollectionView)
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -73,7 +85,7 @@ class ListItemViewController: UIViewController {
         categoryCollectionView.heightAnchor.constraint(equalToConstant: 75.0).isActive = true
     }
     
-    private func setupProductCollectionView(){
+    private func setupProductCollectionView() {
         
         view.addSubview(productCollectionView)
         productCollectionView.delegate = self

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FilterListItemsProtocol {
+protocol FilterListItemsProtocol: AnyObject {
     
     func filterItems(itemsTofilter: [ItemCollectionViewCell.ViewModel], categoryID: Int ) -> [ItemCollectionViewCell.ViewModel]
 }

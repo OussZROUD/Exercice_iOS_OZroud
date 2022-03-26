@@ -22,9 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.backgroundColor = .groupTableViewBackground
-        window?.rootViewController = ListItemRouter.createModule()
+        window?.backgroundColor = .systemGroupedBackground
+        let listRouter = ListItemRouter()
+        window?.rootViewController = listRouter.viewController
         window?.makeKeyAndVisible()
+        
+        return
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
