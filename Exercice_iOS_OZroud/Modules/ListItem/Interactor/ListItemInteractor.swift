@@ -14,8 +14,8 @@ class ListItemInteractor {
     var presenter: ListItemInteractorToPresenterProtocol?
     private var categoryRemoteWorker: CategoryRemoteWorker?
     private var itemRemoteWorker: ItemRemoteWorker?
-    var categories: [CategoryItemDTO]?
-    var items: [ItemDTO]?
+//    var categories: [CategoryItem]?
+//    var items: [Item]?
     
     // MARK: - INITIALIZER
     init(categoryWorker:CategoryRemoteWorker = CategoryRemoteWorker(), itemWorker: ItemRemoteWorker = ItemRemoteWorker()){
@@ -29,30 +29,14 @@ extension ListItemInteractor: ListItemPresenterToInteractorProtocol {
     
     func getListCategory() {
         categoryRemoteWorker?.getCategoriesFromRemote(onComplete: { [weak self] (categoryResponse) in
-            switch categoryResponse {
-            case .success(let data):
-                self?.categories = data
-                self?.presenter?.getListCategorySuccessResponse(categories: data)
-                return
-            case .failure(let error):
-                self?.presenter?.getListCategoryFailureResponse(error: error)
-                return
-            }
+            self?.presenter?.getCategoriesResponse(response: categoryResponse)
         })
     }
     
     func getListItem() {
         itemRemoteWorker?.getItemsFromRemote(onComplete: { [weak self] (itemResponse) in
-            
-            switch itemResponse {
-            case .success(let data):
-                self?.items = data
-                self?.presenter?.getListItemSuccessResponse(items: data)
-                return
-            case .failure(let error):
-                self?.presenter?.getListItemFailureResponse(error: error)
-                return
-            }
+            self?.presenter?.getItemsResponse(response: itemResponse)
+
         })
     }
 }

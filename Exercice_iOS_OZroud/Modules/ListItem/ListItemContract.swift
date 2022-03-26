@@ -34,22 +34,20 @@ protocol ListItemPresenterToViewProtocol: AnyObject {
 }
 
 // MARK: - PRESENTER -> INTERACTOR
-protocol ListItemPresenterToInteractorProtocol: class {
+protocol ListItemPresenterToInteractorProtocol: AnyObject {
     var presenter: ListItemInteractorToPresenterProtocol? { get set }
     func getListCategory()
     func getListItem()
 }
 
 // MARK: - INTERACTOR -> PRESENTER
-protocol ListItemInteractorToPresenterProtocol: class {
-    func getListCategorySuccessResponse(categories:[CategoryItemDTO])
-    func getListCategoryFailureResponse(error:APIError)
-    func getListItemSuccessResponse(items: [ItemDTO])
-    func getListItemFailureResponse(error:APIError)
+protocol ListItemInteractorToPresenterProtocol: AnyObject {
+    func getCategoriesResponse(response: Result<[CategoryItem], APIError>)
+    func getItemsResponse(response: Result<[Item], APIError>)
 }
 
 // MARK: - PRESENTER -> ROUTER
-protocol ListItemPresenterToRouterProtocol: class {
+protocol ListItemPresenterToRouterProtocol: AnyObject {
     static func createModule() -> UINavigationController
-    func pushToItemDetails(on view: ListItemPresenterToViewProtocol, with item: ItemDTO, category: CategoryItemDTO)
+    func pushToItemDetails(on view: ListItemPresenterToViewProtocol, with item: Item, category: CategoryItem)
 }

@@ -76,27 +76,33 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
 // MARK: - PRESENTER -> VIEW
 extension ListItemPresenter: ListItemInteractorToPresenterProtocol {
     
-    func getListCategorySuccessResponse(categories: [CategoryItemDTO]) {
-        debugPrint("list category success")
-        self.categories = [CategoryItemDTO(categoryItem: CategoryItem(identifier:  Constants.CategoryAll.identifier, name: Constants.CategoryAll.name))] + categories
-        view?.fetchListCategorySucessResponse()
+    // categories response
+    func getCategoriesResponse(response: Result<[CategoryItem], APIError>) {
+        switch response {
+        case .success(let categoryList):
+            debugPrint("list category success")
+            self.categories = [ CategoryItem(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)] + categoryList
+            view?.fetchListCategorySucessResponse()
+            return
+        case .failure(let error):
+            debugPrint(error.message)
+            view?.fetchListCategoryFailure(error: error.message)
+            return
+        }
     }
     
-    func getListCategoryFailureResponse(error: APIError) {
-        debugPrint(error.message)
-        view?.fetchListCategoryFailure(error: error.message)
+    // items response
+    func getItemsResponse(response: Result<[Item], APIError>) {
+        switch response {
+        case .success(let itemList):
+            debugPrint("list item success")
+            adapteeItems = adapterProtocol.adapteItems(items: itemList.sorted(), categories: categories)
+            self.items = adapteeItems
+            view?.fetchListItemSuccessResponse()
+        case .failure(let error):
+            debugPrint(error.message)
+            view?.fetchListItemFailureResponse()
+        }
     }
-    
-    func getListItemSuccessResponse(items: [ItemDTO]) {
-        debugPrint("list item success")
-        SortedAllItems = sortProtocol.sort(items: items)
-        adapteeItems = adapterProtocol.adapteItems(items: SortedAllItems, categories: categories)
-        self.items = adapteeItems
-        view?.fetchListItemSuccessResponse()
-    }
-    
-    func getListItemFailureResponse(error: APIError) {
-        debugPrint(error.message)
-        view?.fetchListItemFailureResponse()
-    }
+
 }
