@@ -12,14 +12,14 @@ protocol Router {
     var viewController: UIViewController { get }
 }
 
-class ListItemRouter: Router {
+class ProductListRouter: Router,ProductListNavigationProtocol {
     
     var viewController: UIViewController {
-        let view = ListItemViewController()
-        let interactor = ListItemInteractor()
+        let view = ProductListViewController()
+        let interactor = ProductListInteractor()
         let adapterManager = ListItemsAdapterManager()
         let filterManager = FilterListItemManager()
-        let presenter = ListItemPresenter(interactor: interactor, router: self)
+        let presenter = ProductListPresenter(interactor: interactor, router: self)
         let navigationController = UINavigationController(rootViewController: view)
         presenter.adapterProtocol = adapterManager
         presenter.filterProtocol = filterManager
@@ -34,8 +34,8 @@ class ListItemRouter: Router {
     }
     
     
-    // MARK: - NAVIGATION
-    func pushToItemDetails(on view: UIViewController, with item: Item, category: CategoryItem) {
+    // MARK: - NAVIGATION ListItemPresenterToRouterProtocol
+    func goToProductDetails(on view: UIViewController, with item: Item, category: CategoryItem) {
         let detailRouter = ItemDetailsRouter(item: item, category: category)
         view.navigationController?.pushViewController(detailRouter.viewController, animated: true)
     }

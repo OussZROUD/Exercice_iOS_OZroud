@@ -107,7 +107,6 @@ class ItemDetailsViewController: UIViewController {
         productImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0.0).isActive = true
         productImage.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0.0).isActive = true
         productImage.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0.0).isActive = true
-//        productImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
         
         self.scrollView.addSubview(self.stackView)
         self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 10.0).isActive = true;

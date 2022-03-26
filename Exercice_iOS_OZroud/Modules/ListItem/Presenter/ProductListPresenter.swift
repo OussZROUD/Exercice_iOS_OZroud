@@ -8,22 +8,22 @@
 
 import Foundation
 
-class ListItemPresenter: ListItemViewToPresenterProtocol, ListItemInteractorToPresenterProtocol {
+class ProductListPresenter: ProductListPresenterInputProtocol, ProductListInteractorOutputProtocol {
     
     // MARK: - PROPERTIES
     var adapterProtocol: ListItemsAdapterProtocol?
     var filterProtocol: FilterListItemsProtocol?
-    weak var view: ListItemViewController?
-    private let interactor: ListItemPresenterToInteractorProtocol
-    private let router: ListItemRouter
+    weak var view: ProductListViewController?
+    private let interactor: ProductListInteractorInputProtocol
+    private let router: ProductListNavigationProtocol
     private var categories: [CategoryItem] = []
-    private var items: [ItemCollectionViewCell.ViewModel] = []
+    private var products: [ItemCollectionViewCell.ViewModel] = []
     private var sortedAllItems: [Item] = []
     private var adapteeItems: [ItemCollectionViewCell.ViewModel] = []
     
     
     // MARK: - INITIALIZER
-    init(interactor: ListItemPresenterToInteractorProtocol, router:ListItemRouter) {
+    init(interactor: ProductListInteractorInputProtocol, router:ProductListRouter) {
         self.interactor = interactor
         self.router = router
     }
@@ -34,45 +34,45 @@ class ListItemPresenter: ListItemViewToPresenterProtocol, ListItemInteractorToPr
     
     
     // MARK: - VIEW -> PRESENTER ListItemViewToPresenterProtocol
-    func fetchListCategory() {
-        interactor.getListCategory()
+    func getCategories() {
+        interactor.fetchCategories()
     }
     
-    func fetchListItem() {
-        interactor.getListItem()
+    func getProducts() {
+        interactor.fetchProducts()
     }
     
-    func categoryNumberOfItemsInSection() -> Int {
+    func getCategoriesNumber() -> Int {
         return categories.count
     }
     
-    func itemNumberOfItemsInSection() -> Int {
-        return items.count
+    func getProductsNumber() -> Int {
+        return products.count
     }
     
-    func populateItemsCollection() -> [ItemCollectionViewCell.ViewModel] {
-        return self.items
+    func populateProductCollection() -> [ItemCollectionViewCell.ViewModel] {
+        return self.products
     }
     
     func populateCategoryCollection() -> [CategoryItem] {
         return self.categories
     }
     
-    func filterListItem(index: Int) {
+    func getProductsWithCategoryAt(index: Int) {
         if categories[index].identifier == 0 {
-            items = adapteeItems
-            view?.filterListItemSuccessResponse()
+            products = adapteeItems
         } else {
             guard let filterProtocol = filterProtocol else { return }
-            items = filterProtocol.filterItems(itemsTofilter: adapteeItems, categoryID: categories[index].identifier)
-            view?.filterListItemSuccessResponse()
+            products = filterProtocol.filterItems(itemsTofilter: adapteeItems, categoryID: categories[index].identifier)
         }
+        view?.showProducts()
     }
     
-    func navigateToItemDetails(index: Int) {
-        let item = sortedAllItems.filter { $0.identifier == items[index].identifier}.first
+    func goToProductWith(index: Int) {
+        let item = sortedAllItems.filter { $0.identifier == products[index].identifier}.first
         guard let item = item, let view = view else { return }
-        router.pushToItemDetails(on: view, with: item, category: items[index].category)
+//        router.pushToItemDetails(on: view, with: item, category: items[index].category)
+        router.goToProductDetails(on: view, with: item, category: products[index].category)
     }
     
     
@@ -85,19 +85,19 @@ class ListItemPresenter: ListItemViewToPresenterProtocol, ListItemInteractorToPr
             
             debugPrint("list category success")
             self.categories = [ CategoryItem(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)] + categoryList
-            view?.fetchListCategorySucessResponse()
+            view?.showCategories()
             return
             
         case .failure(let error):
             
             debugPrint(error.message)
-            view?.fetchListCategoryFailure(error: error.message)
+            view?.showFailureWith(error: error.message)
             return
         }
     }
     
     // items response
-    func getItemsResponse(response: Result<[Item], APIError>) {
+    func getProductsResponse(response: Result<[Item], APIError>) {
         switch response {
             
         case .success(let itemList):
@@ -106,13 +106,13 @@ class ListItemPresenter: ListItemViewToPresenterProtocol, ListItemInteractorToPr
             sortedAllItems = itemList.sorted()
             guard let adapterProtocol = adapterProtocol else { return }
             adapteeItems = adapterProtocol.adapteItems(items: sortedAllItems, categories: categories)
-            self.items = adapteeItems
-            view?.fetchListItemSuccessResponse()
+            self.products = adapteeItems
+            view?.showProducts()
             
         case .failure(let error):
             
             debugPrint(error.message)
-            view?.fetchListItemFailureResponse()
+            view?.showFailureWith(error: error.message)
         }
     }
     

@@ -9,39 +9,37 @@
 import UIKit
 
 // MARK: - VIEW -> PRESENTER || ListPresenterInput
-protocol ListItemViewToPresenterProtocol: AnyObject {
-    func fetchListCategory() // getCategories
-    func categoryNumberOfItemsInSection() -> Int // getCategoriesNumber
-    func populateCategoryCollection() -> [CategoryItem] //populateCategoryCollection
-    func fetchListItem()// getProducts
-    func itemNumberOfItemsInSection() -> Int // getProductsNumber
-    func populateItemsCollection() -> [ItemCollectionViewCell.ViewModel] //populatecProductCollection
-    func filterListItem(index: Int)// getProductsWithCategoryIndex
-    func navigateToItemDetails(index: Int)//goToProductDetail
+protocol ProductListPresenterInputProtocol: AnyObject {
+    func getCategories()
+    func getCategoriesNumber() -> Int
+    func populateCategoryCollection() -> [CategoryItem]
+    func getProducts()
+    func getProductsNumber() -> Int
+    func populateProductCollection() -> [ItemCollectionViewCell.ViewModel]
+    func getProductsWithCategoryAt(index: Int)
+    func goToProductWith(index: Int)
 }
 
 // MARK: - PRESENTER -> VIEW || ListPresenter Output -> View
-protocol ListItemPresenterToViewProtocol: AnyObject {
-    func fetchListCategorySucessResponse()//showCategories
-    func fetchListCategoryFailure(error:String)// showError
-    func fetchListItemSuccessResponse()// showProducts
-    func fetchListItemFailureResponse()// showError
-    func filterListItemSuccessResponse() // showProducts
+protocol ProductListPresenterOutputProtocol: AnyObject {
+    func showCategories()
+    func showProducts()
+    func showFailureWith(error:String)
 }
 
 // MARK: - PRESENTER -> INTERACTOR || ListInteractor Input
-protocol ListItemPresenterToInteractorProtocol: AnyObject {
-    func getListCategory()//fetchCategories
-    func getListItem()// fetchProducts
+protocol ProductListInteractorInputProtocol: AnyObject {
+    func fetchCategories()
+    func fetchProducts()
 }
 
 // MARK: - INTERACTOR -> PRESENTER || ListInteractor output
-protocol ListItemInteractorToPresenterProtocol: AnyObject {
+protocol ProductListInteractorOutputProtocol: AnyObject {
     func getCategoriesResponse(response: Result<[CategoryItem], APIError>)
-    func getItemsResponse(response: Result<[Item], APIError>)//getProductsResponse
+    func getProductsResponse(response: Result<[Item], APIError>)
 }
 
 // MARK: - PRESENTER -> ROUTER
-protocol ListItemPresenterToRouterProtocol: AnyObject {
-    func pushToItemDetails(on view: UIViewController, with item: Item, category: CategoryItem)//
+protocol ProductListNavigationProtocol: AnyObject {
+    func goToProductDetails(on view: UIViewController, with item: Item, category: CategoryItem)
 }

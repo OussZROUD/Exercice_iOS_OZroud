@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.backgroundColor = .systemGroupedBackground
-        let listRouter = ListItemRouter()
+        let listRouter = ProductListRouter()
         window?.rootViewController = listRouter.viewController
         window?.makeKeyAndVisible()
         

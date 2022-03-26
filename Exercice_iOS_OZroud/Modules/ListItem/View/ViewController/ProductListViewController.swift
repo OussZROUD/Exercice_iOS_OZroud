@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ListItemViewController: UIViewController {
+
+class ProductListViewController: UIViewController, ProductListPresenterOutputProtocol {
     
     // MARK: - UI
     private let categoryCollectionView: CommonCollectionView = CommonCollectionView(scrollDirection: .horizontal, cell: CategoryCollectionViewCell.self, identifier: Constants.CellID.categoryCell)
@@ -16,7 +17,7 @@ class ListItemViewController: UIViewController {
     
     
     // MARK: - PROPERTIES
-    var presenter: ListItemViewToPresenterProtocol?
+    var presenter: ProductListPresenterInputProtocol?
     private var firstLoad: Bool = false
     private let safeArea = UILayoutGuide()
     
@@ -32,7 +33,7 @@ class ListItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchAllData()
+        getAllData()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -53,7 +54,7 @@ class ListItemViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = Constants.ViewControllerTitle.listItem
         navigationItem.backBarButtonItem = UIBarButtonItem(title: Constants.Buttons.navBarBackButton, style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(fetchAllData))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getAllData))
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = .orange
         let appearance = UINavigationBarAppearance()
@@ -96,7 +97,7 @@ class ListItemViewController: UIViewController {
         productCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height - 140.0).isActive = true
     }
     
-    private func reloadItemsCollection() {
+    private func reloadProductCollection() {
         DispatchQueue.main.async { [weak self] in
             self?.productCollectionView.reloadData()
             self?.productCollectionView.setContentOffset(CGPoint.zero, animated: true)
@@ -104,7 +105,7 @@ class ListItemViewController: UIViewController {
         }
     }
     
-    private func reloadCategoriesCollection() {
+    private func reloadCategoryCollection() {
         DispatchQueue.main.async { [weak self] in
             self?.categoryCollectionView.reloadData()
             if self?.firstLoad ?? false {
@@ -115,49 +116,38 @@ class ListItemViewController: UIViewController {
         }
     }
     
-    @objc private func fetchAllData(){
+    @objc private func getAllData(){
         DispatchQueue.main.async { [weak self] in
             self?.view.startLoader(activityColor: .white, backgroundColor: .lightGray)
         }
-        presenter?.fetchListCategory()
-        presenter?.fetchListItem()
+        presenter?.getCategories()
+        presenter?.getProducts()
         firstLoad = true
     }
-}
-
-// MARK: - PRESENTER -> VIEW METHODS
-extension ListItemViewController: ListItemPresenterToViewProtocol {
     
-    func filterListItemSuccessResponse() {
-        reloadItemsCollection()
+    func showCategories() {
+        reloadCategoryCollection()
     }
     
-    func fetchListItemSuccessResponse() {
-        reloadItemsCollection()
+    func showProducts() {
+        reloadProductCollection()
     }
     
-    func fetchListItemFailureResponse() {
+    func showFailureWith(error: String) {
         DispatchQueue.main.async { [weak self] in
             self?.view.stopLoader()
+            self?.showAlert(title: Constants.Alert.textTitle, message: Constants.Alert.textMessage)
         }
-        self.showAlert(title: Constants.Alert.textTitle, message: Constants.Alert.textMessage)
     }
     
-    func fetchListCategorySucessResponse() {
-        reloadCategoriesCollection()
-    }
-    
-    func fetchListCategoryFailure(error: String) {
-        showAlert(title: Constants.Alert.textTitle, message: Constants.Alert.textMessage)
-    }
 }
 
 // MARK: - COLLECTION DATA SOURCE
-extension ListItemViewController: UICollectionViewDataSource {
+extension ProductListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        let count = collectionView == categoryCollectionView ? ( presenter?.categoryNumberOfItemsInSection()) : (presenter?.itemNumberOfItemsInSection())
+        let count = collectionView == categoryCollectionView ? ( presenter?.getCategoriesNumber()) : (presenter?.getProductsNumber())
         return count ?? 0
     }
     
@@ -167,7 +157,7 @@ extension ListItemViewController: UICollectionViewDataSource {
             
         case productCollectionView:
             let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.productCell, for: indexPath) as! ItemCollectionViewCell
-            guard let items = presenter?.populateItemsCollection() else { return UICollectionViewCell() }
+            guard let items = presenter?.populateProductCollection() else { return UICollectionViewCell() }
             cell.populateCell(vm: items[indexPath.item])
             return cell
             
@@ -184,22 +174,22 @@ extension ListItemViewController: UICollectionViewDataSource {
 }
 
 //MARK: - COLLECTION DELEGATE
-extension ListItemViewController: UICollectionViewDelegate {
+extension ProductListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == productCollectionView {
-            presenter?.navigateToItemDetails(index: indexPath.item)
+            presenter?.goToProductWith(index: indexPath.item)
         } else {
             DispatchQueue.main.async {  [weak self] in
                 self?.view.startLoader(activityColor: .white, backgroundColor: .lightGray)
             }
-            presenter?.filterListItem(index: indexPath.item)
+            presenter?.getProductsWithCategoryAt(index: indexPath.item)
         }
     }
 }
 
 //MARK: - COLLECTION DELEGATE FLOWLAYOUT
-extension ListItemViewController: UICollectionViewDelegateFlowLayout {
+extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == productCollectionView {
             

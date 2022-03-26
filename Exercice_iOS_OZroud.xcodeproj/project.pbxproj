@@ -62,10 +62,10 @@
 		F7ECA874252B641500B42E74 /* ListItemRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA873252B641500B42E74 /* ListItemRequest.swift */; };
 		F7ECA876252B643500B42E74 /* ListCategoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA875252B643500B42E74 /* ListCategoryRequest.swift */; };
 		F7ECA87E252B6AD100B42E74 /* ListItemContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA87D252B6AD100B42E74 /* ListItemContract.swift */; };
-		F7ECA880252B6B2000B42E74 /* ListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA87F252B6B2000B42E74 /* ListItemViewController.swift */; };
-		F7ECA882252B6B4E00B42E74 /* ListItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA881252B6B4E00B42E74 /* ListItemPresenter.swift */; };
-		F7ECA884252B6B6F00B42E74 /* ListItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA883252B6B6F00B42E74 /* ListItemRouter.swift */; };
-		F7ECA886252B6B8C00B42E74 /* ListItemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA885252B6B8C00B42E74 /* ListItemInteractor.swift */; };
+		F7ECA880252B6B2000B42E74 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA87F252B6B2000B42E74 /* ProductListViewController.swift */; };
+		F7ECA882252B6B4E00B42E74 /* ProductListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA881252B6B4E00B42E74 /* ProductListPresenter.swift */; };
+		F7ECA884252B6B6F00B42E74 /* ProductListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA883252B6B6F00B42E74 /* ProductListRouter.swift */; };
+		F7ECA886252B6B8C00B42E74 /* ProductListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA885252B6B8C00B42E74 /* ProductListInteractor.swift */; };
 		F7ECA88B252B748E00B42E74 /* CommonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA88A252B748E00B42E74 /* CommonCollectionView.swift */; };
 		F7ECA88D252B75E100B42E74 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA88C252B75E100B42E74 /* CategoryCollectionViewCell.swift */; };
 		F7ECA88F252B760800B42E74 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA88E252B760800B42E74 /* ItemCollectionViewCell.swift */; };
@@ -143,10 +143,10 @@
 		F7ECA873252B641500B42E74 /* ListItemRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemRequest.swift; sourceTree = "<group>"; };
 		F7ECA875252B643500B42E74 /* ListCategoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryRequest.swift; sourceTree = "<group>"; };
 		F7ECA87D252B6AD100B42E74 /* ListItemContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemContract.swift; sourceTree = "<group>"; };
-		F7ECA87F252B6B2000B42E74 /* ListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemViewController.swift; sourceTree = "<group>"; };
-		F7ECA881252B6B4E00B42E74 /* ListItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemPresenter.swift; sourceTree = "<group>"; };
-		F7ECA883252B6B6F00B42E74 /* ListItemRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemRouter.swift; sourceTree = "<group>"; };
-		F7ECA885252B6B8C00B42E74 /* ListItemInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemInteractor.swift; sourceTree = "<group>"; };
+		F7ECA87F252B6B2000B42E74 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		F7ECA881252B6B4E00B42E74 /* ProductListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPresenter.swift; sourceTree = "<group>"; };
+		F7ECA883252B6B6F00B42E74 /* ProductListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListRouter.swift; sourceTree = "<group>"; };
+		F7ECA885252B6B8C00B42E74 /* ProductListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListInteractor.swift; sourceTree = "<group>"; };
 		F7ECA88A252B748E00B42E74 /* CommonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCollectionView.swift; sourceTree = "<group>"; };
 		F7ECA88C252B75E100B42E74 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7ECA88E252B760800B42E74 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -468,7 +468,7 @@
 		F7ECA878252B6A0700B42E74 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				F7ECA883252B6B6F00B42E74 /* ListItemRouter.swift */,
+				F7ECA883252B6B6F00B42E74 /* ProductListRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 		F7ECA879252B6A1100B42E74 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				F7ECA885252B6B8C00B42E74 /* ListItemInteractor.swift */,
+				F7ECA885252B6B8C00B42E74 /* ProductListInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -493,7 +493,7 @@
 		F7ECA87B252B6A3900B42E74 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				F7ECA881252B6B4E00B42E74 /* ListItemPresenter.swift */,
+				F7ECA881252B6B4E00B42E74 /* ProductListPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -545,7 +545,7 @@
 		F7ECA897252B7E0100B42E74 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F7ECA87F252B6B2000B42E74 /* ListItemViewController.swift */,
+				F7ECA87F252B6B2000B42E74 /* ProductListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -654,7 +654,7 @@
 				F7B86D98252BAD20006C3ACE /* Date.swift in Sources */,
 				F772A33625371B1600A3F898 /* ItemDTO.swift in Sources */,
 				F772A31D252BD5C400A3F898 /* SeparatorView.swift in Sources */,
-				F7ECA886252B6B8C00B42E74 /* ListItemInteractor.swift in Sources */,
+				F7ECA886252B6B8C00B42E74 /* ProductListInteractor.swift in Sources */,
 				F7B86D94252BAC84006C3ACE /* ListItemsAdapterProtocol.swift in Sources */,
 				F772A309252BAF5500A3F898 /* FilterListItemManager.swift in Sources */,
 				F7ECA894252B7A4100B42E74 /* UIImage.swift in Sources */,
@@ -677,7 +677,7 @@
 				F772A307252BAF2F00A3F898 /* FilterListItemsProtocol.swift in Sources */,
 				F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */,
 				F7ECA86E252B601500B42E74 /* ImageURL.swift in Sources */,
-				F7ECA882252B6B4E00B42E74 /* ListItemPresenter.swift in Sources */,
+				F7ECA882252B6B4E00B42E74 /* ProductListPresenter.swift in Sources */,
 				F7ECA862252B5E6100B42E74 /* APIRequest.swift in Sources */,
 				F7ECA88D252B75E100B42E74 /* CategoryCollectionViewCell.swift in Sources */,
 				F7ECA876252B643500B42E74 /* ListCategoryRequest.swift in Sources */,
@@ -686,10 +686,10 @@
 				F7ECA86C252B5FD600B42E74 /* Item.swift in Sources */,
 				F7B86D96252BACAC006C3ACE /* ListItemsAdapterManager.swift in Sources */,
 				F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */,
-				F7ECA884252B6B6F00B42E74 /* ListItemRouter.swift in Sources */,
+				F7ECA884252B6B6F00B42E74 /* ProductListRouter.swift in Sources */,
 				F772A31B252BD58E00A3F898 /* StaticLabel.swift in Sources */,
 				F7ECA868252B5F5500B42E74 /* Constants.swift in Sources */,
-				F7ECA880252B6B2000B42E74 /* ListItemViewController.swift in Sources */,
+				F7ECA880252B6B2000B42E74 /* ProductListViewController.swift in Sources */,
 				F7B86D8F252B9455006C3ACE /* SortItemsManager.swift in Sources */,
 				F772A323252BD88500A3F898 /* ItemDetailsAdapterManager.swift in Sources */,
 				F7ECA864252B5E8F00B42E74 /* APIError.swift in Sources */,

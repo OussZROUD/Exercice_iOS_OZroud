@@ -8,10 +8,10 @@
 
 import Foundation
 
-class ListItemInteractor {
+class ProductListInteractor {
     
     // MARK: - PROPERTIES
-    weak var presenter: ListItemInteractorToPresenterProtocol?
+    weak var presenter: ProductListInteractorOutputProtocol?
     private let categoryRemoteWorker: CategoryRemoteWorker?
     private let itemRemoteWorker: ItemRemoteWorker?
     
@@ -29,17 +29,17 @@ class ListItemInteractor {
 
 
 // MARK: - PRESENTER -> INTERACTOR METHODS
-extension ListItemInteractor: ListItemPresenterToInteractorProtocol {
+extension ProductListInteractor: ProductListInteractorInputProtocol {
     
-    func getListCategory() {
+    func fetchCategories() {
         categoryRemoteWorker?.getCategoriesFromRemote(onComplete: { [weak self] (categoryResponse) in
             self?.presenter?.getCategoriesResponse(response: categoryResponse)
         })
     }
     
-    func getListItem() {
+    func fetchProducts() {
         itemRemoteWorker?.getItemsFromRemote(onComplete: { [weak self] (itemResponse) in
-            self?.presenter?.getItemsResponse(response: itemResponse)
+            self?.presenter?.getProductsResponse(response: itemResponse)
             
         })
     }
