@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SortItemsProtocol: class {
-    func sort(items: [ItemDTO]) -> [ItemDTO]
-}
+//protocol SortItemsProtocol: AnyObject {
+//    func sort(items: [Item]) -> [Item]
+//}

@@ -8,7 +8,9 @@
 
 import Foundation
 
-public struct Item: Codable,Equatable {
+public struct Item: Comparable {
+    
+    var formatter = DateFormatter()
     
     // MARK: PROPERTIES
     let identifier: Int
@@ -17,21 +19,40 @@ public struct Item: Codable,Equatable {
     let description: String?
     let price: Double?
     let imageUrl: ImageURL?
-    let creationDate: String?
+    let creationDate: Date?
     let isUrgent: Bool?
     let siret: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case identifier = "id"
-        case categoryID = "category_id"
-        case imageUrl = "images_url"
-        case creationDate = "creation_date"
-        case isUrgent = "is_urgent"
-        case title, description, price, siret
+    init(itemDTO:ItemDTO){
+        self.identifier = itemDTO.identifier
+        self.categoryID = itemDTO.categoryID
+        self.title = itemDTO.title
+        self.description = itemDTO.description
+        self.price = itemDTO.price
+        self.imageUrl = ImageURL(imageUrlDTO: itemDTO.imageUrlDto!)
+        self.creationDate = itemDTO.creationDate?.formatStringToDate(formatter: formatter)
+        self.isUrgent = itemDTO.isUrgent
+        self.siret = itemDTO.siret
     }
     
-    // MARK: - EQUATABLE PROTOCOL 
+    // MARK: - COMPARABLE PROTOCOL 
     public static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.identifier == rhs.identifier ? true : false
     }
+    
+    public static func < (lhs: Item, rhs: Item) -> Bool {
+        switch (lhs.isUrgent, rhs.isUrgent) {
+        case (true, true):
+            return lhs.creationDate! > rhs.creationDate!
+        case (true, false):
+            return true
+        case (false, true):
+            return false
+        case (false, false):
+            return lhs.creationDate! > rhs.creationDate!
+        case (_, _):
+            return false
+        }
+    }
+    
 }

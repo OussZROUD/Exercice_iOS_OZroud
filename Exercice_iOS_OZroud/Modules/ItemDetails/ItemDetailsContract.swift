@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - VIEW -> PRESENTER
-protocol ItemDetailsViewToPresenterProtocol: class {
+protocol ItemDetailsViewToPresenterProtocol: AnyObject {
     var view: ItemDetailsPresenterToViewProtocol? { get set }
     var interactor: ItemDetailsPresenterToInteractorProtocol? { get set }
     var router: ItemDetailsPresenterToRouterProtocol? { get set }
@@ -17,20 +17,20 @@ protocol ItemDetailsViewToPresenterProtocol: class {
 }
 
 // MARK: - PRESENTER -> VIEW
-protocol ItemDetailsPresenterToViewProtocol: class {
+protocol ItemDetailsPresenterToViewProtocol: AnyObject {
     func getItemDetailsResponse(item: ItemDetailsViewController.ViewModel)
 }
 
 // MARK: - PRESENTER -> ROUTER
-protocol ItemDetailsPresenterToRouterProtocol: class {
-    static func createModule(with item: ItemDTO, category: CategoryItemDTO) -> UIViewController
+protocol ItemDetailsPresenterToRouterProtocol: AnyObject {
+    static func createModule(with item: Item, category: CategoryItem) -> UIViewController
 }
 
 // MARK: - PRESENTER -> INTERACTOR
-protocol ItemDetailsPresenterToInteractorProtocol: class {
+protocol ItemDetailsPresenterToInteractorProtocol: AnyObject {
     var presenter: ItemDetailsInteractorToPresenterProtocol? { get set }
 }
 
 // MARK: - INTERACTOR -> PRESENTER PROTOCOL
-protocol ItemDetailsInteractorToPresenterProtocol: class {
+protocol ItemDetailsInteractorToPresenterProtocol: AnyObject {
 }

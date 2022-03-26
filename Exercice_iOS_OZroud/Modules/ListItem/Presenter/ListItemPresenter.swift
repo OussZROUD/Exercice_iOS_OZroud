@@ -14,17 +14,15 @@ class ListItemPresenter {
     weak var view: ListItemPresenterToViewProtocol?
     var router: ListItemPresenterToRouterProtocol?
     var interactor: ListItemPresenterToInteractorProtocol?
-    private var categories: [CategoryItemDTO] = []
+    private var categories: [CategoryItem] = []
     private var items: [ItemCollectionViewCell.ViewModel] = []
-    private let sortProtocol: SortItemsProtocol
-    private var SortedAllItems: [ItemDTO] = []
+    private var sortedAllItems: [Item] = []
     private let adapterProtocol: ListItemsAdapterProtocol
     private var adapteeItems: [ItemCollectionViewCell.ViewModel] = []
     private let filterProtocol: FilterListItemsProtocol
     
     // MARK: - INITIALIZER
-    init(sortProtocol: SortItemsProtocol = SortItemsManager(),adapterProtocol: ListItemsAdapterProtocol = ListItemsAdapterManager(),filterProtocol: FilterListItemsProtocol = FilterListItemManager()){
-        self.sortProtocol = sortProtocol
+    init(adapterProtocol: ListItemsAdapterProtocol = ListItemsAdapterManager(),filterProtocol: FilterListItemsProtocol = FilterListItemManager()){
         self.adapterProtocol = adapterProtocol
         self.filterProtocol = filterProtocol
     }
@@ -34,10 +32,12 @@ class ListItemPresenter {
 extension ListItemPresenter: ListItemViewToPresenterProtocol {
     
     func fetchListCategory() {
+        self.categories = []
         interactor?.getListCategory()
     }
     
     func fetchListItem() {
+        self.items = []
         interactor?.getListItem()
     }
     
@@ -68,7 +68,7 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
     }
     
     func navigateToItemDetails(index: Int) {
-        let item = SortedAllItems.filter { $0.identifier == items[index].identifier}.first
+        let item = sortedAllItems.filter { $0.identifier == items[index].identifier}.first
         router?.pushToItemDetails(on: view!, with: item!, category: items[index].category)
     }
 }
