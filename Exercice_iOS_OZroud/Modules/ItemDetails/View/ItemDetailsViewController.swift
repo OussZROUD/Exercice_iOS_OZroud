@@ -46,6 +46,7 @@ class ItemDetailsViewController: UIViewController {
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill
+        imageView.image = UIImage(named: Constants.ImageAssets.placeHolder)
         return imageView
     }()
     

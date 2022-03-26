@@ -89,7 +89,7 @@ struct Constants {
         static let labelNumberOflines: Int = 0
         
         struct Separator {
-            static let backgroundColor: UIColor = UIColor.groupTableViewBackground
+            static let backgroundColor: UIColor = UIColor.systemGroupedBackground
             static let shadowRadius: CGFloat = 2.0
             static let shadowOpacity: Float = 0.5
             static let shadowColor: CGColor = UIColor.gray.cgColor
