@@ -10,7 +10,7 @@ import Foundation
 
  // MARK: PROPERTIES
 
-public struct ItemDTO: Equatable {
+public struct ItemDTO: Codable,Equatable {
     
     // MARK: PROPERTIES
     let identifier: Int
@@ -23,16 +23,13 @@ public struct ItemDTO: Equatable {
     let isUrgent: Bool?
     let siret: String?
     
-    init(item:Item){
-        self.identifier = item.identifier
-        self.categoryID = item.categoryID
-        self.title = item.title
-        self.description = item.description
-        self.price = item.price
-        self.imageUrlDto = ImageUrlDTO(imageURL: item.imageUrl ?? ImageURL(small: nil, thumb: nil))
-        self.creationDate = item.creationDate
-        self.isUrgent = item.isUrgent
-        self.siret = item.siret
+    public enum CodingKeys: String, CodingKey {
+        case identifier = "id"
+        case categoryID = "category_id"
+        case imageUrlDto = "images_url"
+        case creationDate = "creation_date"
+        case isUrgent = "is_urgent"
+        case title, description, price, siret
     }
     
     // MARK: - EQUATABLE PROTOCOL

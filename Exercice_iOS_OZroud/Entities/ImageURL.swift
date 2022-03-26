@@ -8,9 +8,14 @@
 
 import Foundation
 
-struct ImageURL: Codable {
+struct ImageURL {
     
     // MARK: PROPERTIES
     let small: String?
     let thumb: String?
+    
+    init(imageUrlDTO: ImageUrlDTO) {
+        self.small = imageUrlDTO.small
+        self.thumb = imageUrlDTO.thumb
+    }
 }

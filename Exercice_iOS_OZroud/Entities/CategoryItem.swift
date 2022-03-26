@@ -8,14 +8,24 @@
 
 import Foundation
 
-struct CategoryItem: Codable {
+struct CategoryItem: Equatable {
     
     // MARK: PROPERTIES
     let identifier: Int
     let name: String?
     
-    public enum CodingKeys: String, CodingKey {
-        case identifier = "id"
-        case name
+    
+    init(categoryItemDTO: CategoryItemDTO){
+        self.identifier = categoryItemDTO.identifier
+        self.name = categoryItemDTO.name
     }
+    
+    init(identifier: Int, name:String) {
+        self.identifier = identifier
+        self.name = name
+    }
+    
+    public static func == (lhs: CategoryItem, rhs: CategoryItem) -> Bool {
+        return lhs.identifier == rhs.identifier ? true : false
+    }    
 }

@@ -15,11 +15,11 @@ class ItemDetailsPresenter {
     weak var router: ItemDetailsPresenterToRouterProtocol?
     var interactor: ItemDetailsPresenterToInteractorProtocol?
     private let adapterProtocol: ItemDetailsAdapterProtocol
-    private var item: ItemDTO
-    private var category: CategoryItemDTO
+    private var item: Item
+    private var category: CategoryItem
     
     // MARK: - INITIALIZER
-    init(item: ItemDTO, category: CategoryItemDTO, adapterProtocol: ItemDetailsAdapterProtocol = ItemDetailsAdapterManager()) {
+    init(item: Item, category: CategoryItem, adapterProtocol: ItemDetailsAdapterProtocol = ItemDetailsAdapterManager()) {
         self.item = item
         self.category = category
         self.adapterProtocol = adapterProtocol

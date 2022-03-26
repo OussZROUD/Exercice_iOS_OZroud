@@ -53,7 +53,7 @@ extension ListItemPresenter: ListItemViewToPresenterProtocol {
         return self.items
     }
     
-    func populateCategoryCollection() -> [CategoryItemDTO] {
+    func populateCategoryCollection() -> [CategoryItem] {
         return self.categories
     }
     

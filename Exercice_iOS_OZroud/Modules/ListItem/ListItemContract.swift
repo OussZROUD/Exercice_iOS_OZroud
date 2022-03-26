@@ -9,7 +9,8 @@
 import UIKit
 
 // MARK: - VIEW -> PRESENTER
-protocol ListItemViewToPresenterProtocol: class {
+protocol ListItemViewToPresenterProtocol: AnyObject {
+    
     var view: ListItemPresenterToViewProtocol? { get set }
     var interactor: ListItemPresenterToInteractorProtocol? { get set }
     var router: ListItemPresenterToRouterProtocol? { get set }
@@ -18,13 +19,13 @@ protocol ListItemViewToPresenterProtocol: class {
     func categoryNumberOfItemsInSection() -> Int
     func itemNumberOfItemsInSection() -> Int
     func populateItemsCollection() -> [ItemCollectionViewCell.ViewModel]
-    func populateCategoryCollection() -> [CategoryItemDTO]
+    func populateCategoryCollection() -> [CategoryItem]
     func filterListItem(index: Int)
     func navigateToItemDetails(index: Int)
 }
 
 // MARK: - PRESENTER -> VIEW
-protocol ListItemPresenterToViewProtocol: class {
+protocol ListItemPresenterToViewProtocol: AnyObject {
     func fetchListCategorySucessResponse()
     func fetchListCategoryFailure(error:String)
     func fetchListItemSuccessResponse()
