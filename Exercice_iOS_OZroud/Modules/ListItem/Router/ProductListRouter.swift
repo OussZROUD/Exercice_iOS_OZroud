@@ -17,8 +17,8 @@ class ProductListRouter: Router,ProductListNavigationProtocol {
     var viewController: UIViewController {
         let view = ProductListViewController()
         let interactor = ProductListInteractor()
-        let adapterManager = ListItemsAdapterManager()
-        let filterManager = FilterListItemManager()
+        let adapterManager = ProductListAdapterManager()
+        let filterManager = FilterProductListManager()
         let presenter = ProductListPresenter(interactor: interactor, router: self)
         let navigationController = UINavigationController(rootViewController: view)
         presenter.adapterProtocol = adapterManager
@@ -35,8 +35,8 @@ class ProductListRouter: Router,ProductListNavigationProtocol {
     
     
     // MARK: - NAVIGATION ListItemPresenterToRouterProtocol
-    func goToProductDetails(on view: UIViewController, with item: Item, category: CategoryItem) {
-        let detailRouter = ItemDetailsRouter(item: item, category: category)
+    func goToProductDetails(on view: UIViewController, with product: Product, category: CategoryItem) {
+        let detailRouter = ItemDetailsRouter(product: product, category: category)
         view.navigationController?.pushViewController(detailRouter.viewController, animated: true)
     }
     

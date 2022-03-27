@@ -10,7 +10,7 @@ import Foundation
 
  // MARK: PROPERTIES
 
-public struct ItemDTO: Codable,Equatable {
+public struct ProductDTO: Codable,Equatable {
     
     // MARK: PROPERTIES
     let identifier: Int
@@ -33,7 +33,7 @@ public struct ItemDTO: Codable,Equatable {
     }
     
     // MARK: - EQUATABLE PROTOCOL
-    public static func == (lhs: ItemDTO, rhs: ItemDTO) -> Bool {
+    public static func == (lhs: ProductDTO, rhs: ProductDTO) -> Bool {
         return lhs.identifier == rhs.identifier ? true : false
     }
 }

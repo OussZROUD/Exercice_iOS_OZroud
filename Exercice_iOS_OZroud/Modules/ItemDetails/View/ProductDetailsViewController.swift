@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailsViewController: UIViewController {
+class ProductDetailsViewController: UIViewController {
     
     // MARK: - VIEWMODEL
     struct ViewModel {
@@ -72,7 +72,7 @@ class ItemDetailsViewController: UIViewController {
     private let safeArea = UILayoutGuide()
     
     // MARK: - PROPERTIES
-    var presenter: ItemDetailsViewToPresenterProtocol?
+    var presenter: ProductDetailsPresenterInputProtocol?
     
     // MARK: - INITIALIZER
     override func viewDidLoad() {
@@ -80,7 +80,7 @@ class ItemDetailsViewController: UIViewController {
         navigationItem.title = Constants.ViewControllerTitle.detailItem
 //        setupSafeArea()
         setupUI()
-        presenter?.getItemDetails()
+        presenter?.getProductDetails()
     }
     
     // MARK: - PRIVATE METHODS
@@ -160,18 +160,18 @@ class ItemDetailsViewController: UIViewController {
     }
 }
 // MARK: - PRESENTER -> VIEW PROTOCOL
-extension ItemDetailsViewController: ItemDetailsPresenterToViewProtocol {
-    func getItemDetailsResponse(item: ItemDetailsViewController.ViewModel) {
-        titleLabel.text = item.title
-        categoryLabel.text = item.category
-        priceLabel.text = "\(item.price)"
-        dateLabel.text = item.date
-        urgentView.isHidden = !(item.isUrgent)
-        guard let url = URL(string: item.imageUrl) else { return }
+extension ProductDetailsViewController: ProductDetailsPresenterOutputProtocol {
+    func showProductDetails(product: ProductDetailsViewController.ViewModel) {
+        titleLabel.text = product.title
+        categoryLabel.text = product.category
+        priceLabel.text = "\(product.price)"
+        dateLabel.text = product.date
+        urgentView.isHidden = !(product.isUrgent)
+        guard let url = URL(string: product.imageUrl) else { return }
         UIImage.loadFrom(url: url) { image in
             self.productImage.image = image ?? UIImage(named: Constants.ImageAssets.placeHolder)
         }
-        descriptionLabel.text = item.description
-        siritLabel.text = item.siret
+        descriptionLabel.text = product.description
+        siritLabel.text = product.siret
     }
 }

@@ -11,14 +11,14 @@ import Foundation
 class ProductListPresenter: ProductListPresenterInputProtocol, ProductListInteractorOutputProtocol {
     
     // MARK: - PROPERTIES
-    var adapterProtocol: ListItemsAdapterProtocol?
-    var filterProtocol: FilterListItemsProtocol?
+    var adapterProtocol: ProductListAdapterProtocol?
+    var filterProtocol: FilterProductListProtocol?
     weak var view: ProductListViewController?
     private let interactor: ProductListInteractorInputProtocol
     private let router: ProductListNavigationProtocol
     private var categories: [CategoryItem] = []
     private var products: [ItemCollectionViewCell.ViewModel] = []
-    private var sortedAllItems: [Item] = []
+    private var sortedAllItems: [Product] = []
     private var adapteeItems: [ItemCollectionViewCell.ViewModel] = []
     
     
@@ -97,7 +97,7 @@ class ProductListPresenter: ProductListPresenterInputProtocol, ProductListIntera
     }
     
     // items response
-    func getProductsResponse(response: Result<[Item], APIError>) {
+    func getProductsResponse(response: Result<[Product], APIError>) {
         switch response {
             
         case .success(let itemList):
@@ -105,7 +105,7 @@ class ProductListPresenter: ProductListPresenterInputProtocol, ProductListIntera
             debugPrint("list item success")
             sortedAllItems = itemList.sorted()
             guard let adapterProtocol = adapterProtocol else { return }
-            adapteeItems = adapterProtocol.adapteItems(items: sortedAllItems, categories: categories)
+            adapteeItems = adapterProtocol.adapteItems(products: sortedAllItems, categories: categories)
             self.products = adapteeItems
             view?.showProducts()
             

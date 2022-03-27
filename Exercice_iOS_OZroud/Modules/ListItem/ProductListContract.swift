@@ -36,10 +36,10 @@ protocol ProductListInteractorInputProtocol: AnyObject {
 // MARK: - INTERACTOR -> PRESENTER || ListInteractor output
 protocol ProductListInteractorOutputProtocol: AnyObject {
     func getCategoriesResponse(response: Result<[CategoryItem], APIError>)
-    func getProductsResponse(response: Result<[Item], APIError>)
+    func getProductsResponse(response: Result<[Product], APIError>)
 }
 
 // MARK: - PRESENTER -> ROUTER
 protocol ProductListNavigationProtocol: AnyObject {
-    func goToProductDetails(on view: UIViewController, with item: Item, category: CategoryItem)
+    func goToProductDetails(on view: UIViewController, with product: Product, category: CategoryItem)
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Item: Comparable {
+public struct Product: Comparable {
     
     var formatter = DateFormatter()
     
@@ -23,7 +23,7 @@ public struct Item: Comparable {
     let isUrgent: Bool?
     let siret: String?
     
-    init(itemDTO:ItemDTO){
+    init(itemDTO:ProductDTO){
         self.identifier = itemDTO.identifier
         self.categoryID = itemDTO.categoryID
         self.title = itemDTO.title
@@ -36,11 +36,11 @@ public struct Item: Comparable {
     }
     
     // MARK: - COMPARABLE PROTOCOL 
-    public static func == (lhs: Item, rhs: Item) -> Bool {
+    public static func == (lhs: Product, rhs: Product) -> Bool {
         return lhs.identifier == rhs.identifier ? true : false
     }
     
-    public static func < (lhs: Item, rhs: Item) -> Bool {
+    public static func < (lhs: Product, rhs: Product) -> Bool {
         switch (lhs.isUrgent, rhs.isUrgent) {
         case (true, true):
             return lhs.creationDate! > rhs.creationDate!

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ItemDetailsAdapterProtocol {
-    func adapteItemDetails(item: Item, category: CategoryItem) -> ItemDetailsViewController.ViewModel
+protocol ProductDetailsAdapterProtocol {
+    func adapteItemDetails(product: Product, category: CategoryItem) -> ProductDetailsViewController.ViewModel
 }

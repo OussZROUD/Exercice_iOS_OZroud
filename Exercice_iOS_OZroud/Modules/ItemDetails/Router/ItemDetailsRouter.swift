@@ -14,26 +14,26 @@ class ItemDetailsRouter: Router {
         debugPrint(String(describing: self), "deinit")
     }
     
-    var item: Item
+    var product: Product
     var category: CategoryItem
     
-    init(item:Item, category: CategoryItem) {
-        self.item = item
+    init(product:Product, category: CategoryItem) {
+        self.product = product
         self.category = category
 
     }
     
     var viewController: UIViewController {
         
-        let view = ItemDetailsViewController()
-        let interactor = ItemDetailsInteractor()
-        let adapterManager = ItemDetailsAdapterManager()
-        let presenter = ItemDetailsPresenter(item: item, category: category, interactor: interactor, router: self)
+        let view = ProductDetailsViewController()
+        let interactor = ProductDetailsInteractor()
+        let adapterManager = ProductDetailsAdapterManager()
+        let presenter = ProductDetailsPresenter(product: product, category: category, interactor: interactor, router: self)
 
         presenter.adapterProtocol = adapterManager
         presenter.view = view
         view.presenter = presenter
-        interactor.presenter = presenter
+//        interactor.presenter = presenter
 
         return view
     }

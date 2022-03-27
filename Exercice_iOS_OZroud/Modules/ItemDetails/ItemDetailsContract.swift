@@ -9,25 +9,25 @@
 import UIKit
 
 // MARK: - VIEW -> PRESENTER
-protocol ItemDetailsViewToPresenterProtocol: AnyObject {
-    func getItemDetails()
+protocol ProductDetailsPresenterInputProtocol: AnyObject {
+    func getProductDetails()
 }
 
 // MARK: - PRESENTER -> VIEW
-protocol ItemDetailsPresenterToViewProtocol: AnyObject {
-    func getItemDetailsResponse(item: ItemDetailsViewController.ViewModel)
+protocol ProductDetailsPresenterOutputProtocol: AnyObject {
+    func showProductDetails(product: ProductDetailsViewController.ViewModel)
 }
 
 // MARK: - PRESENTER -> ROUTER
 protocol ItemDetailsPresenterToRouterProtocol: AnyObject {
-    static func createModule(with item: Item, category: CategoryItem) -> UIViewController
+    static func createModule(with item: Product, category: CategoryItem) -> UIViewController
 }
 
 // MARK: - PRESENTER -> INTERACTOR
-protocol ItemDetailsPresenterToInteractorProtocol: AnyObject {
-    var presenter: ItemDetailsInteractorToPresenterProtocol? { get set }
+protocol ProductDetailsInteractorInputProtocol: AnyObject {
+//    var presenter: ItemDetailsInteractorToPresenterProtocol? { get set }
 }
 
 // MARK: - INTERACTOR -> PRESENTER PROTOCOL
-protocol ItemDetailsInteractorToPresenterProtocol: AnyObject {
-}
+//protocol ItemDetailsInteractorToPresenterProtocol: AnyObject {
+//}

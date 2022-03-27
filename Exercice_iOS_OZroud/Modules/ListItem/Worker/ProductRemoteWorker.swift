@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class ItemRemoteWorker {
+class ProductRemoteWorker {
     
-    func getItemsFromRemote(onComplete: @escaping(Result<[Item], APIError>)-> Void) {
+    func getItemsFromRemote(onComplete: @escaping(Result<[Product], APIError>)-> Void) {
         
-        ListItemRequest.get.executeRequest(type: [ItemDTO].self) { (response) in
+        ListItemRequest.get.executeRequest(type: [ProductDTO].self) { (response) in
             let response = self.treatResponse(response: response)
             switch response {
                 
@@ -27,12 +27,12 @@ class ItemRemoteWorker {
         }
     }
     
-    private func treatResponse(response: Result<[ItemDTO], APIError>) -> Result<[Item], APIError> {
+    private func treatResponse(response: Result<[ProductDTO], APIError>) -> Result<[Product], APIError> {
         switch response {
             
         case .success(let data):
-            let data = data.map {(itemDTO) -> Item in
-                return Item(itemDTO: itemDTO)
+            let data = data.map {(itemDTO) -> Product in
+                return Product(itemDTO: itemDTO)
             }
             return .success(data)
             

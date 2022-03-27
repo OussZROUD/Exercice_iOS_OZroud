@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class FilterListItemManager: FilterListItemsProtocol {
+final class FilterProductListManager: FilterProductListProtocol {
     
     func filterItems(itemsTofilter: [ItemCollectionViewCell.ViewModel], categoryID: Int ) -> [ItemCollectionViewCell.ViewModel] {
         itemsTofilter.filter{$0.category.identifier == categoryID }

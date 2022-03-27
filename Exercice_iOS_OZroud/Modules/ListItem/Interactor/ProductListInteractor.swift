@@ -13,11 +13,11 @@ class ProductListInteractor {
     // MARK: - PROPERTIES
     weak var presenter: ProductListInteractorOutputProtocol?
     private let categoryRemoteWorker: CategoryRemoteWorker?
-    private let itemRemoteWorker: ItemRemoteWorker?
+    private let itemRemoteWorker: ProductRemoteWorker?
     
     
     // MARK: - INITIALIZER
-    init(categoryWorker:CategoryRemoteWorker = CategoryRemoteWorker(), itemWorker: ItemRemoteWorker = ItemRemoteWorker()){
+    init(categoryWorker:CategoryRemoteWorker = CategoryRemoteWorker(), itemWorker: ProductRemoteWorker = ProductRemoteWorker()){
         categoryRemoteWorker = categoryWorker
         itemRemoteWorker = itemWorker
     }

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ListItemsAdapterProtocol: AnyObject {
-    func adapteItems(items: [Item], categories: [CategoryItem]) -> [ItemCollectionViewCell.ViewModel]
+protocol ProductListAdapterProtocol: AnyObject {
+    func adapteItems(products: [Product], categories: [CategoryItem]) -> [ItemCollectionViewCell.ViewModel]
 }
