@@ -21,7 +21,7 @@ class APIRequestTest: XCTestCase {
 
     func test_bad_baseUrl() throws {
         let testExpectation = expectation(description: "failure expectation")
-        SpyListItemRequestTest.badBaseUrl.executeRequest(type: [Item].self) { (response) in
+        SpyListItemRequestTest.badBaseUrl.executeRequest(type: [ProductDTO].self) { (response) in
             switch response {
             case .success( _):
                 XCTAssert(false)
@@ -40,7 +40,7 @@ class APIRequestTest: XCTestCase {
     
     func test_bad_endPoint(){
         let testExpectation = expectation(description: "failure expectation")
-            SpyListItemRequestTest.badEndPoint.executeRequest(type: [Item].self) { (response) in
+            SpyListItemRequestTest.badEndPoint.executeRequest(type: [ProductDTO].self) { (response) in
                 switch response {
                 case .success( _):
                     XCTAssert(false)
@@ -59,7 +59,7 @@ class APIRequestTest: XCTestCase {
     
     func test_Parsing(){
     let testExpectation = expectation(description: "failure expectation")
-        SpyListItemRequestTest.parsing.executeRequest(type: Item.self) { (response) in
+        SpyListItemRequestTest.parsing.executeRequest(type: ProductDTO.self) { (response) in
             switch response {
             case .success( _):
                 XCTAssert(false)
@@ -78,7 +78,7 @@ class APIRequestTest: XCTestCase {
     
     func test_optimal_network_request() {
         let testExpectation = expectation(description: "failure expectation")
-        SpyListItemRequestTest.optimal.executeRequest(type: [Item].self) { (response) in
+        SpyListItemRequestTest.optimal.executeRequest(type: [ProductDTO].self) { (response) in
             switch response {
             case .success( _):
                 XCTAssert(true)

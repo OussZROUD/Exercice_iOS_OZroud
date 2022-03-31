@@ -27,3 +27,15 @@ public enum APIError: Swift.Error {
         }
     }
 }
+
+protocol Cancellable {
+
+    // MARK: - Methods
+    
+    func cancel()
+
+}
+
+extension URLSessionTask: Cancellable {
+    
+}

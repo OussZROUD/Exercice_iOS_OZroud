@@ -35,8 +35,11 @@ protocol ProductListInteractorInputProtocol: AnyObject {
 
 // MARK: - INTERACTOR -> PRESENTER || ListInteractor output
 protocol ProductListInteractorOutputProtocol: AnyObject {
-    func getCategoriesResponse(response: Result<[CategoryItem], APIError>)
-    func getProductsResponse(response: Result<[Product], APIError>)
+    func getCategoriesSuccessResponse(listCategory:[CategoryItem])
+    func getCategoriesFailureResponse(error:APIError)
+    func getProductsSuccessResponse(listProduct: [Product])
+    func getProductsFailureResponse(error:APIError)
+
 }
 
 // MARK: - PRESENTER -> ROUTER

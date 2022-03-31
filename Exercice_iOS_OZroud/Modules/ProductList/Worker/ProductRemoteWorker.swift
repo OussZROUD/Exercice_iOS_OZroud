@@ -18,7 +18,6 @@ class ProductRemoteWorker {
             switch response {
                 
             case .success(let data):
-                debugPrint(data)
                 onComplete(.success(data))
                 
             case .failure(let error):
@@ -27,7 +26,7 @@ class ProductRemoteWorker {
         }
     }
     
-    private func treatResponse(response: Result<[ProductDTO], APIError>) -> Result<[Product], APIError> {
+    func treatResponse(response: Result<[ProductDTO], APIError>) -> Result<[Product], APIError> {
         switch response {
             
         case .success(let data):

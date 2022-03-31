@@ -21,8 +21,14 @@ final class ProductDetailsAdapterManager: ProductDetailsAdapterProtocol {
                                                            imageUrl: product.imageUrl?.thumb ?? "",
                                                            price: product.price?.formatToPriceCurrency(currencyFormatter: currencyFormatter) ?? "",
                                                            date: product.creationDate?.convertToString(style: .full) ?? "",
-                                                           siret: product.siret ?? "non indiquer",
+                                                               siret: getSiretValue(siret: product.siret),
                                                            isUrgent: product.isUrgent ?? false)
         return viewModel
+    }
+    
+    private func getSiretValue(siret: String?) -> String {
+        
+        guard let siret = siret, !siret.isEmpty else { return Constants.ItemDetail.emptyValue.siret }
+        return siret
     }
 }
