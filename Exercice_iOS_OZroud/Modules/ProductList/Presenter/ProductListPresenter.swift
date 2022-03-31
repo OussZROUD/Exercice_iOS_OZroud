@@ -35,7 +35,7 @@ class ProductListPresenter: ProductListPresenterInputProtocol, ProductListIntera
     }
     
     
-    // MARK: - VIEW -> PRESENTER ListItemViewToPresenterProtocol
+    // MARK: - PRODUCT LIST PRESENTER INPUT PROTOCOL
     func getCategories() {
         interactor.fetchCategories()
     }
@@ -69,6 +69,8 @@ class ProductListPresenter: ProductListPresenterInputProtocol, ProductListIntera
         view?.showProducts()
     }
     
+    
+    // MARK: - PRODUCT LIST NAVIGATION PROTOCOL
     func goToProductWith(index: Int) {
         let item = sortedAllItems.filter { $0.identifier == products[index].identifier}.first
         guard let item = item, let view = view else { return }
@@ -76,8 +78,7 @@ class ProductListPresenter: ProductListPresenterInputProtocol, ProductListIntera
     }
     
     
-    // MARK: - ListItemInteractorToPresenterProtocol
-    
+    // MARK: - PRODUCT LIST INTERACTOR OUTPUT PROTOCOL
     func getCategoriesSuccessResponse(listCategory: [CategoryItem]) {
         debugPrint("list category success")
         self.categories = [ CategoryItem(identifier: Constants.CategoryAll.identifier, name: Constants.CategoryAll.name)] + listCategory
@@ -86,7 +87,7 @@ class ProductListPresenter: ProductListPresenterInputProtocol, ProductListIntera
     
     func getCategoriesFailureResponse(error: APIError) {
         debugPrint(error.message)
-        view?.showFailureWith(error: error.message)
+        view?.showFailureWith()
     }
     
     func getProductsSuccessResponse(listProduct: [Product]) {
@@ -99,11 +100,11 @@ class ProductListPresenter: ProductListPresenterInputProtocol, ProductListIntera
     
     func getProductsFailureResponse(error: APIError) {
         debugPrint(error.message)
-        view?.showFailureWith(error: error.message)
+        view?.showFailureWith()
     }
     
     func sortProducts(products:[Product]) -> [Product] {
         return products.sorted()
     }
-
+    
 }

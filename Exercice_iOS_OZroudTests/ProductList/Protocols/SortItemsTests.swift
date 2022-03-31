@@ -15,17 +15,17 @@ class SortItemsTests: XCTestCase {
     
     var items: [Product] = []
     
-    let itemDTO1 = Product(itemDTO: ProductDTO(identifier: 1, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:54:54+0000", isUrgent: true, siret: nil))
-    let itemDTO2 = Product(itemDTO: ProductDTO(identifier: 2, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T16:54:54+0000", isUrgent: false, siret: nil))
-    let itemDTO3 = Product(itemDTO: ProductDTO(identifier: 3, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:57:54+0000", isUrgent: false, siret: nil))
-    let itemDTO4 = Product(itemDTO: ProductDTO(identifier: 4, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:56:56+0000", isUrgent: false, siret: nil))
-    let itemDTO5 = Product(itemDTO: ProductDTO(identifier: 5, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:55:55+0000", isUrgent: false, siret: nil))
-    let itemDTO6 = Product(itemDTO: ProductDTO(identifier: 6, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:54:56+0000", isUrgent: false, siret: nil))
-    let itemDTO7 = Product(itemDTO: ProductDTO(identifier: 7, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:54:54+0000", isUrgent: false, siret: nil))
+    let product1 = Product(productDTO: ProductDTO(identifier: 1, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:54:54+0000", isUrgent: true, siret: nil))
+    let product2 = Product(productDTO: ProductDTO(identifier: 2, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T16:54:54+0000", isUrgent: false, siret: nil))
+    let product3 = Product(productDTO: ProductDTO(identifier: 3, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:57:54+0000", isUrgent: false, siret: nil))
+    let product4 = Product(productDTO: ProductDTO(identifier: 4, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:56:56+0000", isUrgent: false, siret: nil))
+    let product5 = Product(productDTO: ProductDTO(identifier: 5, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:55:55+0000", isUrgent: false, siret: nil))
+    let product6 = Product(productDTO: ProductDTO(identifier: 6, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:54:56+0000", isUrgent: false, siret: nil))
+    let product7 = Product(productDTO: ProductDTO(identifier: 7, categoryID: 0, title: nil, description: nil, price: 0.0, imageUrlDto: nil, creationDate: "2019-11-05T15:54:54+0000", isUrgent: false, siret: nil))
     
     override func setUpWithError() throws {
         
-        items = [itemDTO7,itemDTO5,itemDTO3,itemDTO1,itemDTO6,itemDTO4,itemDTO2]
+        items = [product7,product5,product3,product1,product6,product4,product2]
     }
     
     override func tearDownWithError() throws {
@@ -34,7 +34,7 @@ class SortItemsTests: XCTestCase {
     
     func test_basic_sort(){
         let sortedItems = presenter.sortProducts(products: items)
-        XCTAssertEqual(sortedItems, [itemDTO1, itemDTO2, itemDTO3, itemDTO4, itemDTO5, itemDTO6, itemDTO7])
+        XCTAssertEqual(sortedItems, [product1, product2, product3, product4, product5, product6, product7])
     }
     
     func test_sort_with_empty_table() {
@@ -43,19 +43,19 @@ class SortItemsTests: XCTestCase {
     }
 //
     func test_sort_with_nil_dates_non_urgent() {
-        let itemDTO8 =  Product(itemDTO: ProductDTO(identifier: 8, categoryID: nil, title: nil, description: nil, price: nil, imageUrlDto: nil, creationDate: nil, isUrgent: false, siret: nil))
-        let itemDTO9 =  Product(itemDTO: ProductDTO(identifier: 9, categoryID: nil, title: nil, description: nil, price: nil, imageUrlDto: nil, creationDate: nil, isUrgent: false, siret: nil))
+        let product8 =  Product(productDTO: ProductDTO(identifier: 8, categoryID: nil, title: nil, description: nil, price: nil, imageUrlDto: nil, creationDate: nil, isUrgent: false, siret: nil))
+        let product9 =  Product(productDTO: ProductDTO(identifier: 9, categoryID: nil, title: nil, description: nil, price: nil, imageUrlDto: nil, creationDate: nil, isUrgent: false, siret: nil))
 
-        let sortedItems = presenter.sortProducts(products: [itemDTO8, itemDTO9] + items)
-        XCTAssertEqual(sortedItems, [itemDTO1, itemDTO2, itemDTO3, itemDTO4, itemDTO5, itemDTO6, itemDTO7, itemDTO8, itemDTO9])
+        let sortedItems = presenter.sortProducts(products: [product8, product9] + items)
+        XCTAssertEqual(sortedItems, [product1, product2, product3, product4, product5, product6, product7, product8, product9])
     }
 
     func test_sort_with_nil_date_and_urgent() {
-        let itemDTO8 = Product(itemDTO: ProductDTO(identifier: 8, categoryID: nil, title: nil, description: nil, price: nil, imageUrlDto: nil, creationDate: nil, isUrgent: false, siret: nil))
-        let itemDTO9 = Product(itemDTO: ProductDTO(identifier: 9, categoryID: nil, title: nil, description: nil, price: nil, imageUrlDto: nil, creationDate: nil, isUrgent: true, siret: nil))
+        let product8 = Product(productDTO: ProductDTO(identifier: 8, categoryID: nil, title: nil, description: nil, price: nil, imageUrlDto: nil, creationDate: nil, isUrgent: false, siret: nil))
+        let product9 = Product(productDTO: ProductDTO(identifier: 9, categoryID: nil, title: nil, description: nil, price: nil, imageUrlDto: nil, creationDate: nil, isUrgent: true, siret: nil))
 
-        let sortedItems = presenter.sortProducts(products: [itemDTO8, itemDTO9] + items)
-        XCTAssertEqual(sortedItems, [itemDTO1, itemDTO9, itemDTO2, itemDTO3, itemDTO4, itemDTO5, itemDTO6, itemDTO7, itemDTO8])
+        let sortedItems = presenter.sortProducts(products: [product8, product9] + items)
+        XCTAssertEqual(sortedItems, [product1, product9, product2, product3, product4, product5, product6, product7, product8])
     }
 //
     func testPerformanceExample() throws {

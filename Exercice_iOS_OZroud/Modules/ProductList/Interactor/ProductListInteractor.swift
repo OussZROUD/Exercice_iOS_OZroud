@@ -30,7 +30,7 @@ class ProductListInteractor {
 }
 
 
-// MARK: - PRESENTER -> INTERACTOR METHODS
+// MARK: - PRODUCT LIST INTERACTOR INPUT PROTOCOL
 extension ProductListInteractor: ProductListInteractorInputProtocol {
     
     func fetchCategories() {
@@ -44,7 +44,6 @@ extension ProductListInteractor: ProductListInteractorInputProtocol {
                 self?.presenter?.getCategoriesFailureResponse(error: error)
                 return
             }
-            
         })
     }
     
@@ -61,4 +60,5 @@ extension ProductListInteractor: ProductListInteractorInputProtocol {
             }
         })
     }
+    
 }

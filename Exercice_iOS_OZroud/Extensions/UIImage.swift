@@ -20,11 +20,18 @@ extension UIImage {
         
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url) {
+                
                 DispatchQueue.main.async {
                     let imageToCache = UIImage(data: data)
-                    imageCache.setObject(imageToCache!, forKey: url as AnyObject)
+                    guard let image = imageToCache else {
+                        completion(imageToCache)
+                        return
+                    }
+                    
+                    imageCache.setObject(image, forKey: url as AnyObject)
                     completion(imageToCache)
                 }
+                
             } else {
                 DispatchQueue.main.async {
                     completion(nil)

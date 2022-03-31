@@ -63,7 +63,7 @@ class ProductListViewController: UIViewController, ProductListPresenterOutputPro
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.standardAppearance = appearance;
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-
+        
     }
     
     private func setupSafeArea() {
@@ -125,6 +125,7 @@ class ProductListViewController: UIViewController, ProductListPresenterOutputPro
         firstLoad = true
     }
     
+    // MARK: - LIST PRESENTER OUTPUT PROTOCOL
     func showCategories() {
         reloadCategoryCollection()
     }
@@ -133,7 +134,7 @@ class ProductListViewController: UIViewController, ProductListPresenterOutputPro
         reloadProductCollection()
     }
     
-    func showFailureWith(error: String) {
+    func showFailureWith() {
         DispatchQueue.main.async { [weak self] in
             self?.view.stopLoader()
             self?.showAlert(title: Constants.Alert.textTitle, message: Constants.Alert.textMessage)

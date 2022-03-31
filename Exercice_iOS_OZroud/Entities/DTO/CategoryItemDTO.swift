@@ -14,6 +14,7 @@ struct CategoryItemDTO: Codable {
     let identifier: Int
     let name: String?
     
+    // MARK: - CODABLE PROTOCOL
     public enum CodingKeys: String, CodingKey {
         case identifier = "id"
         case name

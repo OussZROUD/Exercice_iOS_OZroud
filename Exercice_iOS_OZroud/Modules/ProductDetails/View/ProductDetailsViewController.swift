@@ -23,9 +23,9 @@ class ProductDetailsViewController: UIViewController {
     }
     
     // MARK: - UI
-    let scrollView = UIScrollView()
-    
-    let stackView: UIStackView = {
+    private let scrollView = UIScrollView()
+    private let safeArea = UILayoutGuide()
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -34,13 +34,13 @@ class ProductDetailsViewController: UIViewController {
         return stackView
     }()
     
-    let titleSeparator: SeparatorView = SeparatorView()
+    private let titleSeparator: SeparatorView = SeparatorView()
     let priceSeparator: SeparatorView = SeparatorView()
     let categorySeparator: SeparatorView = SeparatorView()
     let dateSeparator: SeparatorView = SeparatorView()
     let siretSeparator: SeparatorView = SeparatorView()
     
-    let productImage: UIImageView = {
+    private let productImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
@@ -50,26 +50,26 @@ class ProductDetailsViewController: UIViewController {
         return imageView
     }()
     
-    let titleLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.titleSize), color: .black, alignment: .left)
-    let descriptionTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.description)
-    let descriptionLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .black, alignment: .justified)
-    let categoryTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.category)
-    let categoryLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .black, alignment: .left)
-    let priceTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.price)
-    let priceLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .orange, alignment: .left)
-    let dateTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.date)
-    let dateLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .black, alignment: .left)
-    let siritTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.siret)
-    let siritLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .black, alignment: .left)
+    private let titleLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.titleSize), color: .black, alignment: .left)
+    private let descriptionTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.description)
+    private let descriptionLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .black, alignment: .justified)
+    private let categoryTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.category)
+    private let categoryLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .black, alignment: .left)
+    private let priceTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.price)
+    private let priceLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .orange, alignment: .left)
+    private let dateTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.date)
+    private let dateLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .black, alignment: .left)
+    private let siritTextLabel: StaticLabel = StaticLabel(text: Constants.ItemDetail.Label.Text.siret)
+    private let siritLabel: CommonLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemDetail.Label.FontSize.normalSize), color: .black, alignment: .left)
     
-    let  urgentView: UIView = {
+    private let  urgentView: UIView = {
         let view = UIView()
         view.backgroundColor = .orange
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private let safeArea = UILayoutGuide()
+    
     
     // MARK: - PROPERTIES
     var presenter: ProductDetailsPresenterInputProtocol?
@@ -78,7 +78,7 @@ class ProductDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = Constants.ViewControllerTitle.detailItem
-//        setupSafeArea()
+        //        setupSafeArea()
         setupUI()
         presenter?.getProductDetails()
     }
@@ -126,32 +126,32 @@ class ProductDetailsViewController: UIViewController {
         
         self.stackView.addArrangedSubview(priceTextLabel)
         self.stackView.addArrangedSubview(priceLabel)
-
+        
         self.stackView.addArrangedSubview(priceSeparator)
         priceSeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         priceSeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-
+        
         self.stackView.addArrangedSubview(categoryTextLabel)
         self.stackView.addArrangedSubview(categoryLabel)
-
+        
         self.stackView.addArrangedSubview(categorySeparator)
         categorySeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         categorySeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-
+        
         self.stackView.addArrangedSubview(dateTextLabel)
         self.stackView.addArrangedSubview(dateLabel)
-
+        
         self.stackView.addArrangedSubview(dateSeparator)
         dateSeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         dateSeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-
+        
         self.stackView.addArrangedSubview(siritTextLabel)
         self.stackView.addArrangedSubview(siritLabel)
-
+        
         self.stackView.addArrangedSubview(siretSeparator)
         siretSeparator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         siretSeparator.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-
+        
         self.stackView.addArrangedSubview(descriptionTextLabel)
         self.stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10.0).isActive = true
@@ -163,7 +163,7 @@ class ProductDetailsViewController: UIViewController {
         urgentView.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
     }
 }
-// MARK: - PRESENTER -> VIEW PROTOCOL
+// MARK: - PRODUCT DETAILS PRESENTER OUTPUT PROTOCOL
 extension ProductDetailsViewController: ProductDetailsPresenterOutputProtocol {
     
     func showProductDetails(product: ProductDetailsViewController.ViewModel) {

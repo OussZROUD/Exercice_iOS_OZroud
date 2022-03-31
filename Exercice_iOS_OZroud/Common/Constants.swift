@@ -71,7 +71,7 @@ struct Constants {
                 static let staticLabelSize: CGFloat = 12.0
                 static let categoryLabelCellSize: CGFloat = 10.0
             }
-    
+            
         }
         
         struct emptyValue{
@@ -82,8 +82,8 @@ struct Constants {
     
     struct Alert {
         static let textButton: String = "OK"
-        static let textTitle: String = "ERREUR"
-        static let textMessage: String = "Vérifiez votre accés internet"
+        static let textTitle: String = "Une erreur s'est produite"
+        static let textMessage: String = "Veullez Vérifiez votre accés internet"
     }
     
     struct ImageAssets {

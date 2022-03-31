@@ -23,8 +23,3 @@ protocol ItemDetailsPresenterToRouterProtocol: AnyObject {
     static func createModule(with item: Product, category: CategoryItem) -> UIViewController
 }
 
-// MARK: - PRESENTER -> INTERACTOR
-protocol ProductDetailsInteractorInputProtocol: AnyObject {
-//    var presenter: ItemDetailsInteractorToPresenterProtocol? { get set }
-}
-

@@ -23,6 +23,7 @@ public struct ProductDTO: Codable,Equatable {
     let isUrgent: Bool?
     let siret: String?
     
+    // MARK: - CODABLE PROTOCOL
     public enum CodingKeys: String, CodingKey {
         case identifier = "id"
         case categoryID = "category_id"

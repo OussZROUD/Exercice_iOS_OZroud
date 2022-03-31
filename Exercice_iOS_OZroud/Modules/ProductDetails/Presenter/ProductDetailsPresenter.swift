@@ -12,18 +12,16 @@ class ProductDetailsPresenter {
     
     // MARK: - PROPERTIES
     weak var view: ProductDetailsViewController?
-//    let interactor: ProductDetailsInteractorInputProtocol
-    let router: ItemDetailsRouter
+    private let router: ItemDetailsRouter
     
     var adapterProtocol: ProductDetailsAdapterProtocol?
-    var product: Product
-    var category: CategoryItem
+    private var product: Product
+    private var category: CategoryItem
     
     // MARK: - INITIALIZER
     init(product: Product, category: CategoryItem, router:ItemDetailsRouter) {
         self.product = product
         self.category = category
-//        self.interactor = interactor
         self.router = router
     }
     
@@ -32,7 +30,7 @@ class ProductDetailsPresenter {
     }
 }
 
-// MARK: - VIEW -> PRESENTER
+// MARK: - PRODUCT DETAILS PRESENTER INPUT PROTOCOL
 extension ProductDetailsPresenter: ProductDetailsPresenterInputProtocol {
     
     func getProductDetails() {

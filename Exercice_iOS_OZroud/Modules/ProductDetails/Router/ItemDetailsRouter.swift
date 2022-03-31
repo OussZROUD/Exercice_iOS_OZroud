@@ -10,9 +10,11 @@ import UIKit
 
 class ItemDetailsRouter: Router {
     
-    var product: Product
-    var category: CategoryItem
+    // MARK: - PROPERTIES
+    private var product: Product
+    private var category: CategoryItem
     
+    // MARK: - INITIALIZER
     init(product:Product, category: CategoryItem) {
         self.product = product
         self.category = category
@@ -25,7 +27,6 @@ class ItemDetailsRouter: Router {
     var viewController: UIViewController {
         
         let view = ProductDetailsViewController()
-//
         let adapterManager = ProductDetailsAdapterManager()
         let presenter = ProductDetailsPresenter(product: product, category: category, router: self)
 

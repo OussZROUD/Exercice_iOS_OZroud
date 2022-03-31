@@ -11,6 +11,7 @@ import Foundation
 final class FilterProductListManager: FilterProductListProtocol {
     
     func filterItems(itemsTofilter: [ItemCollectionViewCell.ViewModel], categoryID: Int ) -> [ItemCollectionViewCell.ViewModel] {
-        itemsTofilter.filter{$0.category.identifier == categoryID }
+        itemsTofilter.filter{$0.category.identifier == categoryID
+        }
     }
 }

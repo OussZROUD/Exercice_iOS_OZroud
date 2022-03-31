@@ -22,12 +22,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - UI
-    let titleLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
-    let categoryLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .orange, alignment: Constants.ItemCollectionCell.Label.alignment)
-    let priceLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
-    let dateLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
+    private let titleLabel = CommonLabel(font: .boldSystemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
+    private let categoryLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .orange, alignment: Constants.ItemCollectionCell.Label.alignment)
+    private let priceLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
+    private let dateLabel = CommonLabel(font: .systemFont(ofSize: Constants.ItemCollectionCell.Label.textSize), color: .black, alignment: Constants.ItemCollectionCell.Label.alignment)
     
-    let productImage: UIImageView = {
+    private let productImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
@@ -36,7 +36,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    let  urgentView: UIView = {
+    private let  urgentView: UIView = {
         let label = UIView()
         label.backgroundColor = .orange
         label.layer.cornerRadius = 5
@@ -44,10 +44,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    
+    // MARK: - PROPERTIES
     private lazy var imageService = ImageService()
-    
-    // MARK: -
-    
     private var imageRequest: Cancellable?
     
     // MARK: - OVERRIDE METHODS

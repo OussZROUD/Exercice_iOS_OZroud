@@ -13,7 +13,7 @@ class ListItemsAdapterTest: XCTestCase {
     
     var numberFormatter = NumberFormatter()
     var dateFormatter = DateFormatter()
-    var items: [Product] = []
+    var products: [Product] = []
     var categories : [CategoryItem] = []
     
     let itemDTO1 = ProductDTO(identifier: 1, categoryID: 3, title: nil, description: nil, price: 34.555, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil)
@@ -38,11 +38,11 @@ class ListItemsAdapterTest: XCTestCase {
                        CategoryItem(categoryItemDTO: categoryDTO2),
                        CategoryItem(categoryItemDTO: categoryDTO3)]
         
-        items = [Product(itemDTO: itemDTO1),
-                 Product(itemDTO: itemDTO2),
-                 Product(itemDTO: itemDTO3),
-                 Product(itemDTO: itemDTO4),
-                 Product(itemDTO: itemDTO5)]
+        products = [Product(productDTO: itemDTO1),
+                 Product(productDTO: itemDTO2),
+                 Product(productDTO: itemDTO3),
+                 Product(productDTO: itemDTO4),
+                 Product(productDTO: itemDTO5)]
         
         date = "2019-11-05T15:56:59+0000"
         
@@ -52,7 +52,7 @@ class ListItemsAdapterTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        items = []
+        products = []
         categories = []
         date = ""
         price1 = 0.0
@@ -71,13 +71,13 @@ class ListItemsAdapterTest: XCTestCase {
     }
     
     func test_adapting_categoryID_to_category() {
-       let adaptedList = ProductListAdapterManager().adapteItems(products: items, categories: categories)
+       let adaptedList = ProductListAdapterManager().adapteItems(products: products, categories: categories)
         XCTAssertEqual(adaptedList[0].category.name, categoryDTO2.name, "category name conform to item category id ")
         XCTAssertEqual(adaptedList[1].category.name, categoryDTO3.name, "category name conform to item category id ")
         XCTAssertEqual(adaptedList[2].category.name, categoryDTO1.name, "category name conform to item category id ")
         XCTAssertEqual(adaptedList[3].category.name, Constants.CategoryAll.name, "unfound categoryID takes default category")
         XCTAssertEqual(adaptedList[4].category.name, Constants.CategoryAll.name, "categoryID nil item take default category")
-        XCTAssertEqual(adaptedList.count, items.count)
+        XCTAssertEqual(adaptedList.count, products.count)
         
     }
     

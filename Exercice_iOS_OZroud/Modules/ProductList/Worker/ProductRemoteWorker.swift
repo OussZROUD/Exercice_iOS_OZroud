@@ -30,8 +30,8 @@ class ProductRemoteWorker {
         switch response {
             
         case .success(let data):
-            let data = data.map {(itemDTO) -> Product in
-                return Product(itemDTO: itemDTO)
+            let data = data.map {(productDTO) -> Product in
+                return Product(productDTO: productDTO)
             }
             return .success(data)
             

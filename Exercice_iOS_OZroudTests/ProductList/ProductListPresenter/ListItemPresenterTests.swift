@@ -13,26 +13,26 @@ import XCTest
 class ListItemPresenterTests: XCTestCase {
     
     let presenter = ProductListPresenter(interactor: ProductListInteractor(), router: ProductListRouter())
-    var items: [Product] = []
+    var products: [Product] = []
     var categories : [CategoryItem] = []
     
-    let item1 = Product(itemDTO: ProductDTO(identifier: 1, categoryID: 3, title: nil, description: nil, price: 34.555, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
-    let item2 =  Product(itemDTO: ProductDTO(identifier: 2, categoryID: 2, title: nil, description: nil, price: 6.6, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
-    let item3 =  Product(itemDTO: ProductDTO(identifier: 3, categoryID: 5, title: nil, description: nil, price: 1.0, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
-    let item4 =  Product(itemDTO: ProductDTO(identifier: 4, categoryID: 8, title: nil, description: nil, price: 33.454, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
-    let item5 =  Product(itemDTO: ProductDTO(identifier: 5, categoryID: nil, title: nil, description: nil, price: 33.454, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let product1 = Product(productDTO: ProductDTO(identifier: 1, categoryID: 3, title: nil, description: nil, price: 34.555, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let product2 =  Product(productDTO: ProductDTO(identifier: 2, categoryID: 2, title: nil, description: nil, price: 6.6, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let product3 =  Product(productDTO: ProductDTO(identifier: 3, categoryID: 5, title: nil, description: nil, price: 1.0, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let product4 =  Product(productDTO: ProductDTO(identifier: 4, categoryID: 8, title: nil, description: nil, price: 33.454, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
+    let product5 =  Product(productDTO: ProductDTO(identifier: 5, categoryID: nil, title: nil, description: nil, price: 33.454, imageUrlDto: nil, creationDate: "2019-11-05T15:56:59+0000", isUrgent: true, siret: nil))
     
     let category1 = CategoryItem(categoryItemDTO: CategoryItemDTO(identifier: 5, name: "category1"))
     let category2 = CategoryItem(categoryItemDTO: CategoryItemDTO(identifier: 3, name: "category2"))
     let category3 = CategoryItem(categoryItemDTO: CategoryItemDTO(identifier: 2, name: "category3"))
     
     override func setUpWithError() throws {
-        items = [item1, item2, item3, item4, item5]
+        products = [product1, product2, product3, product4, product5]
         categories = [category1, category2, category3]
     }
     
     override func tearDownWithError() throws {
-        items = []
+        products = []
         categories = []
     }
     
@@ -40,7 +40,7 @@ class ListItemPresenterTests: XCTestCase {
     func test_filterListItem_optimal() throws {
         
         presenter.getCategoriesSuccessResponse(listCategory: categories)
-        presenter.getProductsSuccessResponse(listProduct: items)
+        presenter.getProductsSuccessResponse(listProduct: products)
         presenter.getProductsWithCategoryAt(index: 1)
         
         XCTAssertEqual(presenter.getProductsNumber(), 1)
@@ -50,18 +50,18 @@ class ListItemPresenterTests: XCTestCase {
     
     func test_filterListItem_with_first_index() throws {
         presenter.getCategoriesSuccessResponse(listCategory: self.categories)
-        presenter.getProductsSuccessResponse(listProduct: self.items)
+        presenter.getProductsSuccessResponse(listProduct: self.products)
         presenter.getProductsWithCategoryAt(index: 0)
         
-        XCTAssertEqual(presenter.getProductsNumber(), self.items.count)
-        XCTAssertTrue(presenter.populateProductCollection().contains(where: { (item) -> Bool in
-            item.category.identifier == category1.identifier
+        XCTAssertEqual(presenter.getProductsNumber(), self.products.count)
+        XCTAssertTrue(presenter.populateProductCollection().contains(where: { (product) -> Bool in
+            product.category.identifier == category1.identifier
         }))
-        XCTAssertTrue(presenter.populateProductCollection().contains(where: { (item) -> Bool in
-            item.category.identifier == category2.identifier
+        XCTAssertTrue(presenter.populateProductCollection().contains(where: { (product) -> Bool in
+            product.category.identifier == category2.identifier
         }))
-        XCTAssertTrue(presenter.populateProductCollection().contains(where: { (item) -> Bool in
-            item.category.identifier == category3.identifier
+        XCTAssertTrue(presenter.populateProductCollection().contains(where: { (product) -> Bool in
+            product.category.identifier == category3.identifier
         }))
     }
     
@@ -75,10 +75,10 @@ class ListItemPresenterTests: XCTestCase {
     
     func test_filterListItem_with_no_categories() throws {
         presenter.getCategoriesSuccessResponse(listCategory: [])
-        presenter.getProductsSuccessResponse(listProduct: self.items)
+        presenter.getProductsSuccessResponse(listProduct: self.products)
         presenter.getProductsWithCategoryAt(index: 0)
         
-        XCTAssertEqual(presenter.getProductsNumber(), self.items.count)
+        XCTAssertEqual(presenter.getProductsNumber(), self.products.count)
         XCTAssertEqual(presenter.populateProductCollection().first?.category.identifier, 0)
         XCTAssertEqual(presenter.populateProductCollection().last?.category.identifier, 0)
     }
@@ -86,7 +86,7 @@ class ListItemPresenterTests: XCTestCase {
     // MARK: - NAVIGATION TESTS
     func test_navigation_selectedItem_correct_id() {
         presenter.getCategoriesSuccessResponse(listCategory: categories)
-        presenter.getProductsSuccessResponse(listProduct: items)
+        presenter.getProductsSuccessResponse(listProduct: products)
         presenter.goToProductWith(index: 2)
         XCTAssertEqual(presenter.populateProductCollection()[2].identifier, 3)
     }

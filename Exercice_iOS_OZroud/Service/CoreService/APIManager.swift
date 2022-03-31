@@ -10,7 +10,7 @@ import Foundation
 
 public extension APIRequest {
     
-    // MARK:- PROPERTIES
+    // MARK: - PROPERTIES
     var session: URLSession {
         let configuration = URLSessionConfiguration.default
         return URLSession(configuration: configuration)

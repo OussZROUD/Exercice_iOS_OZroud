@@ -24,7 +24,7 @@ protocol ProductListPresenterInputProtocol: AnyObject {
 protocol ProductListPresenterOutputProtocol: AnyObject {
     func showCategories()
     func showProducts()
-    func showFailureWith(error:String)
+    func showFailureWith()
 }
 
 // MARK: - PRESENTER -> INTERACTOR || ListInteractor Input
@@ -39,7 +39,6 @@ protocol ProductListInteractorOutputProtocol: AnyObject {
     func getCategoriesFailureResponse(error:APIError)
     func getProductsSuccessResponse(listProduct: [Product])
     func getProductsFailureResponse(error:APIError)
-
 }
 
 // MARK: - PRESENTER -> ROUTER

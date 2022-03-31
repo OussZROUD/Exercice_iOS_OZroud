@@ -24,7 +24,7 @@ struct CategoryItem: Equatable {
         self.identifier = identifier
         self.name = name
     }
-    
+    // MARK: - EQUATABLE PROTOCOL
     public static func == (lhs: CategoryItem, rhs: CategoryItem) -> Bool {
         return lhs.identifier == rhs.identifier ? true : false
     }    
