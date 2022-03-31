@@ -29,8 +29,17 @@ public struct Product: Comparable {
         self.title = itemDTO.title
         self.description = itemDTO.description
         self.price = itemDTO.price
-        self.imageUrl = ImageURL(imageUrlDTO: itemDTO.imageUrlDto!)
-        self.creationDate = itemDTO.creationDate?.formatStringToDate(formatter: formatter)
+        if let imageUrlDto = itemDTO.imageUrlDto {
+            self.imageUrl = ImageURL(imageUrlDTO: imageUrlDto)
+        } else {
+            self.imageUrl = nil
+        }
+        if let date = itemDTO.creationDate {
+            self.creationDate = date.formatStringToDate(formatter: formatter)
+        } else {
+            self.creationDate = nil
+        }
+//        self.creationDate = itemDTO.creationDate?.formatStringToDate(formatter: formatter)
         self.isUrgent = itemDTO.isUrgent
         self.siret = itemDTO.siret
     }
@@ -41,15 +50,20 @@ public struct Product: Comparable {
     }
     
     public static func < (lhs: Product, rhs: Product) -> Bool {
+        
         switch (lhs.isUrgent, rhs.isUrgent) {
         case (true, true):
-            return lhs.creationDate! > rhs.creationDate!
+            guard let date1 = lhs.creationDate else { return false }
+            guard let date2 = rhs.creationDate else { return true }
+            return date1 > date2
         case (true, false):
             return true
         case (false, true):
             return false
         case (false, false):
-            return lhs.creationDate! > rhs.creationDate!
+            guard let date1 = lhs.creationDate else { return false }
+            guard let date2 = rhs.creationDate else { return true }
+            return date1 > date2
         case (_, _):
             return false
         }
