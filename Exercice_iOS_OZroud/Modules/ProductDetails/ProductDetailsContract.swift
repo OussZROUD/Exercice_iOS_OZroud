@@ -28,6 +28,3 @@ protocol ProductDetailsInteractorInputProtocol: AnyObject {
 //    var presenter: ItemDetailsInteractorToPresenterProtocol? { get set }
 }
 
-// MARK: - INTERACTOR -> PRESENTER PROTOCOL
-//protocol ItemDetailsInteractorToPresenterProtocol: AnyObject {
-//}

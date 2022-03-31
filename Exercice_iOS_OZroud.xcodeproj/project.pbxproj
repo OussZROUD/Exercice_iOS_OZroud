@@ -38,6 +38,8 @@
 		F772A33825371BC300A3F898 /* ImageUrlDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A33725371BC300A3F898 /* ImageUrlDTO.swift */; };
 		F772A33A25371C0300A3F898 /* CategoryItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A33925371C0300A3F898 /* CategoryItemDTO.swift */; };
 		F772A33C25373CD400A3F898 /* ListItemPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F772A33B25373CD400A3F898 /* ListItemPresenterTests.swift */; };
+		F7AF7F9027F10B1D00540B11 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF7F8F27F10B1D00540B11 /* ImageService.swift */; };
+		F7AF7F9227F30F2500540B11 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF7F9127F30F2500540B11 /* UIWindow.swift */; };
 		F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */; };
 		F7B86D89252B859D006C3ACE /* ProductRemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D88252B859D006C3ACE /* ProductRemoteWorker.swift */; };
 		F7B86D8C252B940E006C3ACE /* SortItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */; };
@@ -47,6 +49,7 @@
 		F7B86D96252BACAC006C3ACE /* ProductListAdapterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D95252BACAC006C3ACE /* ProductListAdapterManager.swift */; };
 		F7B86D98252BAD20006C3ACE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D97252BAD20006C3ACE /* Date.swift */; };
 		F7B86D9A252BAD42006C3ACE /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B86D99252BAD42006C3ACE /* Double.swift */; };
+		F7CEF3E927F5C7CE00437BC9 /* ProductDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CEF3E827F5C7CE00437BC9 /* ProductDetailsPresenterTests.swift */; };
 		F7ECA83F252B5C9F00B42E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */; };
 		F7ECA841252B5C9F00B42E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */; };
 		F7ECA848252B5CA300B42E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA847252B5CA300B42E74 /* Assets.xcassets */; };
@@ -115,6 +118,8 @@
 		F772A33725371BC300A3F898 /* ImageUrlDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUrlDTO.swift; sourceTree = "<group>"; };
 		F772A33925371C0300A3F898 /* CategoryItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemDTO.swift; sourceTree = "<group>"; };
 		F772A33B25373CD400A3F898 /* ListItemPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemPresenterTests.swift; sourceTree = "<group>"; };
+		F7AF7F8F27F10B1D00540B11 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		F7AF7F9127F30F2500540B11 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		F7B86D86252B8572006C3ACE /* CategoryRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D88252B859D006C3ACE /* ProductRemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRemoteWorker.swift; sourceTree = "<group>"; };
 		F7B86D8B252B940E006C3ACE /* SortItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemsProtocol.swift; sourceTree = "<group>"; };
@@ -124,6 +129,7 @@
 		F7B86D95252BACAC006C3ACE /* ProductListAdapterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListAdapterManager.swift; sourceTree = "<group>"; };
 		F7B86D97252BAD20006C3ACE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F7B86D99252BAD42006C3ACE /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		F7CEF3E827F5C7CE00437BC9 /* ProductDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsPresenterTests.swift; sourceTree = "<group>"; };
 		F7ECA83B252B5C9F00B42E74 /* Exercice_iOS_OZroud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercice_iOS_OZroud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ECA83E252B5C9F00B42E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7ECA840252B5C9F00B42E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -349,6 +355,33 @@
 			path = ProductListAdapter;
 			sourceTree = "<group>";
 		};
+		F7CEF3E427F5C6AF00437BC9 /* ProductListPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				F772A33B25373CD400A3F898 /* ListItemPresenterTests.swift */,
+			);
+			path = ProductListPresenter;
+			sourceTree = "<group>";
+		};
+		F7CEF3E527F5C71A00437BC9 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				F762076A2539ACA1006DD466 /* Protocols */,
+				F7CEF3E427F5C6AF00437BC9 /* ProductListPresenter */,
+				F76207572538660E006DD466 /* ListItemIteractor */,
+				F7620778253CFE97006DD466 /* Workers */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		F7CEF3E627F5C74300437BC9 /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				F7CEF3E827F5C7CE00437BC9 /* ProductDetailsPresenterTests.swift */,
+			);
+			path = ProductDetails;
+			sourceTree = "<group>";
+		};
 		F7ECA832252B5C9F00B42E74 = {
 			isa = PBXGroup;
 			children = (
@@ -387,13 +420,11 @@
 		F7ECA854252B5CA300B42E74 /* Exercice_iOS_OZroudTests */ = {
 			isa = PBXGroup;
 			children = (
-				F7620778253CFE97006DD466 /* Workers */,
+				F7CEF3E627F5C74300437BC9 /* ProductDetails */,
+				F7CEF3E527F5C71A00437BC9 /* ProductList */,
 				F762076B2539ACBA006DD466 /* API */,
-				F762076A2539ACA1006DD466 /* Protocols */,
-				F76207572538660E006DD466 /* ListItemIteractor */,
 				F7ECA855252B5CA300B42E74 /* Exercice_iOS_OZroudTests.swift */,
 				F7ECA857252B5CA300B42E74 /* Info.plist */,
-				F772A33B25373CD400A3F898 /* ListItemPresenterTests.swift */,
 			);
 			path = Exercice_iOS_OZroudTests;
 			sourceTree = "<group>";
@@ -404,6 +435,7 @@
 				F7ECA869252B5F9600B42E74 /* CoreService */,
 				F7ECA873252B641500B42E74 /* ListItemRequest.swift */,
 				F7ECA875252B643500B42E74 /* ListCategoryRequest.swift */,
+				F7AF7F8F27F10B1D00540B11 /* ImageService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -447,6 +479,7 @@
 				F7B86D99252BAD42006C3ACE /* Double.swift */,
 				F772A30C252BC3C300A3F898 /* UIView.swift */,
 				F772A327252BE90300A3F898 /* UIViewController.swift */,
+				F7AF7F9127F30F2500540B11 /* UIWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -665,6 +698,7 @@
 				F772A315252BD19B00A3F898 /* ProductDetailsPresenter.swift in Sources */,
 				F772A33825371BC300A3F898 /* ImageUrlDTO.swift in Sources */,
 				F7ECA892252B767E00B42E74 /* CommonLabel.swift in Sources */,
+				F7AF7F9227F30F2500540B11 /* UIWindow.swift in Sources */,
 				F7ECA866252B5ECF00B42E74 /* APIManager.swift in Sources */,
 				F772A33A25371C0300A3F898 /* CategoryItemDTO.swift in Sources */,
 				F772A328252BE90300A3F898 /* UIViewController.swift in Sources */,
@@ -686,6 +720,7 @@
 				F7ECA86C252B5FD600B42E74 /* Product.swift in Sources */,
 				F7B86D96252BACAC006C3ACE /* ProductListAdapterManager.swift in Sources */,
 				F7B86D87252B8572006C3ACE /* CategoryRemoteWorker.swift in Sources */,
+				F7AF7F9027F10B1D00540B11 /* ImageService.swift in Sources */,
 				F7ECA884252B6B6F00B42E74 /* ProductListRouter.swift in Sources */,
 				F772A31B252BD58E00A3F898 /* StaticLabel.swift in Sources */,
 				F7ECA868252B5F5500B42E74 /* Constants.swift in Sources */,
@@ -709,6 +744,7 @@
 				F762075625386437006DD466 /* ListItemIteractorTests.swift in Sources */,
 				F7620777253CE45A006DD466 /* MokeAPIResponse.swift in Sources */,
 				F772A32C252CD5AB00A3F898 /* SortItemsTests.swift in Sources */,
+				F7CEF3E927F5C7CE00437BC9 /* ProductDetailsPresenterTests.swift in Sources */,
 				F772A332252D55B600A3F898 /* SpyListItemRequestTest.swift in Sources */,
 				F762076325389136006DD466 /* FakeItemWorker.swift in Sources */,
 				F762076025388711006DD466 /* MokeCategoryWorker.swift in Sources */,

@@ -83,6 +83,10 @@ class ProductDetailsViewController: UIViewController {
         presenter?.getProductDetails()
     }
     
+    deinit {
+        debugPrint(String(describing: self), "deinit")
+    }
+    
     // MARK: - PRIVATE METHODS
     private func setupSafeArea(){
         safeArea.identifier = Constants.ListItem.SafeArea.identifier
@@ -161,6 +165,7 @@ class ProductDetailsViewController: UIViewController {
 }
 // MARK: - PRESENTER -> VIEW PROTOCOL
 extension ProductDetailsViewController: ProductDetailsPresenterOutputProtocol {
+    
     func showProductDetails(product: ProductDetailsViewController.ViewModel) {
         titleLabel.text = product.title
         categoryLabel.text = product.category

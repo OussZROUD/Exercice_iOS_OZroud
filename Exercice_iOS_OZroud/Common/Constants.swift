@@ -71,7 +71,13 @@ struct Constants {
                 static let staticLabelSize: CGFloat = 12.0
                 static let categoryLabelCellSize: CGFloat = 10.0
             }
+    
         }
+        
+        struct emptyValue{
+            static let siret = "non indiquer"
+        }
+        
     }
     
     struct Alert {

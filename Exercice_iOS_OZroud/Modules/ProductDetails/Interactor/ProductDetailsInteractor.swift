@@ -8,12 +8,6 @@
 
 import Foundation
 
-class ProductDetailsInteractor {
-    
-//    weak var presenter: ItemDetailsInteractorToPresenterProtocol?
-    
-}
-
-extension ProductDetailsInteractor: ProductDetailsInteractorInputProtocol {
-    
-}
+//class ProductDetailsInteractor {}
+//
+//extension ProductDetailsInteractor: ProductDetailsInteractorInputProtocol {}

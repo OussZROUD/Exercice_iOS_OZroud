@@ -10,30 +10,28 @@ import UIKit
 
 class ItemDetailsRouter: Router {
     
-    deinit {
-        debugPrint(String(describing: self), "deinit")
-    }
-    
     var product: Product
     var category: CategoryItem
     
     init(product:Product, category: CategoryItem) {
         self.product = product
         self.category = category
-
+    }
+    
+    deinit {
+        debugPrint(String(describing: self), "deinit")
     }
     
     var viewController: UIViewController {
         
         let view = ProductDetailsViewController()
-        let interactor = ProductDetailsInteractor()
+//
         let adapterManager = ProductDetailsAdapterManager()
-        let presenter = ProductDetailsPresenter(product: product, category: category, interactor: interactor, router: self)
+        let presenter = ProductDetailsPresenter(product: product, category: category, router: self)
 
         presenter.adapterProtocol = adapterManager
         presenter.view = view
         view.presenter = presenter
-//        interactor.presenter = presenter
 
         return view
     }
