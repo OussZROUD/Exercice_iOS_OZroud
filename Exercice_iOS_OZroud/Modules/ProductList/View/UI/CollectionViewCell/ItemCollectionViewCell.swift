@@ -32,6 +32,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: Constants.ImageAssets.placeHolder)
         return imageView
     }()
     
@@ -42,6 +43,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private lazy var imageService = ImageService()
+    
+    // MARK: -
+    
+    private var imageRequest: Cancellable?
     
     // MARK: - OVERRIDE METHODS
     override init(frame: CGRect) {
@@ -60,6 +67,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         urgentView.isHidden = true
         layer.borderColor = (UIColor.clear.cgColor)
         productImage.image = UIImage(named: Constants.ImageAssets.placeHolder)
+        imageRequest?.cancel()
     }
     
     // MARK: - PRIVATE METHODS
@@ -118,8 +126,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
         urgentView.isHidden = !(vm.isUrgent)
         layer.borderColor = vm.isUrgent ? (UIColor.orange.cgColor):(UIColor.clear.cgColor)
         guard let url = URL(string: vm.imageUrl) else { return }
-        UIImage.loadFrom(url: url) { [weak self ] image in
-            self?.productImage.image = image ?? UIImage(named: Constants.ImageAssets.placeHolder)
-        }
+        imageRequest = imageService.image(for: url, completion: { [weak self] image in
+            self?.productImage.image = image
+        })
+        
     }
 }

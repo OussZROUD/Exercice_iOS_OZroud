@@ -199,7 +199,7 @@ extension ProductListViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: collectionView.frame.width, height: (collectionView.frame.width/2) - 20 )
                 
             case .pad, .tv, .carPlay, .mac:
-                return  UIApplication.shared.statusBarOrientation.isLandscape ? (CGSize(width: (collectionView.frame.width/3) - 7, height: (collectionView.frame.width/6) - 20)) : (CGSize(width: (collectionView.frame.width/2) - 5, height: (collectionView.frame.width/4) - 20 ))
+                return UIWindow.isLandscape ? (CGSize(width: (collectionView.frame.width/3) - 7, height: (collectionView.frame.width/6) - 20)) : (CGSize(width: (collectionView.frame.width/2) - 5, height: (collectionView.frame.width/4) - 20 ))
                 
             @unknown default:
                 return CGSize(width: collectionView.frame.width, height: (collectionView.frame.width/2) - 20 )
