@@ -12,13 +12,13 @@ import XCTest
 class ListItemIteractorTests: XCTestCase {
     
     // MARK: - PROPERTIES
-    var sut: ListItemInteractor!
+    var sut: ProductListInteractor!
     let categoryWorker = FakeCategoryWorker()
     let itemWorker = FakeItemWorker()
     let presenter = FakeListItemInteractorToPresenter()
     
     override func setUpWithError() throws {
-        sut = ListItemInteractor(categoryWorker: categoryWorker, itemWorker: itemWorker)
+        sut = ProductListInteractor(categoryWorker: categoryWorker, itemWorker: itemWorker)
         sut.presenter = self.presenter
     }
 
@@ -28,6 +28,10 @@ class ListItemIteractorTests: XCTestCase {
     // MARK: - ===== CATEGORIES =====
     // MARK: - CATEGORIES TESTS CASES
     func test_getCategories_sucess() throws {
+        
+        categoryWorker.result = MokeCategoryWorker.categorySuccessResult
+        sut.fetchCategories()
+    
         loadCategoriesWithSuccess()
         guard let categories = sut.categories else {
             XCTFail("Nil Category List Returned")
@@ -75,29 +79,29 @@ class ListItemIteractorTests: XCTestCase {
     // MARK:- PRIVATE METHODS CATEGORIES HELPERS
     private func loadCategoriesWithSuccess() {
         categoryWorker.result = MokeCategoryWorker.categorySuccessResult
-        sut.getListCategory()
+        sut.fetchCategories()
     }
     
     private func loadCategoriesWithErrorDataFaild() {
         categoryWorker.result = MokeCategoryWorker.categoryErrorResultDataFailed
-        sut.getListCategory()
+        sut.fetchCategories()
     }
     
     private func loadCategoriesWithErrorInvalidURL() {
         categoryWorker.result = MokeCategoryWorker.categoryErrorResultInvalidURL
-        sut.getListCategory()
+        sut.fetchCategories()
     }
     
     private func loadCategoriesWithErrorParsingError() {
         categoryWorker.result = MokeCategoryWorker.categoryErrorResultParsingError
-        sut.getListCategory()
+        sut.fetchCategories()
     }
     // MARK: - ===== ITEMS =====
     
     // MARK: - ITEMS TESTS CASES
     func test_getItems_sucess() throws {
         loadItemsWithSuccess()
-        guard let items = sut.items else {
+        guard let items = sut.products else {
             XCTFail("Nil item List Returned")
                        return
         }
@@ -143,22 +147,22 @@ class ListItemIteractorTests: XCTestCase {
     // MARK:- PRIVATE METHODS ITEMS HELPERS
     private func loadItemsWithSuccess() {
         itemWorker.result = MokeItemWorker.itemSuccessResult
-        sut.getListItem()
+        sut.fetchProducts()
     }
     
     private func loadItemsWithErrorDataFaild() {
          itemWorker.result = MokeItemWorker.itemErrorResultDataFailed
-        sut.getListItem()
+        sut.fetchProducts()
     }
     
     private func loadItemsWithErrorInvalidURL() {
          itemWorker.result = MokeItemWorker.itemErrorResultInvalidURL
-        sut.getListItem()
+        sut.fetchProducts()
     }
     
     private func loadItemsWithErrorParsingError() {
          itemWorker.result = MokeItemWorker.itemErrorResultParsingError
-        sut.getListItem()
+        sut.fetchProducts()
     }
     
     func testPerformanceExample() throws {

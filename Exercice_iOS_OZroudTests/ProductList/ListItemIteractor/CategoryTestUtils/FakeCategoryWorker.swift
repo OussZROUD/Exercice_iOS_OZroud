@@ -13,11 +13,11 @@ import XCTest
 
 class FakeCategoryWorker: CategoryRemoteWorker {
     
-    var result: Result<[CategoryItemDTO], APIError>?
+    var result: Result<[CategoryItem], APIError>?
     
-    override func getCategoriesFromRemote(onComplete: @escaping (Result<[CategoryItemDTO], APIError>) -> Void) {
+    override func getCategoriesFromRemote(onComplete: @escaping (Result<[CategoryItem], APIError>) -> Void) {
         guard let result = result else {
-            XCTFail("Didnot supply fake result in Fake Category worker")
+            XCTFail("Did not supply fake result in Fake Category worker")
             return
         }
         onComplete(result)
